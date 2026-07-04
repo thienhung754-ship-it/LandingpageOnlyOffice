@@ -104,11 +104,11 @@
 
     .demo-header {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 35px;
     }
 
     .demo-header h1 {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 12px;
@@ -116,18 +116,18 @@
 
     .demo-header p {
       color: var(--text-muted);
-      font-size: 16px;
+      font-size: 15px;
       max-width: 650px;
       margin: 0 auto;
     }
 
-    /* Tabs Selector (Matches see-it-in-action layout) */
+    /* Tabs Selector */
     .tab-section {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 35px;
+      gap: 8px;
+      margin-bottom: 30px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 20px;
     }
@@ -136,15 +136,12 @@
       background: transparent;
       border: 1px solid transparent;
       color: var(--text-muted);
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 20px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .tab-btn:hover {
@@ -155,66 +152,290 @@
     .tab-btn.active {
       background: var(--accent);
       color: #ffffff;
-      box-shadow: 0 0 15px rgba(255, 111, 61, 0.2);
     }
 
-    /* Editor Window Container */
+    /* Editor Simulator Wrapper */
     .editor-wrapper {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      color: #333333;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 700px;
+    }
+
+    /* Simulated Editor Header */
+    .sim-header {
+      background: #f8f9fa;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sim-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .sim-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    .sim-logo span {
+      background: var(--accent);
+      color: white;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 9px;
+    }
+
+    .sim-menu-tabs {
+      display: flex;
+      gap: 15px;
+      padding: 0 20px;
+      background: #f8f9fa;
+      height: 30px;
+      align-items: flex-end;
+    }
+
+    .sim-menu-tab {
+      font-size: 11px;
+      font-weight: 600;
+      color: #4a5568;
+      padding: 4px 10px;
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+    }
+
+    .sim-menu-tab.active {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-bottom: none;
+      color: #1a202c;
+    }
+
+    /* Ribbon Toolbar */
+    .sim-ribbon {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8px 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .ribbon-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      border-right: 1px solid #e2e8f0;
+      padding-right: 15px;
+    }
+
+    .ribbon-group:last-child {
+      border-right: none;
+    }
+
+    .ribbon-btn {
+      background: #f8f9fa;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #4a5568;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ribbon-btn:hover {
+      background: #edf2f7;
+      color: #1a202c;
+    }
+
+    /* Main Editing Canvas */
+    .sim-body {
+      flex: 1;
+      background: #f1f5f9;
+      overflow-y: auto;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
       position: relative;
     }
 
-    .editor-header {
-      background: rgba(15, 23, 42, 0.4);
-      height: 42px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #334155;
-    }
-
-    .dot.red { background: #ef4444; }
-    .dot.yellow { background: #f59e0b; }
-    .dot.green { background: #10b981; }
-
-    .editor-title {
-      flex: 1;
-      text-align: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-
-    #editor-placeholder {
-      height: 700px;
+    /* Page Simulator (A4 Sheet) */
+    .sim-page {
+      background: #ffffff;
       width: 100%;
-      background: #1e293b;
+      max-width: 800px;
+      min-height: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      padding: 50px 60px;
+      outline: none;
+      color: #2d3748;
+      font-size: 14px;
+      text-align: left;
     }
 
-    /* Footer info */
+    /* Grid Simulator for XLSX */
+    .sim-grid {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-collapse: collapse;
+      font-size: 12px;
+      color: #2d3748;
+    }
+
+    .sim-grid th, .sim-grid td {
+      border: 1px solid #cbd5e1;
+      padding: 6px;
+      height: 28px;
+    }
+
+    .sim-grid th {
+      background: #f8fafc;
+      font-weight: 600;
+      text-align: center;
+      color: #64748b;
+      user-select: none;
+    }
+
+    .sim-grid td.row-num {
+      background: #f8fafc;
+      font-weight: 600;
+      text-align: center;
+      color: #64748b;
+      width: 40px;
+      user-select: none;
+    }
+
+    .sim-grid td.cell {
+      outline: none;
+      background: #ffffff;
+    }
+
+    .sim-grid td.cell:focus {
+      border: 2px solid var(--accent);
+      background: #fffdfa;
+    }
+
+    /* Slide Simulator for PPTX */
+    .sim-slide-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background: #e2e8f0;
+    }
+
+    .sim-slide-sidebar {
+      width: 150px;
+      background: #f8fafc;
+      border-right: 1px solid #cbd5e1;
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .slide-thumbnail {
+      width: 100%;
+      height: 75px;
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .sim-slide-workspace {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sim-slide {
+      background: #ffffff;
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 16/9;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #cbd5e1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Simulated cursor for collaboration */
+    .live-cursor {
+      position: absolute;
+      width: 2px;
+      height: 18px;
+      background: #ef4444;
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+    }
+
+    .live-cursor-label {
+      position: absolute;
+      top: -18px;
+      left: 0;
+      background: #ef4444;
+      color: white;
+      font-size: 8px;
+      font-weight: bold;
+      padding: 1px 4px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    @keyframes blink {
+      from, to { background-color: transparent }
+      50% { background-color: #ef4444 }
+    }
+
+    /* General status message bar */
+    .sim-status-bar {
+      background: #f8fafc;
+      border-top: 1px solid #cbd5e1;
+      padding: 5px 20px;
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Info card */
     .demo-footer-info {
       text-align: center;
       margin-top: 30px;
       font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.6;
     }
 
     .demo-footer-info a {
@@ -226,7 +447,6 @@
       text-decoration: underline;
     }
 
-    /* Footer Copyright */
     footer {
       border-top: 1px solid var(--border);
       padding: 20px 0;
@@ -256,10 +476,10 @@
       
       <div class="demo-header">
         <h1>See ONLYOFFICE in Action</h1>
-        <p>Chọn các phân hệ bên dưới để chạy thử trực tiếp tính năng soạn thảo, chỉnh sửa file PDF hoặc trải nghiệm khả năng cộng tác nhóm trực tuyến.</p>
+        <p>Bản chạy thử trực tiếp siêu tốc, không cần cài đặt. Nhấp chọn các tab bên dưới để trải nghiệm ngay.</p>
       </div>
 
-      <!-- Tab Buttons (Matches OnlyOffice Action tabs exactly) -->
+      <!-- Tab Buttons -->
       <div class="tab-section">
         <button id="btn-docx" class="tab-btn active" onclick="switchDocType('docx')">Edit DOCX</button>
         <button id="btn-xlsx" class="tab-btn" onclick="switchDocType('xlsx')">Edit XLSX</button>
@@ -270,27 +490,70 @@
         <button id="btn-collab" class="tab-btn" onclick="switchDocType('collab')">Collaborate</button>
       </div>
 
-      <!-- Editor Card -->
-      <div class="editor-wrapper">
-        <div class="editor-header">
-          <div class="dots">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
+      <!-- Simulated Editor Wrapper -->
+      <div class="editor-wrapper" id="sim-editor-wrapper">
+        
+        <!-- Top Toolbar -->
+        <div class="sim-header">
+          <div class="sim-top-bar">
+            <div class="sim-logo">
+              MERCY<span>OFFICE</span>
+            </div>
+            <div style="font-size: 11px; color: #64748b; font-weight: 500;" id="sim-file-name">Mercy_Tech_Demo.docx</div>
           </div>
-          <div class="editor-title" id="editor-status-text">Đang tải Trình soạn thảo OnlyOffice...</div>
+          
+          <div class="sim-menu-tabs">
+            <div class="sim-menu-tab active">Trang chủ</div>
+            <div class="sim-menu-tab">Chèn</div>
+            <div class="sim-menu-tab">Bố cục</div>
+            <div class="sim-menu-tab">Cộng tác</div>
+            <div class="sim-menu-tab" style="color: #ef4444; font-weight: bold;">Trợ lý AI</div>
+          </div>
+
+          <div class="sim-ribbon">
+            <div class="ribbon-group">
+              <button class="ribbon-btn" style="font-weight: bold;" onclick="formatDoc('bold')">B</button>
+              <button class="ribbon-btn" style="font-style: italic;" onclick="formatDoc('italic')">I</button>
+              <button class="ribbon-btn" style="text-decoration: underline;" onclick="formatDoc('underline')">U</button>
+            </div>
+            <div class="ribbon-group">
+              <select style="font-size: 11px; padding: 2px; border: 1px solid #cbd5e0; border-radius: 4px;" id="font-family-select" onchange="changeFont()">
+                <option value="Inter">Inter</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Arial">Arial</option>
+              </select>
+              <select style="font-size: 11px; padding: 2px; border: 1px solid #cbd5e0; border-radius: 4px;">
+                <option>12</option>
+                <option>14</option>
+                <option>16</option>
+              </select>
+            </div>
+            <div class="ribbon-group">
+              <button class="ribbon-btn" onclick="alert('Giải pháp trọn gói 299k/máy đã bao gồm cấu hình in ấn tối ưu!')">Cấu hình Trang in</button>
+            </div>
+          </div>
         </div>
-        <div id="editor-placeholder"></div>
+
+        <!-- Main Workspace Body -->
+        <div class="sim-body" id="sim-workspace-body">
+          <!-- Dynamically populated workspace -->
+        </div>
+
+        <!-- Simulated Bottom Status Bar -->
+        <div class="sim-status-bar">
+          <span id="sim-word-count">Trang 1/1 | 148 từ</span>
+          <span>OnlyOffice v8.1 | Mercy Tech Setup</span>
+        </div>
+
       </div>
 
       <div class="demo-footer-info">
-        <p>Hệ thống đang chạy trên máy chủ thử nghiệm được kết nối bảo mật. Để triển khai riêng cho máy chủ của doanh nghiệp bạn, vui lòng liên hệ <a href="index.html#contract">Mercy Tech</a>.</p>
+        <p>Hệ thống giả lập tương thích 100% trên mọi trình duyệt và mạng nội bộ. Để nhận file cài đặt bản quyền hoặc dựng máy chủ Server On-Premise, vui lòng liên hệ <a href="index.html#contract">Mercy Tech</a>.</p>
       </div>
 
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2026 Mercy Tech. Giải pháp văn phòng số OnlyOffice hợp pháp và bảo mật.</p>
@@ -298,160 +561,219 @@
   </footer>
 
   <script>
-    let docEditorInstance = null;
-    let currentFileType = 'docx';
-    
-    // List of fallback API servers to guarantee loading even behind firewalls
-    const apiServers = [
-      "https://public.onlyoffice.com",
-      "https://demo.onlyoffice.com",
-      "https://personal.onlyoffice.com"
-    ];
+    let currentTab = 'docx';
+    let collabInterval = null;
 
-    function loadScriptFallback(servers, index = 0) {
-      const statusText = document.getElementById('editor-status-text');
-      if (index >= servers.length) {
-        statusText.innerText = "Lỗi: Không thể tải được file API. Vui lòng kiểm tra lại kết nối mạng hoặc thử lại sau.";
-        return;
+    function formatDoc(command) {
+      if (currentTab === 'docx' || currentTab === 'form' || currentTab === 'collab') {
+        document.execCommand(command, false, null);
       }
-
-      statusText.innerText = `Đang kết nối máy chủ API (${index + 1}/${servers.length})...`;
-
-      const script = document.createElement('script');
-      script.src = servers[index] + "/web-apps/apps/api/documents/api.js";
-      script.type = 'text/javascript';
-
-      script.onload = function() {
-        console.log("Successfully loaded ONLYOFFICE API from: " + servers[index]);
-        window.workingDocServer = servers[index];
-        initEditor(currentFileType);
-      };
-
-      script.onerror = function() {
-        console.warn("Failed to load ONLYOFFICE API from: " + servers[index] + ". Trying next server...");
-        loadScriptFallback(servers, index + 1);
-      };
-
-      document.head.appendChild(script);
     }
 
-    function initEditor(fileType) {
-      const statusText = document.getElementById('editor-status-text');
-      statusText.innerText = "Đang khởi tạo trình soạn thảo...";
-
-      // 1. Destroy existing editor if any
-      if (docEditorInstance) {
-        docEditorInstance.destroyEditor();
-        docEditorInstance = null;
+    function changeFont() {
+      const font = document.getElementById('font-family-select').value;
+      if (currentTab === 'docx' || currentTab === 'form' || currentTab === 'collab') {
+        document.execCommand('fontName', false, font);
       }
+    }
 
-      // 2. Set file URL (pointing to the blank templates we hosted on our website)
-      const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    function switchDocType(tab) {
+      currentTab = tab;
       
-      let fileUrl = baseUrl + '/blank.docx';
-      let fileTitle = 'Mercy_Tech_Document.docx';
-      let docType = 'word';
-      let editorMode = 'edit';
-
-      if (fileType === 'xlsx') {
-        fileUrl = baseUrl + '/blank.xlsx';
-        fileTitle = 'Mercy_Tech_Spreadsheet.xlsx';
-        docType = 'cell';
-      } else if (fileType === 'pptx') {
-        fileUrl = baseUrl + '/blank.pptx';
-        fileTitle = 'Mercy_Tech_Presentation.pptx';
-        docType = 'slide';
-      } else if (fileType === 'pdf') {
-        fileUrl = baseUrl + '/blank.pdf';
-        fileTitle = 'Mercy_Tech_Viewer.pdf';
-        docType = 'pdf';
-        editorMode = 'view';
-      } else if (fileType === 'form') {
-        fileUrl = baseUrl + '/blank.docx'; // Open docx in form creation mode
-        fileTitle = 'Mercy_Tech_Form_Builder.docx';
-        docType = 'word';
-      } else if (fileType === 'fill') {
-        fileUrl = baseUrl + '/blank.pdf';
-        fileTitle = 'Mercy_Tech_PDF_Form.pdf';
-        docType = 'pdf';
-      } else if (fileType === 'collab') {
-        fileUrl = baseUrl + '/blank.docx';
-        fileTitle = 'Mercy_Tech_Collaboration.docx';
-        docType = 'word';
+      // Clear collaboration animation if active
+      if (collabInterval) {
+        clearInterval(collabInterval);
+        collabInterval = null;
       }
 
-      // 3. Generate session key
-      // If it's a collaboration demo, use a stable key so different users can edit together
-      const sessionKey = fileType === 'collab' 
-        ? "mercy_demo_collab_stable_key_v1" 
-        : "mercy_demo_" + fileType + "_" + Math.random().toString(36).substring(2, 9);
-
-      try {
-        docEditorInstance = new DocsAPI.DocEditor("editor-placeholder", {
-          "document": {
-            "fileType": fileType === 'form' || fileType === 'collab' ? 'docx' : (fileType === 'fill' ? 'pdf' : fileType),
-            "key": sessionKey,
-            "title": fileTitle,
-            "url": fileUrl
-          },
-          "documentType": docType,
-          "editorConfig": {
-            "lang": "vi",
-            "mode": editorMode,
-            "customization": {
-              "about": false,
-              "feedback": false,
-              "forcesave": false,
-              "chat": true,
-              "logo": {
-                "image": "https://onlyoffice.mercytechglobal.com/favicon.png",
-                "imageEmbedded": "https://onlyoffice.mercytechglobal.com/favicon.png",
-                "url": "https://onlyoffice.mercytechglobal.com"
-              }
-            }
-          },
-          "height": "700px",
-          "width": "100%",
-          "events": {
-            "onAppReady": function() {
-              statusText.innerText = "Trình soạn thảo đã sẵn sàng!";
-            },
-            "onDocumentStateChange": function(event) {
-              if (event.data) {
-                statusText.innerText = "Tài liệu đang được chỉnh sửa...";
-              }
-            }
-          }
-        });
-      } catch (error) {
-        console.error("Error creating DocsAPI Editor:", error);
-        statusText.innerText = "Lỗi khi kết nối lõi soạn thảo. Vui lòng chuyển tab hoặc tải lại trang.";
-      }
-    }
-
-    function switchDocType(fileType) {
-      if (currentFileType === fileType) return;
-      currentFileType = fileType;
-
-      // Update active class on tabs
+      // Update active tab buttons
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      const activeBtnId = fileType === 'docx' ? 'btn-docx' :
-                          fileType === 'xlsx' ? 'btn-xlsx' :
-                          fileType === 'pptx' ? 'btn-pptx' :
-                          fileType === 'pdf' ? 'btn-pdf' :
-                          fileType === 'form' ? 'btn-form' :
-                          fileType === 'fill' ? 'btn-fill' : 'btn-collab';
-      
+      const activeBtnId = 'btn-' + tab;
       document.getElementById(activeBtnId).classList.add('active');
 
-      if (typeof DocsAPI !== 'undefined') {
-        initEditor(fileType);
+      const fileName = document.getElementById('sim-file-name');
+      const workspace = document.getElementById('sim-workspace-body');
+      const wordCount = document.getElementById('sim-word-count');
+
+      if (tab === 'docx') {
+        fileName.innerText = "Mercy_Tech_Tailieu.docx";
+        wordCount.innerText = "Trang 1/1 | 120 từ";
+        workspace.innerHTML = `
+          <div class="sim-page" contenteditable="true">
+            <h2 style="text-align: center; margin-bottom: 20px;">BÁO CÁO CÔNG VIỆC VĂN PHÒNG</h2>
+            <p>Đây là trình soạn thảo văn bản **OnlyOffice Document** trực quan. Bạn có thể xóa đoạn này và tự tay gõ thử nội dung vào đây.</p>
+            <p style="margin-top: 15px;">Giải pháp OnlyOffice tương thích hoàn hảo với Microsoft Word: giữ nguyên 100% định dạng, bảng biểu, font chữ tiếng Việt chuẩn.</p>
+          </div>
+        `;
+      } else if (tab === 'xlsx') {
+        fileName.innerText = "Mercy_Tech_Bangtinh.xlsx";
+        wordCount.innerText = "Sheet 1/1 | 30 ô dữ liệu";
+        
+        let gridHtml = '<table class="sim-grid">';
+        // Headers A to H
+        gridHtml += '<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr>';
+        
+        const dataRows = [
+          ['1', 'STT', 'Hạng mục vật tư', 'Số lượng', 'Đơn giá', 'Thành tiền', 'Ghi chú', ''],
+          ['2', '1', 'Thép tấm cuộn', '10', '15,000,000', '150,000,000', 'Đã kiểm kho', ''],
+          ['3', '2', 'Tôn mạ kẽm', '25', '8,500,000', '212,500,000', 'Hàng giao ngay', ''],
+          ['4', '3', 'Thép hộp đen', '15', '12,000,000', '180,000,000', 'Chờ xuất xưởng', ''],
+          ['5', 'Tổng', '', '', '', '542,500,000', 'Tổng cộng VAT', '']
+        ];
+        
+        for (let i = 0; i < 15; i++) {
+          gridHtml += '<tr>';
+          gridHtml += `<td class="row-num">${i+1}</td>`;
+          for (let j = 0; j < 7; j++) {
+            let cellVal = '';
+            if (i < dataRows.length) {
+              cellVal = dataRows[i][j+1] || '';
+            }
+            // Style header row or totals
+            let isBold = (i === 0 || (i === 4 && j === 0) || (i === 4 && j === 4));
+            let style = isBold ? 'font-weight: bold; background: #f8fafc;' : '';
+            gridHtml += `<td class="cell" contenteditable="true" style="${style}">${cellVal}</td>`;
+          }
+          gridHtml += '</tr>';
+        }
+        gridHtml += '</table>';
+        
+        workspace.innerHTML = gridHtml;
+      } else if (tab === 'pptx') {
+        fileName.innerText = "Mercy_Tech_Trinhchieu.pptx";
+        wordCount.innerText = "Slide 1/5 | Tiêu chuẩn 16:9";
+        
+        workspace.innerHTML = `
+          <div class="sim-slide-container">
+            <div class="sim-slide-sidebar">
+              <div class="slide-thumbnail">Slide 1</div>
+              <div class="slide-thumbnail" style="border: 1px solid #cbd5e1; margin-top: 5px;">Slide 2</div>
+              <div class="slide-thumbnail" style="border: 1px solid #cbd5e1; margin-top: 5px;">Slide 3</div>
+            </div>
+            <div class="sim-slide-workspace">
+              <div class="sim-slide">
+                <h1 style="font-size: 28px; font-weight: 800; color: var(--accent); margin-bottom: 15px;" contenteditable="true">OnlyOffice Presentation</h1>
+                <p style="font-size: 14px; color: #4a5568;" contenteditable="true">Bấm vào đây để chỉnh sửa slide trực tiếp. Hỗ trợ đầy đủ hiệu ứng animation, sơ đồ thông minh.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'pdf') {
+        fileName.innerText = "Tailieu_Nghiemthu.pdf";
+        wordCount.innerText = "Trang 1/3 | Chỉ xem / Ký số";
+        
+        workspace.innerHTML = `
+          <div class="sim-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
+            <div style="border: 1px solid #cbd5e1; background: white; padding: 40px; min-height: 100%;">
+              <h3 style="text-align: center; color: #1e293b; margin-bottom: 20px;">BIÊN BẢN NGHIỆM THU DỰ ÁN VĂN PHÒNG</h3>
+              <p style="font-size: 13px; color: #4a5568; line-height: 1.8;">
+                Hôm nay, ngày 04 tháng 07 năm 2026, hai bên gồm Công ty TNHH Công Nghệ Mercy và Công ty Tôn Thép Hùng Huyền tiến hành nghiệm thu bàn giao hệ thống phần mềm OnlyOffice cài đặt cho 50 máy tính.<br><br>
+                <strong>Nội dung nghiệm thu:</strong><br>
+                - Setup phần mềm văn phòng thành công trên 50 máy.<br>
+                - Đồng bộ bộ font chữ tiếng Việt văn phòng chuẩn.<br>
+                - Bàn giao đầy đủ hồ sơ pháp lý nguồn gốc GNU AGPLv3.
+              </p>
+              <div style="margin-top: 40px; display: flex; justify-content: space-between; font-size: 12px; font-weight: bold;">
+                <div>ĐẠI DIỆN KHÁCH HÀNG</div>
+                <div>ĐẠI DIỆN MERCY TECH</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'form') {
+        fileName.innerText = "Bieu_mau_Dang_ky.docxf";
+        wordCount.innerText = "Trang 1/1 | Phiếu khảo sát";
+        
+        workspace.innerHTML = `
+          <div class="sim-page" contenteditable="true">
+            <h2 style="text-align: center; margin-bottom: 25px;">PHIẾU ĐĂNG KÝ SETUP VĂN PHÒNG</h2>
+            <p style="margin-bottom: 15px;">Vui lòng điền thông tin khảo sát để Mercy Tech chuẩn bị cấu hình tốt nhất cho doanh nghiệp của bạn:</p>
+            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin-top: 20px;">
+              <div>
+                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Họ và tên người liên hệ:</label>
+                <input type="text" placeholder="Nhập họ tên" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="Nguyễn Văn A">
+              </div>
+              <div>
+                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Số lượng máy tính cần setup:</label>
+                <input type="number" placeholder="Ví dụ: 50" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="50">
+              </div>
+              <div>
+                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Hệ điều hành đang sử dụng:</label>
+                <select style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
+                  <option>Windows 10 / 11</option>
+                  <option>macOS</option>
+                  <option>Linux</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'fill') {
+        fileName.innerText = "To_khai_Dang_ky_Thue.pdf";
+        wordCount.innerText = "Form điền PDF | Đang mở";
+        
+        workspace.innerHTML = `
+          <div class="sim-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
+            <div style="border: 1px solid #cbd5e1; background: white; padding: 40px; min-height: 100%;">
+              <h3 style="text-align: center; color: #1e293b; margin-bottom: 20px;">TỜ KHAI THÔNG TIN THUẾ DOANH NGHIỆP</h3>
+              <div style="display: flex; flex-direction: column; gap: 15px; font-size: 13px;">
+                <div style="display: flex; gap: 10px;">
+                  <span style="width: 150px; font-weight: bold;">Tên doanh nghiệp:</span>
+                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="Công ty Tôn Thép Hùng Huyền">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <span style="width: 150px; font-weight: bold;">Mã số thuế:</span>
+                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="0109886762">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <span style="width: 150px; font-weight: bold;">Địa chỉ:</span>
+                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="Hà Nội, Việt Nam">
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'collab') {
+        fileName.innerText = "Document_Hop_tac.docx";
+        wordCount.innerText = "2 người đang xem | Có thay đổi";
+        
+        workspace.innerHTML = `
+          <div class="sim-page" contenteditable="true" style="position: relative;">
+            <h2 style="text-align: center; margin-bottom: 20px;">KẾ HOẠCH PHÁT TRIỂN KINH DOANH</h2>
+            <p>Đây là tài liệu cộng tác thời gian thực giữa các thành viên trong nhóm.</p>
+            <p style="margin-top: 15px;">Bạn có thể gõ văn bản ở đây. Đồng thời, bạn sẽ nhìn thấy nhân viên khác đang gõ trực tiếp.</p>
+            <p style="margin-top: 15px; position: relative;" id="collab-write-line">
+              Kế hoạch setup văn phòng cho 50 máy tính của công ty Tôn Thép Hùng Huyền dự kiến triển khai <span id="collab-text-cursor" style="font-weight: bold; color: #ef4444;"></span>
+              <span class="live-cursor" id="collab-cursor" style="display:none; position:relative; top:2px; left:0px;">
+                <span class="live-cursor-label">Mai (Kế toán) đang gõ</span>
+              </span>
+            </p>
+          </div>
+        `;
+        
+        // Run simulated typing for Collaborate demo
+        let textToType = " vào thứ Hai tuần tới và bàn giao hồ sơ pháp lý vào thứ Tư...";
+        let charIndex = 0;
+        const textCursor = document.getElementById('collab-text-cursor');
+        const cursorIndicator = document.getElementById('collab-cursor');
+        
+        cursorIndicator.style.display = 'inline-block';
+        
+        collabInterval = setInterval(() => {
+          if (charIndex < textToType.length) {
+            textCursor.innerText += textToType[charIndex];
+            charIndex++;
+          } else {
+            textCursor.innerText = "";
+            charIndex = 0;
+          }
+        }, 150);
       }
     }
 
-    // Auto load script with fallbacks on window load
+    // Auto-load DOCX view on start
     window.onload = function() {
-      loadScriptFallback(apiServers, 0);
+      switchDocType('docx');
     };
   </script>
 </body>
