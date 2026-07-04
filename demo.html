@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chạy Thử Trực Tuyến OnlyOffice | Mercy Tech</title>
+  <meta name="description" content="Trải nghiệm trực tiếp tính năng soạn thảo văn bản và bảng tính OnlyOffice trực tuyến ngay trên trình duyệt mà không cần tài khoản hay cài đặt phần mềm.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <style>
+    :root {
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-hover: #334155;
+      --accent: #FF6F3D;
+      --accent-hover: #E05626;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: rgba(255, 255, 255, 0.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* --- HEADER --- */
+    header {
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .btn-back {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+    }
+
+    /* --- MAIN CONTENT --- */
+    main {
+      flex: 1;
+      padding: 40px 0;
+    }
+
+    .demo-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .demo-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .demo-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Tabs Selector */
+    .tab-section {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .tab-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(255, 111, 61, 0.25);
+    }
+
+    /* Editor Window Container */
+    .editor-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .editor-header {
+      background: rgba(15, 23, 42, 0.4);
+      height: 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #334155;
+    }
+
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #10b981; }
+
+    .editor-title {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    #editor-placeholder {
+      height: 700px;
+      width: 100%;
+      background: #1e293b;
+    }
+
+    /* Footer info */
+    .demo-footer-info {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .demo-footer-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .demo-footer-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer Copyright */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          MERCY<span>TECH</span>
+        </a>
+        <a href="index.html" class="btn-back">← Quay lại Trang Chủ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      
+      <div class="demo-header">
+        <h1>Trải Nghiệm Trực Tuyến OnlyOffice</h1>
+        <p>Thử nghiệm trực tiếp tính năng biên tập tài liệu Word & Excel ngay trên trình duyệt mà không cần tài khoản hay cài đặt phần mềm.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="tab-section">
+        <button id="btn-docx" class="tab-btn active" onclick="switchDocType('docx')">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+          </svg>
+          Tài liệu Word (DOCX)
+        </button>
+        <button id="btn-xlsx" class="tab-btn" onclick="switchDocType('xlsx')">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+            <path d="M5.186 11.54h.812L8 8.441l2.002 3.1h.812L8.435 8.012 10.742 4.4h-.813L8 7.587 6.071 4.4h-.813l2.307 3.611-2.379 3.53z"/>
+          </svg>
+          Bảng tính Excel (XLSX)
+        </button>
+      </div>
+
+      <!-- Editor Card -->
+      <div class="editor-wrapper">
+        <div class="editor-header">
+          <div class="dots">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+          </div>
+          <div class="editor-title" id="editor-status-text">Đang tải Trình soạn thảo OnlyOffice...</div>
+        </div>
+        <div id="editor-placeholder"></div>
+      </div>
+
+      <div class="demo-footer-info">
+        <p>Hệ thống đang chạy trên máy chủ thử nghiệm của ONLYOFFICE. Để tích hợp hệ thống lưu trữ và chỉnh sửa bảo mật cho doanh nghiệp của bạn, vui lòng liên hệ <a href="index.html#contract">Mercy Tech</a>.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Mercy Tech. Giải pháp văn phòng số OnlyOffice hợp pháp và bảo mật.</p>
+    </div>
+  </footer>
+
+  <!-- Load OnlyOffice Docs API from public demo server -->
+  <script type="text/javascript" src="https://demo.onlyoffice.com/web-apps/apps/api/documents/api.js"></script>
+  
+  <script>
+    let docEditorInstance = null;
+    let currentFileType = 'docx';
+
+    function initEditor(fileType) {
+      const statusText = document.getElementById('editor-status-text');
+      statusText.innerText = "Đang khởi tạo trình soạn thảo...";
+
+      // 1. Destroy existing editor if any
+      if (docEditorInstance) {
+        docEditorInstance.destroyEditor();
+        docEditorInstance = null;
+      }
+
+      // 2. Set file URL (pointing to the blank templates we hosted on our GitHub Pages/Deployment directory)
+      const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+      const fileUrl = fileType === 'docx' 
+        ? baseUrl + '/blank.docx'
+        : baseUrl + '/blank.xlsx';
+
+      const fileTitle = fileType === 'docx' ? 'Mercy_Tech_Demo.docx' : 'Mercy_Tech_Demo.xlsx';
+      const docType = fileType === 'docx' ? 'word' : 'cell';
+      
+      // 3. Generate a completely unique key for each load so the user gets a fresh document cache
+      const sessionKey = "mercy_demo_" + fileType + "_" + Math.random().toString(36).substring(2, 9);
+
+      try {
+        docEditorInstance = new DocsAPI.DocEditor("editor-placeholder", {
+          "document": {
+            "fileType": fileType,
+            "key": sessionKey,
+            "title": fileTitle,
+            "url": fileUrl
+          },
+          "documentType": docType,
+          "editorConfig": {
+            "lang": "vi",
+            "mode": "edit",
+            "customization": {
+              "about": false,
+              "feedback": false,
+              "forcesave": false,
+              "chat": true,
+              "logo": {
+                "image": "https://onlyoffice.mercytechglobal.com/favicon.png",
+                "imageEmbedded": "https://onlyoffice.mercytechglobal.com/favicon.png",
+                "url": "https://onlyoffice.mercytechglobal.com"
+              }
+            }
+          },
+          "height": "700px",
+          "width": "100%",
+          "events": {
+            "onAppReady": function() {
+              statusText.innerText = fileType === 'docx' 
+                ? "Trình soạn thảo Văn bản (DOCX) - Đã sẵn sàng" 
+                : "Bảng tính Excel (XLSX) - Đã sẵn sàng";
+            },
+            "onDocumentStateChange": function(event) {
+              if (event.data) {
+                statusText.innerText = "Tài liệu đang có thay đổi...";
+              }
+            }
+          }
+        });
+      } catch (error) {
+        console.error("Error loading ONLYOFFICE API:", error);
+        statusText.innerText = "Không thể kết nối đến máy chủ demo ONLYOFFICE. Vui lòng thử lại sau.";
+      }
+    }
+
+    function switchDocType(fileType) {
+      if (currentFileType === fileType) return;
+      currentFileType = fileType;
+
+      // Update button styles
+      document.getElementById('btn-docx').classList.toggle('active', fileType === 'docx');
+      document.getElementById('btn-xlsx').classList.toggle('active', fileType === 'xlsx');
+
+      // Reload editor
+      initEditor(fileType);
+    }
+
+    // Auto load the editor on page load
+    window.onload = function() {
+      // Small timeout to ensure script is fully loaded
+      setTimeout(() => {
+        if (typeof DocsAPI !== 'undefined') {
+          initEditor('docx');
+        } else {
+          document.getElementById('editor-status-text').innerText = "Lỗi: Không thể tải được file API. Vui lòng kiểm tra lại kết nối mạng.";
+        }
+      }, 500);
+    };
+  </script>
+</body>
+</html>
