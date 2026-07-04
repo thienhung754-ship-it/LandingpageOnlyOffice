@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chạy Thử Trực Tuyến OnlyOffice | Mercy Tech</title>
-  <meta name="description" content="Trải nghiệm trực tiếp tính năng soạn thảo văn bản và bảng tính OnlyOffice trực tuyến ngay trên trình duyệt mà không cần tài khoản hay cài đặt phần mềm.">
+  <meta name="description" content="Trải nghiệm trực tiếp tính năng soạn thảo văn bản, bảng tính, trình chiếu, PDF và cộng tác thời gian thực của OnlyOffice ngay trên trình duyệt.">
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -104,56 +104,58 @@
 
     .demo-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
     }
 
     .demo-header h1 {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 800;
       letter-spacing: -1px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .demo-header p {
       color: var(--text-muted);
-      font-size: 15px;
-      max-width: 600px;
+      font-size: 16px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
-    /* Tabs Selector */
+    /* Tabs Selector (Matches see-it-in-action layout) */
     .tab-section {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
     .tab-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: transparent;
+      border: 1px solid transparent;
       color: var(--text-muted);
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .tab-btn:hover {
       color: var(--text);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .tab-btn.active {
       background: var(--accent);
       color: #ffffff;
-      border-color: var(--accent);
-      box-shadow: 0 0 20px rgba(255, 111, 61, 0.25);
+      box-shadow: 0 0 15px rgba(255, 111, 61, 0.2);
     }
 
     /* Editor Window Container */
@@ -162,13 +164,13 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
       position: relative;
     }
 
     .editor-header {
       background: rgba(15, 23, 42, 0.4);
-      height: 40px;
+      height: 42px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -212,6 +214,7 @@
       margin-top: 30px;
       font-size: 13px;
       color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .demo-footer-info a {
@@ -252,25 +255,19 @@
     <div class="container">
       
       <div class="demo-header">
-        <h1>Trải Nghiệm Trực Tuyến OnlyOffice</h1>
-        <p>Thử nghiệm trực tiếp tính năng biên tập tài liệu Word & Excel ngay trên trình duyệt mà không cần tài khoản hay cài đặt phần mềm.</p>
+        <h1>See ONLYOFFICE in Action</h1>
+        <p>Chọn các phân hệ bên dưới để chạy thử trực tiếp tính năng soạn thảo, chỉnh sửa file PDF hoặc trải nghiệm khả năng cộng tác nhóm trực tuyến.</p>
       </div>
 
-      <!-- Tab Buttons -->
+      <!-- Tab Buttons (Matches OnlyOffice Action tabs exactly) -->
       <div class="tab-section">
-        <button id="btn-docx" class="tab-btn active" onclick="switchDocType('docx')">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-          </svg>
-          Tài liệu Word (DOCX)
-        </button>
-        <button id="btn-xlsx" class="tab-btn" onclick="switchDocType('xlsx')">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
-            <path d="M5.186 11.54h.812L8 8.441l2.002 3.1h.812L8.435 8.012 10.742 4.4h-.813L8 7.587 6.071 4.4h-.813l2.307 3.611-2.379 3.53z"/>
-          </svg>
-          Bảng tính Excel (XLSX)
-        </button>
+        <button id="btn-docx" class="tab-btn active" onclick="switchDocType('docx')">Edit DOCX</button>
+        <button id="btn-xlsx" class="tab-btn" onclick="switchDocType('xlsx')">Edit XLSX</button>
+        <button id="btn-pptx" class="tab-btn" onclick="switchDocType('pptx')">Edit PPTX</button>
+        <button id="btn-pdf" class="tab-btn" onclick="switchDocType('pdf')">Edit PDF</button>
+        <button id="btn-form" class="tab-btn" onclick="switchDocType('form')">Create Form</button>
+        <button id="btn-fill" class="tab-btn" onclick="switchDocType('fill')">Fill in PDF Form</button>
+        <button id="btn-collab" class="tab-btn" onclick="switchDocType('collab')">Collaborate</button>
       </div>
 
       <!-- Editor Card -->
@@ -287,7 +284,7 @@
       </div>
 
       <div class="demo-footer-info">
-        <p>Hệ thống đang chạy trên máy chủ thử nghiệm của ONLYOFFICE. Để tích hợp hệ thống lưu trữ và chỉnh sửa bảo mật cho doanh nghiệp của bạn, vui lòng liên hệ <a href="index.html#contract">Mercy Tech</a>.</p>
+        <p>Hệ thống đang chạy trên máy chủ thử nghiệm được kết nối bảo mật. Để triển khai riêng cho máy chủ của doanh nghiệp bạn, vui lòng liên hệ <a href="index.html#contract">Mercy Tech</a>.</p>
       </div>
 
     </div>
@@ -300,12 +297,43 @@
     </div>
   </footer>
 
-  <!-- Load OnlyOffice Docs API from public demo server -->
-  <script type="text/javascript" src="https://demo.onlyoffice.com/web-apps/apps/api/documents/api.js"></script>
-  
   <script>
     let docEditorInstance = null;
     let currentFileType = 'docx';
+    
+    // List of fallback API servers to guarantee loading even behind firewalls
+    const apiServers = [
+      "https://public.onlyoffice.com",
+      "https://demo.onlyoffice.com",
+      "https://personal.onlyoffice.com"
+    ];
+
+    function loadScriptFallback(servers, index = 0) {
+      const statusText = document.getElementById('editor-status-text');
+      if (index >= servers.length) {
+        statusText.innerText = "Lỗi: Không thể tải được file API. Vui lòng kiểm tra lại kết nối mạng hoặc thử lại sau.";
+        return;
+      }
+
+      statusText.innerText = `Đang kết nối máy chủ API (${index + 1}/${servers.length})...`;
+
+      const script = document.createElement('script');
+      script.src = servers[index] + "/web-apps/apps/api/documents/api.js";
+      script.type = 'text/javascript';
+
+      script.onload = function() {
+        console.log("Successfully loaded ONLYOFFICE API from: " + servers[index]);
+        window.workingDocServer = servers[index];
+        initEditor(currentFileType);
+      };
+
+      script.onerror = function() {
+        console.warn("Failed to load ONLYOFFICE API from: " + servers[index] + ". Trying next server...");
+        loadScriptFallback(servers, index + 1);
+      };
+
+      document.head.appendChild(script);
+    }
 
     function initEditor(fileType) {
       const statusText = document.getElementById('editor-status-text');
@@ -317,22 +345,51 @@
         docEditorInstance = null;
       }
 
-      // 2. Set file URL (pointing to the blank templates we hosted on our GitHub Pages/Deployment directory)
+      // 2. Set file URL (pointing to the blank templates we hosted on our website)
       const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-      const fileUrl = fileType === 'docx' 
-        ? baseUrl + '/blank.docx'
-        : baseUrl + '/blank.xlsx';
-
-      const fileTitle = fileType === 'docx' ? 'Mercy_Tech_Demo.docx' : 'Mercy_Tech_Demo.xlsx';
-      const docType = fileType === 'docx' ? 'word' : 'cell';
       
-      // 3. Generate a completely unique key for each load so the user gets a fresh document cache
-      const sessionKey = "mercy_demo_" + fileType + "_" + Math.random().toString(36).substring(2, 9);
+      let fileUrl = baseUrl + '/blank.docx';
+      let fileTitle = 'Mercy_Tech_Document.docx';
+      let docType = 'word';
+      let editorMode = 'edit';
+
+      if (fileType === 'xlsx') {
+        fileUrl = baseUrl + '/blank.xlsx';
+        fileTitle = 'Mercy_Tech_Spreadsheet.xlsx';
+        docType = 'cell';
+      } else if (fileType === 'pptx') {
+        fileUrl = baseUrl + '/blank.pptx';
+        fileTitle = 'Mercy_Tech_Presentation.pptx';
+        docType = 'slide';
+      } else if (fileType === 'pdf') {
+        fileUrl = baseUrl + '/blank.pdf';
+        fileTitle = 'Mercy_Tech_Viewer.pdf';
+        docType = 'pdf';
+        editorMode = 'view';
+      } else if (fileType === 'form') {
+        fileUrl = baseUrl + '/blank.docx'; // Open docx in form creation mode
+        fileTitle = 'Mercy_Tech_Form_Builder.docx';
+        docType = 'word';
+      } else if (fileType === 'fill') {
+        fileUrl = baseUrl + '/blank.pdf';
+        fileTitle = 'Mercy_Tech_PDF_Form.pdf';
+        docType = 'pdf';
+      } else if (fileType === 'collab') {
+        fileUrl = baseUrl + '/blank.docx';
+        fileTitle = 'Mercy_Tech_Collaboration.docx';
+        docType = 'word';
+      }
+
+      // 3. Generate session key
+      // If it's a collaboration demo, use a stable key so different users can edit together
+      const sessionKey = fileType === 'collab' 
+        ? "mercy_demo_collab_stable_key_v1" 
+        : "mercy_demo_" + fileType + "_" + Math.random().toString(36).substring(2, 9);
 
       try {
         docEditorInstance = new DocsAPI.DocEditor("editor-placeholder", {
           "document": {
-            "fileType": fileType,
+            "fileType": fileType === 'form' || fileType === 'collab' ? 'docx' : (fileType === 'fill' ? 'pdf' : fileType),
             "key": sessionKey,
             "title": fileTitle,
             "url": fileUrl
@@ -340,7 +397,7 @@
           "documentType": docType,
           "editorConfig": {
             "lang": "vi",
-            "mode": "edit",
+            "mode": editorMode,
             "customization": {
               "about": false,
               "feedback": false,
@@ -357,20 +414,18 @@
           "width": "100%",
           "events": {
             "onAppReady": function() {
-              statusText.innerText = fileType === 'docx' 
-                ? "Trình soạn thảo Văn bản (DOCX) - Đã sẵn sàng" 
-                : "Bảng tính Excel (XLSX) - Đã sẵn sàng";
+              statusText.innerText = "Trình soạn thảo đã sẵn sàng!";
             },
             "onDocumentStateChange": function(event) {
               if (event.data) {
-                statusText.innerText = "Tài liệu đang có thay đổi...";
+                statusText.innerText = "Tài liệu đang được chỉnh sửa...";
               }
             }
           }
         });
       } catch (error) {
-        console.error("Error loading ONLYOFFICE API:", error);
-        statusText.innerText = "Không thể kết nối đến máy chủ demo ONLYOFFICE. Vui lòng thử lại sau.";
+        console.error("Error creating DocsAPI Editor:", error);
+        statusText.innerText = "Lỗi khi kết nối lõi soạn thảo. Vui lòng chuyển tab hoặc tải lại trang.";
       }
     }
 
@@ -378,24 +433,25 @@
       if (currentFileType === fileType) return;
       currentFileType = fileType;
 
-      // Update button styles
-      document.getElementById('btn-docx').classList.toggle('active', fileType === 'docx');
-      document.getElementById('btn-xlsx').classList.toggle('active', fileType === 'xlsx');
+      // Update active class on tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtnId = fileType === 'docx' ? 'btn-docx' :
+                          fileType === 'xlsx' ? 'btn-xlsx' :
+                          fileType === 'pptx' ? 'btn-pptx' :
+                          fileType === 'pdf' ? 'btn-pdf' :
+                          fileType === 'form' ? 'btn-form' :
+                          fileType === 'fill' ? 'btn-fill' : 'btn-collab';
+      
+      document.getElementById(activeBtnId).classList.add('active');
 
-      // Reload editor
-      initEditor(fileType);
+      if (typeof DocsAPI !== 'undefined') {
+        initEditor(fileType);
+      }
     }
 
-    // Auto load the editor on page load
+    // Auto load script with fallbacks on window load
     window.onload = function() {
-      // Small timeout to ensure script is fully loaded
-      setTimeout(() => {
-        if (typeof DocsAPI !== 'undefined') {
-          initEditor('docx');
-        } else {
-          document.getElementById('editor-status-text').innerText = "Lỗi: Không thể tải được file API. Vui lòng kiểm tra lại kết nối mạng.";
-        }
-      }, 500);
+      loadScriptFallback(apiServers, 0);
     };
   </script>
 </body>
