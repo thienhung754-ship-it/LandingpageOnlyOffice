@@ -20,6 +20,13 @@
       --text-muted: #94A3B8;
       --border: rgba(255, 255, 255, 0.08);
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      /* OnlyOffice Theme Colors (Light Theme for Editor) */
+      --oo-bg: #E2E8F0;
+      --oo-toolbar: #F8FAFc;
+      --oo-border: #CBD5E1;
+      --oo-text: #334155;
+      --oo-active: #4F46E5;
     }
 
     * {
@@ -40,7 +47,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       padding: 0 24px;
       width: 100%;
@@ -99,46 +106,44 @@
     /* --- MAIN CONTENT --- */
     main {
       flex: 1;
-      padding: 40px 0;
+      padding: 30px 0;
     }
 
     .demo-header {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
 
     .demo-header h1 {
       font-size: 32px;
       font-weight: 800;
       letter-spacing: -1px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .demo-header p {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 14px;
       max-width: 650px;
       margin: 0 auto;
     }
 
-    /* Tabs Selector */
+    /* Tab Selector Buttons */
     .tab-section {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
 
     .tab-btn {
-      background: transparent;
-      border: 1px solid transparent;
+      background: var(--surface);
+      border: 1px solid var(--border);
       color: var(--text-muted);
       padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 13px;
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -146,131 +151,318 @@
 
     .tab-btn:hover {
       color: var(--text);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--surface-hover);
     }
 
     .tab-btn.active {
       background: var(--accent);
       color: #ffffff;
+      border-color: var(--accent);
     }
 
-    /* Editor Simulator Wrapper */
+    /* ONLYOFFICE HIGH-FIDELITY SIMULATOR WRAPPER */
     .editor-wrapper {
-      background: #ffffff;
-      color: #333333;
-      border-radius: 12px;
+      background: #f1f5f9;
+      color: #1e293b;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       flex-direction: column;
-      height: 700px;
+      height: 780px;
     }
 
-    /* Simulated Editor Header */
-    .sim-header {
-      background: #f8f9fa;
-      border-bottom: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sim-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 20px;
+    /* --- TOP MENU BAR --- */
+    .oo-top-bar {
       background: #ffffff;
-      border-bottom: 1px solid #edf2f7;
+      border-bottom: 1px solid var(--oo-border);
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .sim-logo {
+    .oo-top-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .oo-logo {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      color: #1e293b;
-    }
-
-    .sim-logo span {
-      background: var(--accent);
-      color: white;
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-size: 9px;
-    }
-
-    .sim-menu-tabs {
-      display: flex;
-      gap: 15px;
-      padding: 0 20px;
-      background: #f8f9fa;
-      height: 30px;
-      align-items: flex-end;
-    }
-
-    .sim-menu-tab {
-      font-size: 11px;
-      font-weight: 600;
-      color: #4a5568;
-      padding: 4px 10px;
-      border-radius: 4px 4px 0 0;
+      color: #000;
       cursor: pointer;
     }
 
-    .sim-menu-tab.active {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-bottom: none;
-      color: #1a202c;
+    .oo-logo svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent);
     }
 
-    /* Ribbon Toolbar */
-    .sim-ribbon {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 8px 20px;
+    .oo-actions {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 6px;
     }
 
-    .ribbon-group {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      border-right: 1px solid #e2e8f0;
-      padding-right: 15px;
-    }
-
-    .ribbon-group:last-child {
-      border-right: none;
-    }
-
-    .ribbon-btn {
-      background: #f8f9fa;
-      border: 1px solid #cbd5e0;
+    .oo-action-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
       border-radius: 4px;
-      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+    }
+
+    .oo-action-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .oo-action-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .oo-top-center {
       font-size: 11px;
       font-weight: 600;
-      color: #4a5568;
-      cursor: pointer;
+      color: #64748b;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .oo-top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .oo-edit-badge {
+      font-size: 10px;
+      font-weight: 600;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #475569;
       display: flex;
       align-items: center;
       gap: 4px;
     }
 
-    .ribbon-btn:hover {
-      background: #edf2f7;
-      color: #1a202c;
+    /* --- MENU TABS (File, Home, Insert...) --- */
+    .oo-menu-tabs {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--oo-border);
+      display: flex;
+      padding: 0 16px;
+      gap: 2px;
     }
 
-    /* Main Editing Canvas */
-    .sim-body {
-      flex: 1;
+    .oo-menu-tab {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      padding: 8px 12px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      margin-top: 2px;
+    }
+
+    .oo-menu-tab:hover {
       background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .oo-menu-tab.active {
+      background: #ffffff;
+      border-color: var(--oo-border);
+      color: #0f172a;
+      position: relative;
+      z-index: 2;
+      margin-bottom: -1px;
+    }
+
+    /* --- RIBBON TOOLBAR --- */
+    .oo-ribbon {
+      background: #ffffff;
+      border-bottom: 1px solid var(--oo-border);
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .oo-ribbon-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-right: 1px solid #e2e8f0;
+      padding-right: 12px;
+      height: 28px;
+    }
+
+    .oo-ribbon-group:last-child {
+      border-right: none;
+    }
+
+    /* Ribbon dropdowns & inputs */
+    .oo-select {
+      font-size: 11px;
+      padding: 3px 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #ffffff;
+      outline: none;
+      color: #334155;
+      cursor: pointer;
+    }
+
+    .oo-select:hover {
+      border-color: #94a3b8;
+    }
+
+    /* Toolbar buttons */
+    .oo-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 4px 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .oo-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .oo-btn.active {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .oo-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* --- MAIN EDITOR CANVAS (Sidebar + Workspace) --- */
+    .oo-main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Sidebars (Left and Right) */
+    .oo-sidebar {
+      width: 40px;
+      background: #f8fafc;
+      border-right: 1px solid var(--oo-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      gap: 12px;
+    }
+
+    .oo-sidebar.right {
+      border-right: none;
+      border-left: 1px solid var(--oo-border);
+    }
+
+    .oo-sidebar-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      color: #64748b;
+    }
+
+    .oo-sidebar-btn:hover {
+      background: #edf2f7;
+      color: #0f172a;
+    }
+
+    .oo-sidebar-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* RULERS */
+    .oo-workspace-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f1f5f9;
+      overflow: hidden;
+    }
+
+    .oo-ruler-horizontal {
+      height: 20px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--oo-border);
+      display: flex;
+      align-items: center;
+      font-size: 8px;
+      color: #94a3b8;
+      padding-left: 56px;
+      user-select: none;
+    }
+
+    .oo-ruler-horizontal span {
+      width: 30px;
+      text-align: center;
+    }
+
+    .oo-workspace-body-container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .oo-ruler-vertical {
+      width: 16px;
+      background: #ffffff;
+      border-right: 1px solid var(--oo-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 8px;
+      color: #94a3b8;
+      padding-top: 36px;
+      user-select: none;
+    }
+
+    .oo-ruler-vertical span {
+      height: 30px;
+      display: block;
+    }
+
+    /* --- THE WORKSPACE CANVAS --- */
+    .oo-workspace {
+      flex: 1;
       overflow-y: auto;
       padding: 30px;
       display: flex;
@@ -278,110 +470,202 @@
       position: relative;
     }
 
-    /* Page Simulator (A4 Sheet) */
-    .sim-page {
+    /* A4 Paper Mockup (DOCX) */
+    .oo-document-page {
       background: #ffffff;
       width: 100%;
-      max-width: 800px;
-      min-height: 100%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
-      padding: 50px 60px;
+      max-width: 816px; /* standard width */
+      min-height: 1056px; /* standard height */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--oo-border);
+      padding: 96px 96px; /* standard A4 margins */
       outline: none;
-      color: #2d3748;
-      font-size: 14px;
       text-align: left;
+      font-size: 14px;
+      color: #334155;
+      position: relative;
     }
 
-    /* Grid Simulator for XLSX */
-    .sim-grid {
+    /* Welcome Banner Design (Matching actual screenshot) */
+    .oo-welcome-header {
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oo-welcome-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 250px;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(45deg);
+      border-radius: 24px;
+    }
+
+    .oo-welcome-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0369a1;
+      margin-bottom: 6px;
+    }
+
+    .oo-welcome-subtitle {
+      font-size: 13px;
+      color: #0284c7;
+      font-weight: 500;
+    }
+
+    /* Checklist / Bullet list */
+    .oo-bullet-list {
+      margin-left: 20px;
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .oo-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .oo-bullet-icon {
+      color: #059669;
+      font-weight: bold;
+    }
+
+    /* GRID SIMULATOR (XLSX) */
+    .oo-grid-wrapper {
       width: 100%;
       height: 100%;
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .oo-formula-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--oo-border);
+      padding: 4px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .oo-formula-input {
+      flex: 1;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      padding: 2px 6px;
+      outline: none;
+      font-family: monospace;
+    }
+
+    .oo-grid-scroll {
+      flex: 1;
+      overflow: auto;
+    }
+
+    .oo-grid {
       border-collapse: collapse;
       font-size: 12px;
-      color: #2d3748;
+      width: 100%;
     }
 
-    .sim-grid th, .sim-grid td {
+    .oo-grid th, .oo-grid td {
       border: 1px solid #cbd5e1;
-      padding: 6px;
-      height: 28px;
+      padding: 4px 8px;
+      height: 24px;
     }
 
-    .sim-grid th {
-      background: #f8fafc;
+    .oo-grid th {
+      background: #f1f5f9;
       font-weight: 600;
       text-align: center;
-      color: #64748b;
+      color: #475569;
       user-select: none;
     }
 
-    .sim-grid td.row-num {
-      background: #f8fafc;
-      font-weight: 600;
+    .oo-grid td.row-num {
+      background: #f1f5f9;
       text-align: center;
-      color: #64748b;
+      font-weight: 600;
+      color: #475569;
       width: 40px;
       user-select: none;
     }
 
-    .sim-grid td.cell {
+    .oo-grid td.cell {
       outline: none;
-      background: #ffffff;
     }
 
-    .sim-grid td.cell:focus {
+    .oo-grid td.cell:focus {
       border: 2px solid var(--accent);
-      background: #fffdfa;
+      background: #fffbeb;
     }
 
-    /* Slide Simulator for PPTX */
-    .sim-slide-container {
+    /* PRESENTATION SIMULATOR (PPTX) */
+    .oo-presentation-wrapper {
       display: flex;
       width: 100%;
       height: 100%;
       background: #e2e8f0;
     }
 
-    .sim-slide-sidebar {
-      width: 150px;
-      background: #f8fafc;
-      border-right: 1px solid #cbd5e1;
-      padding: 15px 10px;
+    .oo-slides-sidebar {
+      width: 160px;
+      background: #ffffff;
+      border-right: 1px solid var(--oo-border);
+      padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      overflow-y: auto;
     }
 
-    .slide-thumbnail {
+    .oo-slide-thumb {
       width: 100%;
-      height: 75px;
-      background: #ffffff;
-      border: 2px solid var(--accent);
+      aspect-ratio: 16/9;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
       border-radius: 4px;
+      cursor: pointer;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-size: 10px;
-      color: #64748b;
-      cursor: pointer;
+      color: #94a3b8;
     }
 
-    .sim-slide-workspace {
+    .oo-slide-thumb.active {
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 8px rgba(255, 111, 61, 0.25);
+    }
+
+    .oo-slide-workspace {
       flex: 1;
-      padding: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 30px;
     }
 
-    .sim-slide {
+    .oo-slide {
       background: #ffffff;
       width: 100%;
-      max-width: 600px;
+      max-width: 680px;
       aspect-ratio: 16/9;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       border: 1px solid #cbd5e1;
       padding: 40px;
       display: flex;
@@ -389,70 +673,60 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: relative;
     }
 
-    /* Simulated cursor for collaboration */
-    .live-cursor {
+    /* COLLABORATION CURSOR & STYLES */
+    .oo-cursor {
       position: absolute;
       width: 2px;
-      height: 18px;
+      height: 16px;
       background: #ef4444;
       display: inline-block;
       animation: blink 1s step-end infinite;
     }
 
-    .live-cursor-label {
+    .oo-cursor-label {
       position: absolute;
       top: -18px;
       left: 0;
       background: #ef4444;
-      color: white;
+      color: #ffffff;
       font-size: 8px;
-      font-weight: bold;
+      font-weight: 700;
       padding: 1px 4px;
       border-radius: 2px;
       white-space: nowrap;
     }
 
-    @keyframes blink {
-      from, to { background-color: transparent }
-      50% { background-color: #ef4444 }
-    }
-
-    /* General status message bar */
-    .sim-status-bar {
+    /* --- BOTTOM STATUS BAR --- */
+    .oo-status-bar {
       background: #f8fafc;
-      border-top: 1px solid #cbd5e1;
-      padding: 5px 20px;
+      border-top: 1px solid var(--oo-border);
+      padding: 4px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-size: 11px;
       color: #64748b;
+    }
+
+    .oo-status-right {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
     }
 
-    /* Info card */
-    .demo-footer-info {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 13px;
-      color: var(--text-muted);
+    .oo-zoom-slider {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .demo-footer-info a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .demo-footer-info a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 20px 0;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
+    .oo-zoom-slider input {
+      width: 80px;
+      height: 3px;
+      outline: none;
     }
   </style>
 </head>
@@ -490,59 +764,183 @@
         <button id="btn-collab" class="tab-btn" onclick="switchDocType('collab')">Collaborate</button>
       </div>
 
-      <!-- Simulated Editor Wrapper -->
-      <div class="editor-wrapper" id="sim-editor-wrapper">
+      <!-- ONLYOFFICE HIGH-FIDELITY SIMULATOR -->
+      <div class="editor-wrapper">
         
-        <!-- Top Toolbar -->
-        <div class="sim-header">
-          <div class="sim-top-bar">
-            <div class="sim-logo">
-              MERCY<span>OFFICE</span>
+        <!-- Top Title Bar -->
+        <div class="oo-top-bar">
+          <div class="oo-top-left">
+            <div class="oo-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              ONLYOFFICE
             </div>
-            <div style="font-size: 11px; color: #64748b; font-weight: 500;" id="sim-file-name">Mercy_Tech_Demo.docx</div>
+            <div class="oo-actions">
+              <!-- Save Icon -->
+              <button class="oo-action-btn" title="Lưu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+              </button>
+              <!-- Print Icon -->
+              <button class="oo-action-btn" title="In">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              </button>
+              <!-- Undo Icon -->
+              <button class="oo-action-btn" title="Hoàn tác">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 14 4 9 9 4"></polyline><path d="M20 20v-7a4 4 0 0 0-4-4H4"></path></svg>
+              </button>
+              <!-- Redo Icon -->
+              <button class="oo-action-btn" title="Làm lại">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 14 20 9 15 4"></polyline><path d="M4 20v-7a4 4 0 0 1 4-4h12"></path></svg>
+              </button>
+            </div>
           </div>
           
-          <div class="sim-menu-tabs">
-            <div class="sim-menu-tab active">Trang chủ</div>
-            <div class="sim-menu-tab">Chèn</div>
-            <div class="sim-menu-tab">Bố cục</div>
-            <div class="sim-menu-tab">Cộng tác</div>
-            <div class="sim-menu-tab" style="color: #ef4444; font-weight: bold;">Trợ lý AI</div>
-          </div>
-
-          <div class="sim-ribbon">
-            <div class="ribbon-group">
-              <button class="ribbon-btn" style="font-weight: bold;" onclick="formatDoc('bold')">B</button>
-              <button class="ribbon-btn" style="font-style: italic;" onclick="formatDoc('italic')">I</button>
-              <button class="ribbon-btn" style="text-decoration: underline;" onclick="formatDoc('underline')">U</button>
-            </div>
-            <div class="ribbon-group">
-              <select style="font-size: 11px; padding: 2px; border: 1px solid #cbd5e0; border-radius: 4px;" id="font-family-select" onchange="changeFont()">
-                <option value="Inter">Inter</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Arial">Arial</option>
-              </select>
-              <select style="font-size: 11px; padding: 2px; border: 1px solid #cbd5e0; border-radius: 4px;">
-                <option>12</option>
-                <option>14</option>
-                <option>16</option>
-              </select>
-            </div>
-            <div class="ribbon-group">
-              <button class="ribbon-btn" onclick="alert('Giải pháp trọn gói 299k/máy đã bao gồm cấu hình in ấn tối ưu!')">Cấu hình Trang in</button>
+          <div class="oo-top-center" id="oo-file-title">Example Document Title.docx</div>
+          
+          <div class="oo-top-right">
+            <div class="oo-edit-badge">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="color: #4f46e5;"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+              Editing
             </div>
           </div>
         </div>
 
-        <!-- Main Workspace Body -->
-        <div class="sim-body" id="sim-workspace-body">
-          <!-- Dynamically populated workspace -->
+        <!-- Menu Tabs -->
+        <div class="oo-menu-tabs">
+          <div class="oo-menu-tab">File</div>
+          <div class="oo-menu-tab active">Home</div>
+          <div class="oo-menu-tab">Insert</div>
+          <div class="oo-menu-tab">Draw</div>
+          <div class="oo-menu-tab">Layout</div>
+          <div class="oo-menu-tab">References</div>
+          <div class="oo-menu-tab">Collaboration</div>
+          <div class="oo-menu-tab">Protection</div>
+          <div class="oo-menu-tab">View</div>
+          <div class="oo-menu-tab">Plugins</div>
+          <div class="oo-menu-tab" style="color: #ef4444; font-weight: bold;">AI Helper</div>
         </div>
 
-        <!-- Simulated Bottom Status Bar -->
-        <div class="sim-status-bar">
-          <span id="sim-word-count">Trang 1/1 | 148 từ</span>
-          <span>OnlyOffice v8.1 | Mercy Tech Setup</span>
+        <!-- Ribbon Toolbar (Matches OnlyOffice Rich Controls) -->
+        <div class="oo-ribbon">
+          <!-- Clipboard Group -->
+          <div class="oo-ribbon-group">
+            <button class="oo-btn" title="Paste">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            </button>
+            <button class="oo-btn" title="Copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          
+          <!-- Font Selection -->
+          <div class="oo-ribbon-group">
+            <select class="oo-select" id="font-family" onchange="applyFont()" style="width: 100px;">
+              <option value="Arial">Arial</option>
+              <option value="Inter" selected>Inter</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Courier New">Courier New</option>
+            </select>
+            <select class="oo-select" id="font-size" onchange="applyFontSize()">
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
+              <option selected>16</option>
+              <option>20</option>
+              <option>24</option>
+            </select>
+          </div>
+
+          <!-- Font Style Group -->
+          <div class="oo-ribbon-group">
+            <button class="oo-btn" style="font-weight: bold;" onclick="formatDoc('bold')">B</button>
+            <button class="oo-btn" style="font-style: italic;" onclick="formatDoc('italic')">I</button>
+            <button class="oo-btn" style="text-decoration: underline;" onclick="formatDoc('underline')">U</button>
+            <button class="oo-btn" style="text-decoration: line-through;" onclick="formatDoc('strikeThrough')">S</button>
+            <!-- Highlight Bucket -->
+            <button class="oo-btn" onclick="formatDoc('backColor', 'yellow')" title="Highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </button>
+          </div>
+
+          <!-- Alignment Group -->
+          <div class="oo-ribbon-group">
+            <button class="oo-btn" onclick="formatDoc('justifyLeft')" title="Align Left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+            </button>
+            <button class="oo-btn" onclick="formatDoc('justifyCenter')" title="Align Center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
+            </button>
+            <button class="oo-btn" onclick="formatDoc('justifyRight')" title="Align Right">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="21" y1="10" x2="7" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="7" y2="18"></line></svg>
+            </button>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="oo-ribbon-group">
+            <button class="oo-btn" style="color: var(--accent);" onclick="alert('Đã đồng bộ font chữ văn phòng chuẩn Tiếng Việt!')">Verify Fonts</button>
+          </div>
+        </div>
+
+        <!-- Main Workspace (Sidebar + Document Canvas) -->
+        <div class="oo-main-container">
+          
+          <!-- Left Sidebar (High-fidelity vertical bar) -->
+          <div class="oo-sidebar">
+            <button class="oo-sidebar-btn" title="Tìm kiếm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="oo-sidebar-btn" title="Bình luận">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </button>
+            <button class="oo-sidebar-btn" title="Trò chuyện">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2v4l-4-4H9a1.9 1.9 0 0 1-2-2c0-1.1.9-2 2-2h8V8z"></path><path d="M5 14H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+          </div>
+
+          <!-- Workspace Wrapper (Ruler + Canvas) -->
+          <div class="oo-workspace-wrapper">
+            
+            <!-- Horizontal Ruler -->
+            <div class="oo-ruler-horizontal">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+            </div>
+            
+            <div class="oo-workspace-body-container">
+              <!-- Vertical Ruler -->
+              <div class="oo-ruler-vertical">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              
+              <!-- Main Workspace -->
+              <div class="oo-workspace" id="oo-workspace-canvas">
+                <!-- Dynamically Populated Workspace Content -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Sidebar -->
+          <div class="oo-sidebar right">
+            <button class="oo-sidebar-btn" title="Cài đặt File">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+            <button class="oo-sidebar-btn" title="Định dạng đoạn văn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Bottom Status Bar -->
+        <div class="oo-status-bar">
+          <span id="oo-page-info">Page 1 of 1 | Word count: 184</span>
+          
+          <div class="oo-status-right">
+            <span>English (United States)</span>
+            <div class="oo-zoom-slider">
+              <span>Zoom 95%</span>
+              <input type="range" min="50" max="150" value="95">
+            </div>
+          </div>
         </div>
 
       </div>
@@ -564,214 +962,249 @@
     let currentTab = 'docx';
     let collabInterval = null;
 
-    function formatDoc(command) {
+    function formatDoc(command, value = null) {
       if (currentTab === 'docx' || currentTab === 'form' || currentTab === 'collab') {
-        document.execCommand(command, false, null);
+        document.execCommand(command, false, value);
       }
     }
 
-    function changeFont() {
-      const font = document.getElementById('font-family-select').value;
-      if (currentTab === 'docx' || currentTab === 'form' || currentTab === 'collab') {
-        document.execCommand('fontName', false, font);
-      }
+    function applyFont() {
+      const font = document.getElementById('font-family').value;
+      formatDoc('fontName', font);
+    }
+
+    function applyFontSize() {
+      const size = document.getElementById('font-size').value;
+      // standard size mapping
+      let sizeValue = '3';
+      if (size === '10') sizeValue = '1';
+      else if (size === '12') sizeValue = '2';
+      else if (size === '14') sizeValue = '3';
+      else if (size === '16') sizeValue = '4';
+      else if (size === '20') sizeValue = '5';
+      else if (size === '24') sizeValue = '6';
+      formatDoc('fontSize', sizeValue);
     }
 
     function switchDocType(tab) {
       currentTab = tab;
       
-      // Clear collaboration animation if active
       if (collabInterval) {
         clearInterval(collabInterval);
         collabInterval = null;
       }
 
-      // Update active tab buttons
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      const activeBtnId = 'btn-' + tab;
-      document.getElementById(activeBtnId).classList.add('active');
+      document.getElementById('btn-' + tab).classList.add('active');
 
-      const fileName = document.getElementById('sim-file-name');
-      const workspace = document.getElementById('sim-workspace-body');
-      const wordCount = document.getElementById('sim-word-count');
+      const fileTitle = document.getElementById('oo-file-title');
+      const canvas = document.getElementById('oo-workspace-canvas');
+      const pageInfo = document.getElementById('oo-page-info');
 
       if (tab === 'docx') {
-        fileName.innerText = "Mercy_Tech_Tailieu.docx";
-        wordCount.innerText = "Trang 1/1 | 120 từ";
-        workspace.innerHTML = `
-          <div class="sim-page" contenteditable="true">
-            <h2 style="text-align: center; margin-bottom: 20px;">BÁO CÁO CÔNG VIỆC VĂN PHÒNG</h2>
-            <p>Đây là trình soạn thảo văn bản **OnlyOffice Document** trực quan. Bạn có thể xóa đoạn này và tự tay gõ thử nội dung vào đây.</p>
-            <p style="margin-top: 15px;">Giải pháp OnlyOffice tương thích hoàn hảo với Microsoft Word: giữ nguyên 100% định dạng, bảng biểu, font chữ tiếng Việt chuẩn.</p>
+        fileTitle.innerText = "Welcome to ONLYOFFICE.docx";
+        pageInfo.innerText = "Page 1 of 1 | Word count: 142";
+        canvas.innerHTML = `
+          <div class="oo-document-page" contenteditable="true">
+            <div class="oo-welcome-header">
+              <div class="oo-welcome-title">Welcome to ONLYOFFICE Online Editors</div>
+              <div class="oo-welcome-subtitle">We are proud to present the first HTML5 Canvas-based online document editors.</div>
+            </div>
+            
+            <h3 style="color: #0369a1; font-size: 16px; font-weight: 700; margin-bottom: 10px;">Why ONLYOFFICE beats all the existing online processors?</h3>
+            
+            <div class="oo-bullet-list">
+              <div class="oo-bullet-item">
+                <span class="oo-bullet-icon">✓</span>
+                <span><strong>In the eye of users:</strong> it combines the formatting quality of MS Office & online collaboration of Google Docs (real-time co-editing and commenting).</span>
+              </div>
+              <div class="oo-bullet-item">
+                <span class="oo-bullet-icon">✓</span>
+                <span><strong>In the eye of tech enthusiasts:</strong> it's built with the use of HTML5 element, Canvas.</span>
+              </div>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 13px; line-height: 1.6; color: #475569;">
+              Bạn có thể tự do chỉnh sửa, gõ văn bản và thử nghiệm các nút Bold, Italic, Căn lề trên thanh công cụ giống như một trình Word thực sự.
+            </p>
           </div>
         `;
       } else if (tab === 'xlsx') {
-        fileName.innerText = "Mercy_Tech_Bangtinh.xlsx";
-        wordCount.innerText = "Sheet 1/1 | 30 ô dữ liệu";
+        fileTitle.innerText = "Financial Report.xlsx";
+        pageInfo.innerText = "Sheet 1 of 1 | 35 cells populated";
         
-        let gridHtml = '<table class="sim-grid">';
-        // Headers A to H
-        gridHtml += '<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr>';
+        let gridHtml = `
+          <div class="oo-grid-wrapper">
+            <div class="oo-formula-bar">
+              <span style="font-weight: bold; color: #64748b;">fx</span>
+              <input type="text" class="oo-formula-input" value="=SUM(E2:E4)" id="formula-input">
+            </div>
+            <div class="oo-grid-scroll">
+              <table class="oo-grid">
+                <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr>
+        `;
         
-        const dataRows = [
-          ['1', 'STT', 'Hạng mục vật tư', 'Số lượng', 'Đơn giá', 'Thành tiền', 'Ghi chú', ''],
-          ['2', '1', 'Thép tấm cuộn', '10', '15,000,000', '150,000,000', 'Đã kiểm kho', ''],
-          ['3', '2', 'Tôn mạ kẽm', '25', '8,500,000', '212,500,000', 'Hàng giao ngay', ''],
-          ['4', '3', 'Thép hộp đen', '15', '12,000,000', '180,000,000', 'Chờ xuất xưởng', ''],
-          ['5', 'Tổng', '', '', '', '542,500,000', 'Tổng cộng VAT', '']
+        const rows = [
+          ['STT', 'Mã vật tư', 'Tên sản phẩm', 'Số lượng', 'Đơn giá (đ)', 'Thành tiền (đ)', 'Kho chứa', 'Tình trạng'],
+          ['1', 'TP-001', 'Thép hình H', '12', '14,500,000', '174,000,000', 'Kho Q.12', 'Đủ hàng'],
+          ['2', 'TP-002', 'Thép ống tròn', '25', '6,200,000', '155,000,000', 'Kho Thủ Đức', 'Đủ hàng'],
+          ['3', 'TP-003', 'Tôn xốp 3 lớp', '50', '280,000', '14,000,000', 'Kho Q.9', 'Chờ nhập thêm'],
+          ['Tổng cộng', '', '', '', '', '343,000,000', '', 'Đã kiểm tra']
         ];
-        
-        for (let i = 0; i < 15; i++) {
-          gridHtml += '<tr>';
-          gridHtml += `<td class="row-num">${i+1}</td>`;
-          for (let j = 0; j < 7; j++) {
-            let cellVal = '';
-            if (i < dataRows.length) {
-              cellVal = dataRows[i][j+1] || '';
+
+        for (let i = 0; i < 24; i++) {
+          gridHtml += `<tr><td class="row-num">${i + 1}</td>`;
+          for (let j = 0; j < 8; j++) {
+            let val = '';
+            if (i < rows.length) {
+              val = rows[i][j] || '';
             }
-            // Style header row or totals
-            let isBold = (i === 0 || (i === 4 && j === 0) || (i === 4 && j === 4));
+            let isBold = (i === 0 || (i === 4 && j === 0) || (i === 4 && j === 5));
             let style = isBold ? 'font-weight: bold; background: #f8fafc;' : '';
-            gridHtml += `<td class="cell" contenteditable="true" style="${style}">${cellVal}</td>`;
+            gridHtml += `<td class="cell" contenteditable="true" style="${style}" onclick="updateFormulaBar(this)">${val}</td>`;
           }
           gridHtml += '</tr>';
         }
-        gridHtml += '</table>';
         
-        workspace.innerHTML = gridHtml;
+        gridHtml += '</table></div></div>';
+        canvas.innerHTML = gridHtml;
       } else if (tab === 'pptx') {
-        fileName.innerText = "Mercy_Tech_Trinhchieu.pptx";
-        wordCount.innerText = "Slide 1/5 | Tiêu chuẩn 16:9";
-        
-        workspace.innerHTML = `
-          <div class="sim-slide-container">
-            <div class="sim-slide-sidebar">
-              <div class="slide-thumbnail">Slide 1</div>
-              <div class="slide-thumbnail" style="border: 1px solid #cbd5e1; margin-top: 5px;">Slide 2</div>
-              <div class="slide-thumbnail" style="border: 1px solid #cbd5e1; margin-top: 5px;">Slide 3</div>
+        fileTitle.innerText = "Mercy Corporate Presentation.pptx";
+        pageInfo.innerText = "Slide 1 of 3 | 16:9 widescreen";
+        canvas.innerHTML = `
+          <div class="oo-presentation-wrapper">
+            <div class="oo-slides-sidebar">
+              <div class="oo-slide-thumb active">
+                <div style="font-weight: bold; color: #475569; font-size: 8px;">1. Slide tiêu đề</div>
+              </div>
+              <div class="oo-slide-thumb" style="margin-top: 8px;">
+                <div style="color: #94a3b8; font-size: 8px;">2. Tính năng chính</div>
+              </div>
+              <div class="oo-slide-thumb" style="margin-top: 8px;">
+                <div style="color: #94a3b8; font-size: 8px;">3. Báo giá trọn gói</div>
+              </div>
             </div>
-            <div class="sim-slide-workspace">
-              <div class="sim-slide">
-                <h1 style="font-size: 28px; font-weight: 800; color: var(--accent); margin-bottom: 15px;" contenteditable="true">OnlyOffice Presentation</h1>
-                <p style="font-size: 14px; color: #4a5568;" contenteditable="true">Bấm vào đây để chỉnh sửa slide trực tiếp. Hỗ trợ đầy đủ hiệu ứng animation, sơ đồ thông minh.</p>
+            <div class="oo-slide-workspace">
+              <div class="oo-slide">
+                <div style="position: absolute; top: 15px; left: 15px; font-size: 9px; font-weight: 700; color: var(--accent);">MERCY TECH</div>
+                <h1 style="font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 12px;" contenteditable="true">OnlyOffice Presentation</h1>
+                <p style="font-size: 14px; color: #475569; max-width: 450px;" contenteditable="true">Bấm vào đây để sửa trực tiếp tiêu đề hoặc chỉnh sửa bố cục. Trải nghiệm trình chiếu chuyên nghiệp, mượt mà.</p>
               </div>
             </div>
           </div>
         `;
       } else if (tab === 'pdf') {
-        fileName.innerText = "Tailieu_Nghiemthu.pdf";
-        wordCount.innerText = "Trang 1/3 | Chỉ xem / Ký số";
-        
-        workspace.innerHTML = `
-          <div class="sim-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
-            <div style="border: 1px solid #cbd5e1; background: white; padding: 40px; min-height: 100%;">
-              <h3 style="text-align: center; color: #1e293b; margin-bottom: 20px;">BIÊN BẢN NGHIỆM THU DỰ ÁN VĂN PHÒNG</h3>
-              <p style="font-size: 13px; color: #4a5568; line-height: 1.8;">
-                Hôm nay, ngày 04 tháng 07 năm 2026, hai bên gồm Công ty TNHH Công Nghệ Mercy và Công ty Tôn Thép Hùng Huyền tiến hành nghiệm thu bàn giao hệ thống phần mềm OnlyOffice cài đặt cho 50 máy tính.<br><br>
-                <strong>Nội dung nghiệm thu:</strong><br>
-                - Setup phần mềm văn phòng thành công trên 50 máy.<br>
-                - Đồng bộ bộ font chữ tiếng Việt văn phòng chuẩn.<br>
-                - Bàn giao đầy đủ hồ sơ pháp lý nguồn gốc GNU AGPLv3.
+        fileTitle.innerText = "Hop_dong_Nguyen_nguyen.pdf";
+        pageInfo.innerText = "Page 1 of 2 | Read Only / Signatures";
+        canvas.innerHTML = `
+          <div class="oo-document-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
+            <div style="border: 1px solid #cbd5e1; background: #ffffff; padding: 40px; min-height: 100%;">
+              <h3 style="text-align: center; color: #0f172a; margin-bottom: 20px; font-size: 16px;">BIÊN BẢN BÀN GIAO & CẤU HÌNH HỆ THỐNG VĂN PHÒNG</h3>
+              <p style="font-size: 13px; color: #475569; line-height: 1.8;">
+                Hôm nay, ngày 04 tháng 07 năm 2026, tại TP. Hồ Chí Minh.<br>
+                Đại diện bên giao: Công ty TNHH Công Nghệ Mercy (Mercy Tech).<br>
+                Đại diện bên nhận: Công ty Tôn Thép Hùng Huyền.<br><br>
+                Tiến hành ký nghiệm thu bàn giao bản quyền phần mềm và cài đặt local cho 50 máy tính văn phòng.<br>
+                - Bộ font chữ: Đã đồng bộ chuẩn quốc gia.<br>
+                - Hệ thống in ấn: Cấu hình mặc định đúng tiêu chuẩn căn lề.<br>
               </p>
-              <div style="margin-top: 40px; display: flex; justify-content: space-between; font-size: 12px; font-weight: bold;">
-                <div>ĐẠI DIỆN KHÁCH HÀNG</div>
-                <div>ĐẠI DIỆN MERCY TECH</div>
+              <div style="margin-top: 50px; display: flex; justify-content: space-between; font-size: 11px; font-weight: bold;">
+                <div>ĐẠI DIỆN HÙNG HUYỀN (Ký tên)</div>
+                <div>ĐẠI DIỆN MERCY TECH (Ký tên)</div>
               </div>
             </div>
           </div>
         `;
       } else if (tab === 'form') {
-        fileName.innerText = "Bieu_mau_Dang_ky.docxf";
-        wordCount.innerText = "Trang 1/1 | Phiếu khảo sát";
-        
-        workspace.innerHTML = `
-          <div class="sim-page" contenteditable="true">
-            <h2 style="text-align: center; margin-bottom: 25px;">PHIẾU ĐĂNG KÝ SETUP VĂN PHÒNG</h2>
-            <p style="margin-bottom: 15px;">Vui lòng điền thông tin khảo sát để Mercy Tech chuẩn bị cấu hình tốt nhất cho doanh nghiệp của bạn:</p>
-            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin-top: 20px;">
+        fileTitle.innerText = "Registration Form.docxf";
+        pageInfo.innerText = "Page 1 of 1 | Fillable Fields";
+        canvas.innerHTML = `
+          <div class="oo-document-page" contenteditable="true">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #1e3a8a;">ĐĂNG KÝ THÔNG TIN TRIỂN KHAI</h2>
+            <p style="font-size: 13px; margin-bottom: 20px;">Vui lòng điền đầy đủ các trường thông tin bên dưới (Trình tạo form độc quyền OnlyOffice):</p>
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 450px;">
               <div>
-                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Họ và tên người liên hệ:</label>
-                <input type="text" placeholder="Nhập họ tên" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="Nguyễn Văn A">
+                <label style="font-weight: 700; font-size: 12px; display: block; margin-bottom: 4px; color: #475569;">1. Tên công ty / Doanh nghiệp:</label>
+                <input type="text" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="Công ty Tôn Thép Hùng Huyền">
               </div>
               <div>
-                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Số lượng máy tính cần setup:</label>
-                <input type="number" placeholder="Ví dụ: 50" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="50">
+                <label style="font-weight: 700; font-size: 12px; display: block; margin-bottom: 4px; color: #475569;">2. Số lượng Key cần kích hoạt:</label>
+                <input type="number" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;" value="50">
               </div>
               <div>
-                <label style="font-weight: bold; font-size: 12px; display: block; margin-bottom: 4px;">Hệ điều hành đang sử dụng:</label>
-                <select style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
-                  <option>Windows 10 / 11</option>
-                  <option>macOS</option>
-                  <option>Linux</option>
-                </select>
+                <label style="font-weight: 700; font-size: 12px; display: block; margin-bottom: 4px; color: #475569;">3. Yêu cầu hỗ trợ thêm:</label>
+                <textarea style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; height: 60px;">Cần cấu hình in khổ giấy A4, A3 cho máy in văn phòng Canon LBP 2900.</textarea>
               </div>
             </div>
           </div>
         `;
       } else if (tab === 'fill') {
-        fileName.innerText = "To_khai_Dang_ky_Thue.pdf";
-        wordCount.innerText = "Form điền PDF | Đang mở";
-        
-        workspace.innerHTML = `
-          <div class="sim-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
-            <div style="border: 1px solid #cbd5e1; background: white; padding: 40px; min-height: 100%;">
-              <h3 style="text-align: center; color: #1e293b; margin-bottom: 20px;">TỜ KHAI THÔNG TIN THUẾ DOANH NGHIỆP</h3>
+        fileTitle.innerText = "Declaration Form.pdf";
+        pageInfo.innerText = "Form Filling | Active";
+        canvas.innerHTML = `
+          <div class="oo-document-page" style="background: #f8fafc; border: 1px dashed #cbd5e1;">
+            <div style="border: 1px solid #cbd5e1; background: #ffffff; padding: 40px; min-height: 100%;">
+              <h3 style="text-align: center; color: #1e3a8a; margin-bottom: 25px; font-size: 15px;">TOÀN VĂN HỒ SƠ PHÁP LÝ MERCY TECH</h3>
               <div style="display: flex; flex-direction: column; gap: 15px; font-size: 13px;">
-                <div style="display: flex; gap: 10px;">
-                  <span style="width: 150px; font-weight: bold;">Tên doanh nghiệp:</span>
-                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="Công ty Tôn Thép Hùng Huyền">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <span style="width: 150px; font-weight: 700;">Tên doanh nghiệp:</span>
+                  <input type="text" style="border: 1px solid #cbd5e1; border-radius: 4px; padding: 4px 8px; flex: 1; outline: none;" value="CÔNG TY TNHH CÔNG NGHỆ MERCY">
                 </div>
-                <div style="display: flex; gap: 10px;">
-                  <span style="width: 150px; font-weight: bold;">Mã số thuế:</span>
-                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="0109886762">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <span style="width: 150px; font-weight: 700;">Mã số thuế:</span>
+                  <input type="text" style="border: 1px solid #cbd5e1; border-radius: 4px; padding: 4px 8px; flex: 1; outline: none;" value="0319227767">
                 </div>
-                <div style="display: flex; gap: 10px;">
-                  <span style="width: 150px; font-weight: bold;">Địa chỉ:</span>
-                  <input type="text" style="border-bottom: 1px solid #718096; border-top:none; border-left:none; border-right:none; flex: 1; outline:none; font-size:13px;" value="Hà Nội, Việt Nam">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <span style="width: 150px; font-weight: 700;">Địa chỉ hóa đơn:</span>
+                  <input type="text" style="border: 1px solid #cbd5e1; border-radius: 4px; padding: 4px 8px; flex: 1; outline: none;" value="8/1E Đường Tô Ký, Xã Đông Thạnh, Hóc Môn, TP. HCM">
                 </div>
               </div>
             </div>
           </div>
         `;
       } else if (tab === 'collab') {
-        fileName.innerText = "Document_Hop_tac.docx";
-        wordCount.innerText = "2 người đang xem | Có thay đổi";
-        
-        workspace.innerHTML = `
-          <div class="sim-page" contenteditable="true" style="position: relative;">
-            <h2 style="text-align: center; margin-bottom: 20px;">KẾ HOẠCH PHÁT TRIỂN KINH DOANH</h2>
-            <p>Đây là tài liệu cộng tác thời gian thực giữa các thành viên trong nhóm.</p>
-            <p style="margin-top: 15px;">Bạn có thể gõ văn bản ở đây. Đồng thời, bạn sẽ nhìn thấy nhân viên khác đang gõ trực tiếp.</p>
-            <p style="margin-top: 15px; position: relative;" id="collab-write-line">
-              Kế hoạch setup văn phòng cho 50 máy tính của công ty Tôn Thép Hùng Huyền dự kiến triển khai <span id="collab-text-cursor" style="font-weight: bold; color: #ef4444;"></span>
-              <span class="live-cursor" id="collab-cursor" style="display:none; position:relative; top:2px; left:0px;">
-                <span class="live-cursor-label">Mai (Kế toán) đang gõ</span>
+        fileTitle.innerText = "Business Development Plan.docx";
+        pageInfo.innerText = "2 users active | Real-time edits";
+        canvas.innerHTML = `
+          <div class="oo-document-page" contenteditable="true" style="position: relative;">
+            <div class="oo-welcome-header" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+              <div class="oo-welcome-title" style="color: #b45309;">KẾ HOẠCH TRIỂN KHAI PHẦN MỀM VĂN PHÒNG</div>
+              <div class="oo-welcome-subtitle" style="color: #d97706;">Trang tài liệu cộng tác trực tuyến thời gian thực giữa CEO và bộ phận Kỹ thuật.</div>
+            </div>
+            
+            <p><strong>Nhiệm vụ 1:</strong> Setup cài đặt hàng loạt 50 máy tính văn phòng.</p>
+            <p style="margin-top: 15px; position: relative;">
+              Trạng thái kỹ thuật: Đã hoàn tất cài đặt bản quyền, kích hoạt key, tối ưu hóa driver in ấn <span id="collab-text" style="color: #ef4444; font-weight: bold;"></span>
+              <span class="oo-cursor" id="collab-cursor" style="display: none; position: relative; top: 2px; left: 0px;">
+                <span class="oo-cursor-label">Mai (Kế toán) đang gõ</span>
               </span>
             </p>
           </div>
         `;
-        
-        // Run simulated typing for Collaborate demo
-        let textToType = " vào thứ Hai tuần tới và bàn giao hồ sơ pháp lý vào thứ Tư...";
-        let charIndex = 0;
-        const textCursor = document.getElementById('collab-text-cursor');
-        const cursorIndicator = document.getElementById('collab-cursor');
-        
-        cursorIndicator.style.display = 'inline-block';
-        
+
+        // Collab live typing simulation
+        let textToType = " và hoàn thành cấu hình toàn bộ bộ font chữ tiếng Việt cho nhân sự dùng ngay...";
+        let idx = 0;
+        const textSpan = document.getElementById('collab-text');
+        const cursor = document.getElementById('collab-cursor');
+        cursor.style.display = 'inline-block';
+
         collabInterval = setInterval(() => {
-          if (charIndex < textToType.length) {
-            textCursor.innerText += textToType[charIndex];
-            charIndex++;
+          if (idx < textToType.length) {
+            textSpan.innerText += textToType[idx];
+            idx++;
           } else {
-            textCursor.innerText = "";
-            charIndex = 0;
+            textSpan.innerText = "";
+            idx = 0;
           }
-        }, 150);
+        }, 120);
       }
     }
 
-    // Auto-load DOCX view on start
+    function updateFormulaBar(cell) {
+      document.getElementById('formula-input').value = cell.innerText;
+    }
+
     window.onload = function() {
       switchDocType('docx');
     };
