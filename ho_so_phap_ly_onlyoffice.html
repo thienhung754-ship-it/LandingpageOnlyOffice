@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồ Sơ Pháp Lý & Nguồn Gốc Phần Mềm OnlyOffice | Mercy Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F172A;
+      --accent: #FF6F3D;
+      --border: #E2E8F0;
+      --text: #334155;
+      --text-dark: #0F172A;
+      --bg-light: #F8FAFC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: #E2E8F0;
+      padding: 40px 20px;
+    }
+
+    .document-page {
+      background: #ffffff;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 60px 80px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .document-page {
+        box-shadow: none;
+        padding: 40px;
+        margin: 0;
+        max-width: 100%;
+      }
+      .doc-header {
+        margin: -40px -40px 40px -40px !important; /* Matches document-page padding (40px) */
+        padding: 20px 40px !important; /* Aligned with print body margins */
+        border-radius: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Action bar */
+    .action-bar {
+      max-width: 850px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-print {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #E05626;
+    }
+
+    /* Header styled dark to display white logo correctly */
+    .doc-header {
+      background: #0f172a;
+      padding: 25px 80px; /* Aligned with body margin (80px) */
+      margin: -60px -80px 40px -80px;
+      border-radius: 8px 8px 0 0;
+      border-bottom: 2px solid var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .doc-meta {
+      text-align: right;
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: var(--text-dark);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .doc-subtitle {
+      font-size: 13px;
+      color: #64748b;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin: 30px 0 15px 0;
+    }
+
+    p, li {
+      font-size: 14px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .bold {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Comparison Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-light);
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .badge-ok {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .badge-bad {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    /* Links block */
+    .links-block {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    .links-block a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .links-block a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-alert {
+      border: 1px dashed rgba(255, 111, 61, 0.4);
+      background: rgba(255, 111, 61, 0.03);
+      padding: 20px;
+      border-radius: 6px;
+      margin: 25px 0;
+    }
+
+    .signature-area {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .sign-date {
+      font-size: 13px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .signature-wrapper {
+      margin-top: 15px;
+      position: relative;
+      display: inline-block;
+      width: 320px;
+      text-align: center;
+    }
+
+    .signature-img {
+      height: 130px;
+      width: auto;
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Action Bar -->
+  <div class="action-bar no-print">
+    <div style="font-size: 13px; color: #64748b; font-weight: 500;">
+      📄 Tài liệu được thiết kế sẵn sàng để in ấn / xuất file PDF gửi doanh nghiệp.
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      In tài liệu / Xuất PDF
+    </button>
+  </div>
+
+  <!-- Document Page -->
+  <div class="document-page">
+    
+    <!-- Letterhead -->
+    <div class="doc-header">
+      <img src="mercy_logo.png" alt="Mercy Tech" class="brand-logo">
+      <div class="doc-meta">
+        <div>Mã hồ sơ: PL-OO/2026</div>
+        <div>Ngày phát hành: 04/07/2026</div>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1>Hồ Sơ Pháp Lý & Nguồn Gốc Bản Quyền</h1>
+    <div class="doc-subtitle">Phần mềm văn phòng trực tuyến và máy tính ONLYOFFICE</div>
+
+    <!-- Section 1 -->
+    <h2>1. Cơ sở pháp lý quốc tế & Luật sở hữu trí tuệ Việt Nam</h2>
+    <p>Giải pháp văn phòng số được cài đặt dựa trên lõi công nghệ của phần mềm <span class="bold">ONLYOFFICE Desktop Editors</span>, do hãng công nghệ <span class="bold">Ascensio System SIA</span> (trụ sở tại Riga, Latvia - Liên minh Châu Âu) phát triển dưới các điều kiện pháp lý sau:</p>
+    
+    <ul style="margin-top: 10px;">
+      <li><span class="bold">Giấy phép áp dụng:</span> GNU Affero General Public License version 3 (GNU AGPLv3) - Giấy phép bản quyền nguồn mở tự do toàn cầu.</li>
+      <li><span class="bold">Quyền hạn thương mại:</span> Giấy phép AGPLv3 quy định rõ ràng rằng người dùng cá nhân và tổ chức có quyền <span class="bold">sử dụng phần mềm cho mục đích thương mại và sản xuất kinh doanh hoàn toàn miễn phí</span> mà không phải trả tiền mua mã kích hoạt (License Key) cho hãng gốc.</li>
+      <li><span class="bold">Tính pháp lý tại Việt Nam:</span> Khoản 1 Điều 15 Luật Sở hữu trí tuệ Việt Nam và Nghị định số 17/2023/NĐ-CP công nhận tính hiệu lực pháp lý của các giấy phép phần mềm nguồn mở. Việc cài đặt và sử dụng OnlyOffice có giấy phép AGPLv3 là hoàn toàn hợp pháp và không vi phạm Luật Bản quyền.</li>
+    </ul>
+
+    <!-- Section 2 -->
+    <h2>2. Bảng so sánh rủi ro pháp lý cho doanh nghiệp</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>Sử dụng Microsoft Office Crack (Lậu)</th>
+          <th>Sử dụng ONLYOFFICE (Cung cấp bởi Mercy Tech)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Tính hợp pháp</td>
+          <td class="badge-bad">Vi phạm pháp luật</td>
+          <td class="badge-ok">Hợp pháp 100% (Theo giấy phép AGPLv3)</td>
+        </tr>
+        <tr>
+          <td class="bold">Xử phạt vi phạm</td>
+          <td class="badge-bad">Phạt hành chính từ 50M đến 500M VNĐ</td>
+          <td class="badge-ok">An toàn tuyệt đối trước thanh tra bản quyền</td>
+        </tr>
+        <tr>
+          <td class="bold">Rủi ro hình sự</td>
+          <td class="badge-bad">Có thể bị khởi tố (Theo Điều 225 BLHS)</td>
+          <td class="badge-ok">0% rủi ro hình sự</td>
+        </tr>
+        <tr>
+          <td class="bold">Bảo mật dữ liệu</td>
+          <td class="badge-bad">Dễ bị virus khóa file (Ransomware) tống tiền</td>
+          <td class="badge-ok">Bảo mật cao, không chứa mã độc bẻ khóa</td>
+        </tr>
+        <tr>
+          <td class="bold">Kế toán & Hóa đơn</td>
+          <td class="badge-bad">Không được tính vào chi phí doanh nghiệp</td>
+          <td class="badge-ok">Mercy Tech xuất hóa đơn dịch vụ IT hợp lệ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 3 -->
+    <h2>3. Đường dẫn chứng minh xuất xứ và giấy phép gốc</h2>
+    <p>Doanh nghiệp có thể xuất trình các liên kết công khai sau đây để cơ quan chức năng hoặc ban kiểm soát đối chiếu trực tiếp:</p>
+    
+    <div class="links-block">
+      <div style="margin-bottom: 8px;">
+        <span class="bold">1. Giấy phép bản quyền gốc của OnlyOffice:</span><br>
+        <a href="https://github.com/ONLYOFFICE/DesktopEditors/blob/master/LICENSE" target="_blank">https://github.com/ONLYOFFICE/legalterms.aspx</a>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span class="bold">2. Mã nguồn công khai của phần mềm (Source Code):</span><br>
+        <a href="https://github.com/ONLYOFFICE/DesktopEditors" target="_blank">https://github.com/ONLYOFFICE/DesktopEditors</a>
+      </div>
+      <div>
+        <span class="bold">3. Điều khoản thương mại chính thức trên trang chủ hãng:</span><br>
+        <a href="https://www.onlyoffice.com/legalterms.aspx" target="_blank">https://www.onlyoffice.com/legalterms.aspx</a>
+      </div>
+    </div>
+
+    <!-- Alert Box -->
+    <div class="legal-alert">
+      <span class="bold" style="color: var(--accent);">LƯU Ý DÀNH CHO BỘ PHẬN KẾ TOÁN:</span><br>
+      <span style="font-size: 13.5px; display: block; margin-top: 5px;">Hóa đơn và hợp đồng giao dịch với Mercy Tech được ghi nhận dưới dạng <span class="bold">"Dịch vụ triển khai kỹ thuật, tư vấn và bảo trì phần mềm văn phòng số"</span>. Khoản thanh toán này là chi phí chi trả cho công sức lắp đặt, cấu hình, tối ưu hóa hệ thống máy trạm và bảo hành UltraView của kỹ sư Mercy Tech, không phải chi phí mua bản quyền thương mại của hãng gốc. Chi phí này hoàn toàn hợp lệ dưới Luật Thuế doanh nghiệp.</span>
+    </div>
+
+    <!-- Signature / Footer sign -->
+    <div class="signature-area">
+      <div class="sign-date">TP. Hồ Chí Minh, ngày 04 tháng 07 năm 2026</div>
+      <div class="bold" style="margin-top: 10px; font-size: 14px; text-transform: uppercase; color: var(--text-dark);">ĐẠI DIỆN CÔNG TY CÔNG NGHỆ MERCY TECH GLOBAL</div>
+      <div style="font-size: 13px; color: #64748b; margin-top: 4px; margin-bottom: 20px;">Đơn vị tư vấn và triển khai giải pháp</div>
+      <div class="signature-wrapper">
+        <img src="chu_ky_moc.png" alt="Chữ ký và Mộc Mercy Tech Global" class="signature-img">
+        <div style="margin-top: 90px; font-weight: 700; color: var(--text-dark); font-size: 15px;">Vy Thiên Hùng</div>
+        <div style="font-size: 12px; color: #64748b; font-weight: 600;">CEO & Founder</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

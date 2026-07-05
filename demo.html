@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <script type="text/javascript" src="https://site.docs.onlyoffice.com/web-apps/apps/api/documents/api.js"></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chạy Thử Trực Tuyến OnlyOffice | Mercy Tech</title>
@@ -1113,7 +1113,7 @@
     let currentFileType = 'docx';
     let isApiLoaded = (typeof DocsAPI !== 'undefined');
     let isLocalFile = (window.location.protocol === 'file:');
-    let useRealEditor = (new URLSearchParams(window.location.search).get('real') === 'true');
+    let useRealEditor = true; // Default to real editor!
 
     // Display warning if opened locally via file://
     if (isLocalFile) {
@@ -1324,8 +1324,18 @@
 
         function runRealEditor(fileType) {
       if (docEditorInstance) {
-        docEditorInstance.destroyEditor();
+        try {
+          docEditorInstance.destroyEditor();
+        } catch(e) {
+          console.error("Error destroying editor instance:", e);
+        }
         docEditorInstance = null;
+      }
+
+      // Recreate placeholder because OnlyOffice replaces it during initialization
+      const container = document.getElementById('editor-container');
+      if (container) {
+        container.innerHTML = '<div id="editor-placeholder"></div>';
       }
 
       // If we don't have the pre-authorized config for this fileType, fallback to simulator
