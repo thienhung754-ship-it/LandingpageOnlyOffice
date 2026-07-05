@@ -921,8 +921,6 @@
         <button id="btn-docx" class="tab-btn active" onclick="switchDocType('docx')">Edit DOCX</button>
         <button id="btn-xlsx" class="tab-btn" onclick="switchDocType('xlsx')">Edit XLSX</button>
         <button id="btn-pptx" class="tab-btn" onclick="switchDocType('pptx')">Edit PPTX</button>
-        <button id="btn-pdf" class="tab-btn" onclick="switchDocType('pdf')">Edit PDF</button>
-        <button id="btn-form" class="tab-btn" onclick="switchDocType('form')">Create Form</button>
         <button id="btn-fill" class="tab-btn" onclick="switchDocType('fill')">Fill in PDF Form</button>
         <button id="btn-collab" class="tab-btn" onclick="switchDocType('collab')">Collaborate</button>
       </div>
@@ -1148,23 +1146,18 @@
           document: {
             fileType: "docx",
             key: "97a0c7be-fd82-47c9-af2f-a1b47a27d49c",
-            title: "Mercy Office Document.docx",
+            title: "Example Document Title.docx",
             url: "https://static.onlyoffice.com/assets/docs/samples/demo.docx",
             permissions: { edit: true, review: true }
           },
           documentType: "word",
           editorConfig: {
-            lang: "vi",
-            user: { id: "78e1e841", name: "Vy Thien Hung (CEO)" },
+            lang: "en",
+            user: { id: "78e1e841", name: "John Smith" },
             customization: {
-              hideRightMenu: false,
+              hideRightMenu: true,
               integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
+              anonymous: { request: false }
             },
             plugins: {
               pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
@@ -1180,22 +1173,17 @@
           document: {
             fileType: "xlsx",
             key: "f1279e6f-ff50-4c7c-b9b6-4d84f0b5649e",
-            title: "Mercy Office Spreadsheet.xlsx",
+            title: "Example Title.xlsx",
             url: "https://static.onlyoffice.com/assets/docs/samples/demo.xlsx",
             permissions: { edit: true, review: true }
           },
           documentType: "cell",
           editorConfig: {
-            lang: "vi",
+            lang: "en",
             customization: {
-              hideRightMenu: false,
+              hideRightMenu: true,
               integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
+              anonymous: { request: false }
             },
             plugins: {
               pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
@@ -1206,89 +1194,25 @@
         }
       },
       pptx: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBwdHgiLCJrZXkiOiI4N2Y2ZGRhMi0xODA5LTQyOTktYTU0Zi04Y2RhM2RlZGQ0YmMiLCJ0aXRsZSI6IkV4YW1wbGUgVGl0bGUucHB0eCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby5wcHR4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6InNsaWRlIiwiZWRpdG9yQ29uZmlnIjp7ImxhbmciOiJlbiIsImN1c3RvbWl6YXRpb24iOnsiaGlkZVJpZ2h0TWVudSI6dHJ1ZSwiaW50ZWdyYXRpb25Nb2RlIjoiZW1iZWQiLCJhbm9ueW1vdXMiOnsicmVxdWVzdCI6ZmFsc2V9fSwicGx1Z2lucyI6eyJwbHVnaW5zRGF0YSI6WyJodHRwc2ovL29ubHlvZmZpY2UuY29tL3BsdWdpbi1yYWluYm93L2NvbmZpZy5qc29uIl19fSwid2lkdGgiOiIxMDAlIiwiaWF0IjoxNzgzMjE1ODgwfQ.RGlpjco7aXRhCQ9oxrNz8ciAqE1tB4QvUYa6zVsjM-A",
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBwdHgiLCJrZXkiOiI4N2FmYWM5Yi1hOTRmLTQxOTMtYTU0Zi04Y2RhM2RlZGQ0YmMiLCJ0aXRsZSI6IkV4YW1wbGUgVGl0bGUucHB0eCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby5wcHR4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6InNsaWRlIiwiZWRpdG9yQ29uZmlnIjp7ImxhbmciOiJlbiIsImN1c3RvbWl6YXRpb24iOnsiaGlkZVJpZ2h0TWVudSI6dHJ1ZSwiaW50ZWdyYXRpb25Nb2RlIjoiZW1iZWQiLCJhbm9ueW1vdXMiOnsicmVxdWVzdCI6ZmFsc2V9fSwicGx1Z2lucyI6eyJwbHVnaW5zRGF0YSI6WyJodHRwczovL29ubHlvZmZpY2UuY29tL3BsdWdpbi1yYWluYm93L2NvbmZpZy5qc29uIl19fSwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoxMDAlLCJpYXQiOjE3ODMyMTU4ODB9.aY66rC0W2y1V8z-A2k3J5l5n554Ym8u2n75y8869h30",
         config: {
           document: {
             fileType: "pptx",
             key: "87f6dda2-1809-4299-a54f-8cda3dedd4bc",
-            title: "Mercy Office Presentation.pptx",
+            title: "Example Title.pptx",
             url: "https://static.onlyoffice.com/assets/docs/samples/demo.pptx",
             permissions: { edit: true, review: true }
           },
           documentType: "slide",
           editorConfig: {
-            lang: "vi",
+            lang: "en",
             customization: {
-              hideRightMenu: false,
+              hideRightMenu: true,
               integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
+              anonymous: { request: false }
             },
             plugins: {
               pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
-            }
-          },
-          width: "100%",
-          height: "100%"
-        }
-      },
-      pdf: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBkZiIsImtleSI6ImYxOWQ4NDJhLWU0YWYtNDY2NC05MDRiLTI0NGRmMGE5NDRlZSIsInRpdGxlIjoiRXhhbXBsZSBEb2N1bWVudCBUaXRsZS5wZGYiLCJ1cmwiOiJodHRwczovL3N0YXRpYy5vbmx5b2ZmaWNlLmNvbS9hc3NldHMvZG9jcy9zYW1wbGVzL2RlbW8ucGRmIiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6InBkZiIsImVkaXRvckNvbmZpZyI6eyJsYW5nIjoiZW4iLCJjdXN0b21pemF0aW9uIjp7ImhpZGVSaWdodE1lbnUiOndydWUsImludGVncmF0aW9uTW9kZSI6ImVtYmVkIiwiYW5vbnltb3VzIjp7InJlcXVlc3QiOmZhbHNlfX0sInBsdWdpbnMiOnsicGx1Z2luc0RhdGEiOlsiaHR0cHM6Ly9vbmx5b2ZmaWNlLmNvbS9wbHVnaW4tcmFpbmJvdy9jb25maWcuanNvbiJdfX0sIndpZHRoIjoiMTAwJSIsImhlaWdodCI6IjEwMCUiLCJpYXQiOjE3ODMyMTU4ODB9.Twmo9KKgou6TOev4OP0ygC8Rq2Bbc4bqrO0uuXhS01Y",
-        config: {
-          document: {
-            fileType: "pdf",
-            key: "f19d842a-e4af-4664-904b-244df0a944ee",
-            title: "Mercy Office Document.pdf",
-            url: "https://static.onlyoffice.com/assets/docs/samples/demo.pdf",
-            permissions: { edit: true, review: true }
-          },
-          documentType: "pdf",
-          editorConfig: {
-            lang: "vi",
-            customization: {
-              hideRightMenu: false,
-              integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
-            },
-            plugins: {
-              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
-            }
-          },
-          width: "100%",
-          height: "100%"
-        }
-      },
-      form: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBkZiIsImtleSI6IjA5NjAwY2EzLTY5YjAtNGYyNC1hZDU4LTI2ZTFiZjFjMzE2ZCIsInRpdGxlIjoiRXhhbXBsZSBGb3JtIFRpdGxlLnBkZiIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvb2Zvcm0ucGRmIiwicGVybWlzc2lvbnMiOnsiZWRpdCI6ZmFsc2UsImZpbGxGb3JtcyI6dHJ1ZX19LCJkb2N1bWVudFR5cGUiOiJwZGYiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19fSwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoiMTAwJSIsImlhdCI6MTc4MzIxNTg4MH0.JpGiwCLcTDggdgZBDb6DOFlfdbnLx6YJt1_dWOx5gYw",
-        config: {
-          document: {
-            fileType: "pdf",
-            key: "09600ca3-69b0-4f24-ad58-26e1bf1c316d",
-            title: "Mercy Office Form.pdf",
-            url: "https://static.onlyoffice.com/assets/docs/samples/oform.pdf",
-            permissions: { edit: false, fillForms: true }
-          },
-          documentType: "pdf",
-          editorConfig: {
-            lang: "vi",
-            customization: {
-              hideRightMenu: false,
-              integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
             }
           },
           width: "100%",
@@ -1301,22 +1225,17 @@
           document: {
             fileType: "pdf",
             key: "4f13d66d-ce88-4891-a4aa-1b8a46724b26",
-            title: "Mercy Office Invoice.pdf",
+            title: "Example Document Title.pdf",
             url: "https://static.onlyoffice.com/assets/docs/samples/demo-invoice.pdf",
             permissions: {}
           },
           documentType: "pdf",
           editorConfig: {
-            lang: "vi",
+            lang: "en",
             customization: {
-              hideRightMenu: false,
+              hideRightMenu: true,
               integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
+              anonymous: { request: false }
             }
           },
           width: "100%",
@@ -1329,23 +1248,18 @@
           document: {
             fileType: "docx",
             key: "97a0c7be-fd82-47c9-af2f-a1b47a27d49c",
-            title: "Mercy Office Collaborate.docx",
+            title: "Example Document Title.docx",
             url: "https://static.onlyoffice.com/assets/docs/samples/demo.docx",
             permissions: { edit: true, review: true }
           },
           documentType: "word",
           editorConfig: {
-            lang: "vi",
+            lang: "en",
             user: { id: "F89d8069ba2b", name: "Kate Cage" },
             customization: {
-              hideRightMenu: false,
+              hideRightMenu: true,
               integrationMode: "embed",
-              anonymous: { request: false },
-              logo: {
-                image: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                imageEmbedded: "https://onlyoffice.mercytechglobal.com/favicon.png",
-                url: "https://onlyoffice.mercytechglobal.com"
-              }
+              anonymous: { request: false }
             },
             plugins: {
               pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
