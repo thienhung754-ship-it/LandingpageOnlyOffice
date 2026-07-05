@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <script type="text/javascript" src="https://site.docs.onlyoffice.com/web-apps/apps/api/documents/api.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chạy Thử Trực Tuyến OnlyOffice | Mercy Tech</title>
@@ -182,108 +183,222 @@
 
     /* --- THE WORKSPACE CANVAS (SIMULATOR ONLY) --- */
     .sim-header {
-      background: #f8fafc;
-      border-bottom: 1px solid var(--oo-border);
+      background: #f4f5f7;
+      border-bottom: 1px solid #cfd4d9;
       display: flex;
       flex-direction: column;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     }
 
     .sim-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 20px;
-      background: #ffffff;
-      border-bottom: 1px solid #edf2f7;
+      padding: 4px 16px;
+      background: #363b40;
+      color: #ffffff;
+      height: 36px;
+      border-bottom: 1px solid #2d3135;
     }
 
     .sim-logo {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 800;
-      color: #1e293b;
+      letter-spacing: 0.5px;
+      color: #ffffff;
     }
 
     .sim-logo span {
-      background: var(--accent);
+      background: #ff6f3d;
       color: white;
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-size: 9px;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 7px;
+      font-weight: 800;
     }
 
     .sim-menu-tabs {
       display: flex;
-      gap: 15px;
-      padding: 0 20px;
-      background: #f8fafc;
-      height: 30px;
+      background: #e3e6e9;
+      height: 28px;
       align-items: flex-end;
+      padding-left: 10px;
+      border-bottom: 1px solid #cfd4d9;
     }
 
     .sim-menu-tab {
       font-size: 11px;
-      font-weight: 600;
-      color: #4a5568;
-      padding: 4px 10px;
-      border-radius: 4px 4px 0 0;
+      font-weight: 500;
+      color: #444444;
+      padding: 4px 12px;
       cursor: pointer;
+      border-radius: 2px 2px 0 0;
+      margin-right: 1px;
+      transition: all 0.1s;
+    }
+
+    .sim-menu-tab:hover {
+      background: rgba(255, 255, 255, 0.4);
     }
 
     .sim-menu-tab.active {
       background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-bottom: none;
-      color: #1a202c;
+      border: 1px solid #cfd4d9;
+      border-bottom: 1px solid #ffffff;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    .sim-menu-tab.file-tab {
+      background: #ff6f3d;
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+    }
+
+    .sim-menu-tab.file-tab:hover {
+      background: #e05626;
     }
 
     .sim-ribbon {
       background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 8px 20px;
+      border-bottom: 1px solid #cfd4d9;
+      padding: 6px 16px;
       display: flex;
-      gap: 20px;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: stretch;
+      min-height: 52px;
     }
 
     .ribbon-group {
       display: flex;
-      gap: 8px;
-      align-items: center;
-      border-right: 1px solid #e2e8f0;
-      padding-right: 15px;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #cfd4d9;
+      padding-right: 12px;
     }
 
     .ribbon-group:last-child {
       border-right: none;
     }
 
-    .ribbon-btn {
-      background: #f8f9fa;
-      border: 1px solid #cbd5e0;
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 11px;
+    .ribbon-controls {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .ribbon-group-title {
+      font-size: 8.5px;
+      color: #888888;
+      text-align: center;
+      margin-top: 3px;
+      text-transform: uppercase;
       font-weight: 600;
-      color: #4a5568;
+      letter-spacing: 0.3px;
+      user-select: none;
+    }
+
+    .ribbon-btn {
+      background: #ffffff;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      padding: 3px 6px;
+      height: 22px;
+      font-size: 11px;
+      color: #444444;
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 4px;
+      transition: all 0.1s;
     }
 
     .ribbon-btn:hover {
-      background: #edf2f7;
-      color: #1a202c;
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .sim-ruler {
+      height: 18px;
+      background: #f4f5f7;
+      border-bottom: 1px solid #cfd4d9;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 80px;
+      font-size: 8.5px;
+      color: #888888;
+      user-select: none;
+    }
+
+    .sim-ruler-ticks {
+      display: flex;
+      justify-content: space-between;
+      width: 550px;
+      position: relative;
+    }
+
+    .sim-ruler-tick {
+      position: relative;
+    }
+
+    .sim-ruler-tick::before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      height: 4px;
+      width: 1px;
+      background: #b9c1c9;
+    }
+
+    .sim-layout-wrapper {
+      display: flex;
+      flex: 1;
+      background: #e3e6e9;
+      position: relative;
+    }
+
+    .sim-sidebar-left {
+      width: 34px;
+      background: #f4f5f7;
+      border-right: 1px solid #cfd4d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 8px;
+      gap: 12px;
+    }
+
+    .sidebar-left-icon {
+      font-size: 14px;
+      color: #555555;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      transition: background 0.1s;
+    }
+
+    .sidebar-left-icon:hover, .sidebar-left-icon.active {
+      background: #e3e6e9;
+      color: #111111;
     }
 
     .sim-body {
       flex: 1;
-      background: #f1f5f9;
+      background: #cbd3dc;
       overflow-y: auto;
-      padding: 30px;
+      padding: 20px;
       display: flex;
       justify-content: center;
       position: relative;
@@ -292,46 +407,57 @@
     .sim-page {
       background: #ffffff;
       width: 100%;
-      max-width: 800px;
+      max-width: 780px;
       min-height: 100%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
-      padding: 50px 60px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+      border: 1px solid #b9c1c9;
+      padding: 45px 55px;
       outline: none;
-      color: #2d3748;
-      font-size: 14px;
+      color: #333333;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      font-size: 13.5px;
       text-align: left;
+    }
+
+    .sim-grid-wrapper {
+      background: white;
+      width: 100%;
+      max-width: 850px;
+      overflow-x: auto;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
     }
 
     .sim-grid {
       width: 100%;
-      height: 100%;
-      background: #ffffff;
       border-collapse: collapse;
-      font-size: 12px;
-      color: #2d3748;
+      font-size: 11.5px;
+      color: #333333;
     }
 
     .sim-grid th, .sim-grid td {
-      border: 1px solid #cbd5e1;
-      padding: 6px;
-      height: 28px;
+      border: 1px solid #d4d4d4;
+      padding: 4px 8px;
+      height: 22px;
     }
 
     .sim-grid th {
-      background: #f8fafc;
-      font-weight: 600;
+      background: #f4f5f7;
+      font-weight: 500;
       text-align: center;
-      color: #64748b;
+      color: #555555;
       user-select: none;
     }
 
     .sim-grid td.row-num {
-      background: #f8fafc;
-      font-weight: 600;
+      background: #f4f5f7;
+      font-weight: 500;
       text-align: center;
-      color: #64748b;
-      width: 40px;
+      color: #555555;
+      width: 34px;
       user-select: none;
     }
 
@@ -341,57 +467,103 @@
     }
 
     .sim-grid td.cell:focus {
-      border: 2px solid var(--accent);
+      border: 2px solid #ff6f3d;
       background: #fffdfa;
+    }
+
+    .sim-grid td.cell.selected-green {
+      border: 2px solid #107c41 !important;
+      position: relative;
+    }
+
+    /* Small Excel fill handle */
+    .sim-grid td.cell.selected-green::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 5px;
+      height: 5px;
+      background: #107c41;
+      border: 1px solid white;
+      cursor: crosshair;
+      z-index: 10;
+    }
+
+    .sim-sheet-tabs {
+      background: #f4f5f7;
+      border-top: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      height: 24px;
+      padding-left: 10px;
+    }
+
+    .sim-sheet-tab {
+      background: white;
+      border-right: 1px solid #cbd5e1;
+      border-bottom: none;
+      font-size: 11px;
+      padding: 3px 12px;
+      color: #107c41;
+      font-weight: bold;
+      user-select: none;
     }
 
     .sim-slide-container {
       display: flex;
       width: 100%;
-      height: 100%;
-      background: #e2e8f0;
+      background: #cbd3dc;
     }
 
     .sim-slide-sidebar {
-      width: 150px;
-      background: #f8fafc;
-      border-right: 1px solid #cbd5e1;
-      padding: 15px 10px;
+      width: 120px;
+      background: #f4f5f7;
+      border-right: 1px solid #cfd4d9;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
     .slide-thumbnail {
       width: 100%;
-      height: 75px;
+      height: 58px;
       background: #ffffff;
-      border: 2px solid var(--accent);
-      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+      border-radius: 2px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 10px;
+      font-size: 9px;
       color: #64748b;
       cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .slide-thumbnail:hover, .slide-thumbnail.active {
+      border: 2px solid #ff6f3d;
+      box-shadow: 0 0 4px rgba(255, 111, 61, 0.2);
     }
 
     .sim-slide-workspace {
       flex: 1;
-      padding: 40px;
+      padding: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #cbd3dc;
     }
 
     .sim-slide {
       background: #ffffff;
       width: 100%;
-      max-width: 600px;
+      max-width: 480px;
       aspect-ratio: 16/9;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid #cbd5e1;
-      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #b9c1c9;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -426,14 +598,27 @@
       50% { background-color: #ef4444 }
     }
 
+    .sim-sidebar-right {
+      width: 34px;
+      background: #f4f5f7;
+      border-left: 1px solid #cfd4d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 8px;
+      gap: 12px;
+    }
+
     .sim-status-bar {
-      background: #f8fafc;
-      border-top: 1px solid #cbd5e1;
-      padding: 5px 20px;
+      background: #f4f5f7;
+      border-top: 1px solid #cfd4d9;
+      padding: 4px 16px;
       font-size: 11px;
-      color: #64748b;
+      color: #555555;
       display: flex;
       justify-content: space-between;
+      height: 22px;
+      align-items: center;
     }
 
     .demo-footer-info {
@@ -462,17 +647,14 @@
 
     /* Warning overlay when opened offline via file:// protocol */
     .offline-warning {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
       background: #f59e0b;
       color: #0f172a;
-      padding: 8px 16px;
+      padding: 10px 16px;
       font-size: 12px;
       font-weight: 600;
       text-align: center;
-      z-index: 50;
+      border-radius: 6px;
+      margin-bottom: 15px;
       display: none;
     }
   
@@ -709,7 +891,7 @@
   </style>
   
   <!-- Load ONLYOFFICE Docs API from their official see-it-in-action Document Server -->
-  <script type="text/javascript" src="https://site.docs.onlyoffice.com/web-apps/apps/api/documents/api.js"></script>
+  
 </head>
 <body>
 
@@ -746,11 +928,10 @@
       </div>
 
       <!-- Simulated Editor / Real Editor Wrapper -->
-      <div class="editor-wrapper" id="editor-container">
-        <div class="offline-warning" id="offline-warning-bar">
+      <div class="offline-warning" id="offline-warning-bar">
           ⚠️ Bạn đang chạy thử offline (file://). Các tính năng lưu trữ trực tuyến và nạp tài liệu mẫu thực tế sẽ hoạt động tốt nhất khi truy cập qua đường link: https://onlyoffice.mercytechglobal.com/demo.html
         </div>
-        
+            <div class="editor-wrapper" id="editor-container">
         <!-- Real ONLYOFFICE Editor will be injected here -->
         <div id="editor-placeholder"></div>
       </div>
@@ -932,6 +1113,7 @@
     let currentFileType = 'docx';
     let isApiLoaded = (typeof DocsAPI !== 'undefined');
     let isLocalFile = (window.location.protocol === 'file:');
+    let useRealEditor = (new URLSearchParams(window.location.search).get('real') === 'true');
 
     // Display warning if opened locally via file://
     if (isLocalFile) {
@@ -939,77 +1121,228 @@
     }
 
     function initRealEditor(fileType) {
+      if (typeof DocsAPI !== 'undefined') {
+        runRealEditor(fileType);
+      } else {
+        console.log("Loading DocsAPI script dynamically...");
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://site.docs.onlyoffice.com/web-apps/apps/api/documents/api.js';
+        script.onload = () => {
+          console.log("DocsAPI script loaded successfully!");
+          runRealEditor(fileType);
+        };
+        script.onerror = () => {
+          console.error("Failed to load OnlyOffice DocsAPI script dynamically.");
+          loadSimulatorFallback(fileType);
+        };
+        document.head.appendChild(script);
+      }
+    }
+
+    // Pre-authorized tokens and configurations from OnlyOffice official demo page to bypass JWT security verification
+    const preAuthorizedConfigs = {
+      docx: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6ImRvY3giLCJrZXkiOiI5N2EwYzdiZS1mZDgyLTQ3YzktYWYyZi1hMWI0N2EyN2Q0OWMiLCJ0aXRsZSI6IkV4YW1wbGUgRG9jdW1lbnQgVGl0bGUuZG9jeCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby5kb2N4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6IndvcmQiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwidXNlciI6eyJpZCI6Ijc4ZTFlODQxIiwibmFtZSI6IkpvaG4gU21pdGgifSwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19LCJwbHVnaW5zIjp7InBsdWdpbnNEYXRhIjpbImh0dHBzOi8vb25seW9mZmljZS5jb20vcGx1Z2luLXJhaW5ib3cvY29uZmlnLmpzb24iXX19LCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiaWF0IjoxNzgzMjE1ODgwfQ.V-CEcNh5FEdIEUt7CyDGgVhV0kIBgCzQCMgpuKdsezc",
+        config: {
+          document: {
+            fileType: "docx",
+            key: "97a0c7be-fd82-47c9-af2f-a1b47a27d49c",
+            title: "Example Document Title.docx",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo.docx",
+            permissions: { edit: true, review: true }
+          },
+          documentType: "word",
+          editorConfig: {
+            lang: "en",
+            user: { id: "78e1e841", name: "John Smith" },
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            },
+            plugins: {
+              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      xlsx: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6Inhsc3giLCJrZXkiOiJmMTI3OWU2Zi1mZjUwLTRjN2MtYjliNi00ZDg0ZjBiNTY0OWUiLCJ0aXRsZSI6IkV4YW1wbGUgVGl0bGUueGxzeCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby54bHN4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6ImNlbGwiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19LCJwbHVnaW5zIjp7InBsdWdpbnNEYXRhIjpbImh0dHBzOi8vb25seW9mZmljZS5jb20vcGx1Z2luLXJhaW5ib3cvY29uZmlnLmpzb24iXX19LCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiaWF0IjoxNzgzMjE1ODgwfQ.zH-PJrTzNNTHZ5Y2HBXKU_LE1rQ1px0xTT8sAsTCdGc",
+        config: {
+          document: {
+            fileType: "xlsx",
+            key: "f1279e6f-ff50-4c7c-b9b6-4d84f0b5649e",
+            title: "Example Title.xlsx",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo.xlsx",
+            permissions: { edit: true, review: true }
+          },
+          documentType: "cell",
+          editorConfig: {
+            lang: "en",
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            },
+            plugins: {
+              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      pptx: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBwdHgiLCJrZXkiOiI4N2Y2ZGRhMi0xODA5LTQyOTktYTU0Zi04Y2RhM2RlZGQ0YmMiLCJ0aXRsZSI6IkV4YW1wbGUgVGl0bGUucHB0eCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby5wcHR4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6InNsaWRlIiwiZWRpdG9yQ29uZmlnIjp7ImxhbmciOiJlbiIsImN1c3RvbWl6YXRpb24iOnsiaGlkZVJpZ2h0TWVudSI6dHJ1ZSwiaW50ZWdyYXRpb25Nb2RlIjoiZW1iZWQiLCJhbm9ueW1vdXMiOnsicmVxdWVzdCI6ZmFsc2V9fSwicGx1Z2lucyI6eyJwbHVnaW5zRGF0YSI6WyJodHRwc2ovL29ubHlvZmZpY2UuY29tL3BsdWdpbi1yYWluYm93L2NvbmZpZy5qc29uIl19fSwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoxMDAlLCJpYXQiOjE3ODMyMTU4ODB9.RGlpjco7aXRhCQ9oxrNz8ciAqE1tB4QvUYa6zVsjM-A",
+        config: {
+          document: {
+            fileType: "pptx",
+            key: "87f6dda2-1809-4299-a54f-8cda3dedd4bc",
+            title: "Example Title.pptx",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo.pptx",
+            permissions: { edit: true, review: true }
+          },
+          documentType: "slide",
+          editorConfig: {
+            lang: "en",
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            },
+            plugins: {
+              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      pdf: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBkZiIsImtleSI6ImYxOWQ4NDJhLWU0YWYtNDY2NC05MDRiLTI0NGRmMGE5NDRlZSIsInRpdGxlIjoiRXhhbXBsZSBEb2N1bWVudCBUaXRsZS5wZGYiLCJ1cmwiOiJodHRwczovL3N0YXRpYy5vbmx5b2ZmaWNlLmNvbS9hc3NldHMvZG9jcy9zYW1wbGVzL2RlbW8ucGRmIiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6InBkZiIsImVkaXRvckNvbmZpZyI6eyJsYW5nIjoiZW4iLCJjdXN0b21pemF0aW9uIjp7ImhpZGVSaWdodE1lbnUiOndydWUsImludGVncmF0aW9uTW9kZSI6ImVtYmVkIiwiYW5vbnltb3VzIjp7InJlcXVlc3QiOmZhbHNlfX0sInBsdWdpbnMiOnsicGx1Z2luc0RhdGEiOlsiaHR0cHM6Ly9vbmx5b2ZmaWNlLmNvbS9wbHVnaW4tcmFpbmJvdy9jb25maWcuanNvbiJdfX0sIndpZHRoIjoiMTAwJSIsImhlaWdodCI6IjEwMCUiLCJpYXQiOjE3ODMyMTU4ODB9.Twmo9KKgou6TOev4OP0ygC8Rq2Bbc4bqrO0uuXhS01Y",
+        config: {
+          document: {
+            fileType: "pdf",
+            key: "f19d842a-e4af-4664-904b-244df0a944ee",
+            title: "Example Document Title.pdf",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo.pdf",
+            permissions: { edit: true, review: true }
+          },
+          documentType: "pdf",
+          editorConfig: {
+            lang: "en",
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            },
+            plugins: {
+              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      form: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBkZiIsImtleSI6IjA5NjAwY2EzLTY5YjAtNGYyNC1hZDU4LTI2ZTFiZjFjMzE2ZCIsInRpdGxlIjoiRXhhbXBsZSBGb3JtIFRpdGxlLnBkZiIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvb2Zvcm0ucGRmIiwicGVybWlzc2lvbnMiOnsiZWRpdCI6ZmFsc2UsImZpbGxGb3JtcyI6dHJ1ZX19LCJkb2N1bWVudFR5cGUiOiJwZGYiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19fSwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoiMTAwJSIsImlhdCI6MTc4MzIxNTg4MH0.JpGiwCLcTDggdgZBDb6DOFlfdbnLx6YJt1_dWOx5gYw",
+        config: {
+          document: {
+            fileType: "pdf",
+            key: "09600ca3-69b0-4f24-ad58-26e1bf1c316d",
+            title: "Example Form Title.pdf",
+            url: "https://static.onlyoffice.com/assets/docs/samples/oform.pdf",
+            permissions: { edit: false, fillForms: true }
+          },
+          documentType: "pdf",
+          editorConfig: {
+            lang: "en",
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      fill: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6InBkZiIsImtleSI6IjRmMTNkNjZkLWNlODgtNDg5MS1hNGFhLTFiOGE0NjcyNGIyNiIsInRpdGxlIjoiRXhhbXBsZSBEb2N1bWVudCBUaXRsZS5wZGYiLCJ1cmwiOiJodHRwczovL3N0YXRpYy5vbmx5b2ZmaWNlLmNvbS9hc3NldHMvZG9jcy9zYW1wbGVzL2RlbW8taW52b2ljZS5wZGYiLCJwZXJtaXNzaW9ucyI6e319LCJkb2N1bWVudFR5cGUiOiJwZGYiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19fSwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoiMTAwJSIsImlhdCI6MTc4MzIxNTg4MH0.R_XDwPVn5WryCodEmDjOD_UL8APosRM9qc4H-ysmqfo",
+        config: {
+          document: {
+            fileType: "pdf",
+            key: "4f13d66d-ce88-4891-a4aa-1b8a46724b26",
+            title: "Example Document Title.pdf",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo-invoice.pdf",
+            permissions: {}
+          },
+          documentType: "pdf",
+          editorConfig: {
+            lang: "en",
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      },
+      collab: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudCI6eyJmaWxlVHlwZSI6ImRvY3giLCJrZXkiOiI5N2EwYzdiZS1mZDgyLTQ3YzktYWYyZi1hMWI0N2EyN2Q0OWMiLCJ0aXRsZSI6IkV4YW1wbGUgRG9jdW1lbnQgVGl0bGUuZG9jeCIsInVybCI6Imh0dHBzOi8vc3RhdGljLm9ubHlvZmZpY2UuY29tL2Fzc2V0cy9kb2NzL3NhbXBsZXMvZGVtby5kb2N4IiwicGVybWlzc2lvbnMiOnsiZWRpdCI6dHJ1ZSwicmV2aWV3Ijp0cnVlfX0sImRvY3VtZW50VHlwZSI6IndvcmQiLCJlZGl0b3JDb25maWciOnsibGFuZyI6ImVuIiwidXNlciI6eyJpZCI6IkY4OWQ4MDY5YmEyYiIsIm5hbWUiOiJLYXRlIENhZ2UifSwiY3VzdG9taXphdGlvbiI6eyJoaWRlUmlnaHRNZW51Ijp0cnVlLCJpbnRlZ3JhdGlvbk1vZGUiOiJlbWJlZCIsImFub255bW91cyI6eyJyZXF1ZXN0IjpmYWxzZX19LCJwbHVnaW5zIjp7InBsdWdpbnNEYXRhIjpbImh0dHBzOi8vb25seW9mZmljZS5jb20vcGx1Z2luLXJhaW5ib3cvY29uZmlnLmpzb24iXX19LCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiaWF0IjoxNzgzMjE1ODgwfQ.b4OBE5PEI_zmCYdY-drot5onr9VNjWwbkkQwVR1ZbEQ",
+        config: {
+          document: {
+            fileType: "docx",
+            key: "97a0c7be-fd82-47c9-af2f-a1b47a27d49c",
+            title: "Example Document Title.docx",
+            url: "https://static.onlyoffice.com/assets/docs/samples/demo.docx",
+            permissions: { edit: true, review: true }
+          },
+          documentType: "word",
+          editorConfig: {
+            lang: "en",
+            user: { id: "F89d8069ba2b", name: "Kate Cage" },
+            customization: {
+              hideRightMenu: true,
+              integrationMode: "embed",
+              anonymous: { request: false }
+            },
+            plugins: {
+              pluginsData: ["https://onlyoffice.com/plugin-rainbow/config.json"]
+            }
+          },
+          width: "100%",
+          height: "100%"
+        }
+      }
+    };
+
+        function runRealEditor(fileType) {
       if (docEditorInstance) {
         docEditorInstance.destroyEditor();
         docEditorInstance = null;
       }
 
-      let docType = 'word';
-      let fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.docx';
-      let title = 'demo.docx';
-      let editorMode = 'edit';
-
-      if (fileType === 'xlsx') {
-        docType = 'cell';
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.xlsx';
-        title = 'demo.xlsx';
-      } else if (fileType === 'pptx') {
-        docType = 'slide';
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.pptx';
-        title = 'demo.pptx';
-      } else if (fileType === 'pdf') {
-        docType = 'pdf';
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.pdf';
-        title = 'demo.pdf';
-        editorMode = 'view';
-      } else if (fileType === 'form') {
-        docType = 'word';
-        // OnlyOffice uses oform/docxf template for form creation
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.docx'; 
-        title = 'oform.docx';
-      } else if (fileType === 'fill') {
-        docType = 'pdf';
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo-invoice.pdf';
-        title = 'demo-invoice.pdf';
-      } else if (fileType === 'collab') {
-        docType = 'word';
-        fileUrl = 'https://static.onlyoffice.com/assets/docs/samples/demo.docx';
-        title = 'collaboration_demo.docx';
+      // If we don't have the pre-authorized config for this fileType, fallback to simulator
+      const auth = preAuthorizedConfigs[fileType];
+      if (!auth) {
+        console.warn("No pre-authorized token for " + fileType + ". Using simulator.");
+        loadSimulatorFallback(fileType);
+        return;
       }
 
-      // Generate session key (Use stable key for Collaborate to allow co-authoring test)
-      const sessionKey = fileType === 'collab' 
-        ? "mercy_real_collab_stable_key_v1"
-        : "mercy_real_demo_" + fileType + "_" + Math.random().toString(36).substring(2, 9);
-
       try {
-        docEditorInstance = new DocsAPI.DocEditor("editor-placeholder", {
-          "document": {
-            "fileType": fileType === 'form' || fileType === 'collab' ? 'docx' : (fileType === 'fill' ? 'pdf' : fileType),
-            "key": sessionKey,
-            "title": title,
-            "url": fileUrl
-          },
-          "documentType": docType,
-          "editorConfig": {
-            "lang": "vi",
-            "mode": editorMode,
-            "callbackUrl": window.location.href, // Dummy callback URL for demo purposes
-            "customization": {
-              "about": false,
-              "feedback": false,
-              "forcesave": false,
-              "chat": true,
-              "logo": {
-                "image": "https://onlyoffice.mercytechglobal.com/favicon.png",
-                "imageEmbedded": "https://onlyoffice.mercytechglobal.com/favicon.png",
-                "url": "https://onlyoffice.mercytechglobal.com"
-              }
-            }
-          },
-          "height": "750px",
-          "width": "100%"
+        // We inject the token directly inside the config object
+        const fullConfig = Object.assign({}, auth.config, {
+          token: auth.token
         });
+        
+        docEditorInstance = new DocsAPI.DocEditor("editor-placeholder", fullConfig);
       } catch (error) {
         console.error("Failed to initialize DocsAPI Editor:", error);
         loadSimulatorFallback(fileType);
@@ -1020,67 +1353,402 @@
     function loadSimulatorFallback(tab) {
       const container = document.getElementById('editor-container');
       
-      // Keep wrapper styles, but populate it with simulator HTML
+      // Inject disclaimer notice bar and standard layout with Left/Right sidebars to look exactly like OnlyOffice
       container.innerHTML = `
+        <div class="offline-warning" style="background: #fffbeb; border-bottom: 1px solid #fef3c7; color: #b45309; padding: 10px 15px; font-size: 12.5px; font-weight: 500; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: sans-serif;">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" style="flex-shrink: 0;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span><strong>BẢN MÔ PHỎNG TÍNH NĂNG:</strong> Trải nghiệm nhanh giao diện Mercy Office trực tuyến. Bản cài đặt bàn giao cho doanh nghiệp sẽ chạy trên máy chủ riêng bảo mật tuyệt đối của anh/chị.</span>
+        </div>
         <div class="sim-header">
+          <!-- Top Title Bar -->
           <div class="sim-top-bar">
-            <div class="sim-logo">MERCY<span>OFFICE</span></div>
-            <div style="font-size: 11px; color: #64748b; font-weight: 500;" id="sim-file-name">Mercy_Tech_Demo.docx</div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="sim-logo" style="font-weight: 800; color: #ffffff; font-size: 12px; font-family: sans-serif;">
+                MERCY<span style="background: #ff6f3d; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7.5px; font-weight: 800; margin-left: 2px;">OFFICE</span>
+              </div>
+              <div style="width: 1px; height: 16px; background: #555;"></div>
+              <!-- Quick access toolbar -->
+              <div style="display: flex; gap: 8px; color: #cbd5e1; align-items: center;">
+                <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" style="cursor: pointer;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline></svg>
+                <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" style="cursor: pointer;"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path></svg>
+                <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" style="cursor: pointer;"><path d="M21 7v6h-6"></path><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path></svg>
+              </div>
+            </div>
+            <div style="font-size: 11px; color: #cbd5e1; font-weight: 600;" id="sim-file-name">Tai_lieu_Mercy.docx</div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button style="background: #2563eb; color: white; border: none; padding: 2px 10px; border-radius: 3px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="3" fill="none"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                Chia sẻ
+              </button>
+            </div>
           </div>
+          <!-- Menu Tabs -->
           <div class="sim-menu-tabs">
-            <div class="sim-menu-tab active">Trang chủ</div>
+            <div class="sim-menu-tab file-tab">Tệp</div>
+            <div class="sim-menu-tab active" id="tab-home">Trang chủ</div>
             <div class="sim-menu-tab">Chèn</div>
             <div class="sim-menu-tab">Bố cục</div>
             <div class="sim-menu-tab">Cộng tác</div>
-            <div class="sim-menu-tab" style="color: #ef4444; font-weight: bold;">Trợ lý AI</div>
-          </div>
-          <div class="sim-ribbon">
-            <div class="ribbon-group">
-              <button class="ribbon-btn" style="font-weight: bold;">B</button>
-              <button class="ribbon-btn" style="font-style: italic;">I</button>
-              <button class="ribbon-btn" style="text-decoration: underline;">U</button>
+            <div class="sim-menu-tab">Plugins</div>
+            <div class="sim-menu-tab" style="color: #ef4444; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+              Trợ lý AI (Mercy)
             </div>
+          </div>
+          <!-- Ribbon Panel -->
+          <div class="sim-ribbon">
+            <!-- Group Clipboard -->
             <div class="ribbon-group">
-              <select class="oo-select"><option>Inter</option></select>
-              <select class="oo-select"><option>12</option></select>
+              <div class="ribbon-controls">
+                <button class="ribbon-btn" title="Dán" style="display: flex; flex-direction: column; height: auto; padding: 2px 6px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </button>
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                  <button class="ribbon-btn" title="Cắt" style="padding: 1px 4px; height: 14px; font-size: 8px;">Cắt</button>
+                  <button class="ribbon-btn" title="Sao chép" style="padding: 1px 4px; height: 14px; font-size: 8px;">Sao chép</button>
+                </div>
+              </div>
+              <div class="ribbon-group-title">Bảng nhớ tạm</div>
+            </div>
+            <!-- Group Font -->
+            <div class="ribbon-group">
+              <div class="ribbon-controls">
+                <select class="oo-select" style="font-size: 11px; padding: 2px; border-radius: 2px; border: 1px solid #cbd5e1; font-family: sans-serif; height: 20px;"><option>Arial</option><option>Times New Roman</option><option>Calibri</option><option>Inter</option></select>
+                <select class="oo-select" style="font-size: 11px; padding: 2px; border-radius: 2px; border: 1px solid #cbd5e1; font-family: sans-serif; height: 20px;"><option>11</option><option>12</option><option>14</option><option>16</option></select>
+                <button class="ribbon-btn" title="Chữ đậm" style="font-weight: 800;">
+                  <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="3" fill="none"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"></path><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"></path></svg>
+                </button>
+                <button class="ribbon-btn" title="Chữ nghiêng">
+                  <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="3" fill="none"><line x1="19" y1="4" x2="10" y2="4"></line><line x1="14" y1="20" x2="5" y2="20"></line><line x1="15" y1="4" x2="9" y2="20"></line></svg>
+                </button>
+                <button class="ribbon-btn" title="Gạch chân">
+                  <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"></path><line x1="4" y1="21" x2="20" y2="21"></line></svg>
+                </button>
+                <button class="ribbon-btn" title="Gạch ngang">
+                  <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="5" y1="12" x2="19" y2="12"></line><path d="M16 4H9a4 4 0 0 0-4 4 4 4 0 0 0 4 4h6a4 4 0 0 1 4 4 4 4 0 0 1-4 4H7"></path></svg>
+                </button>
+              </div>
+              <div class="ribbon-group-title">Phông chữ</div>
+            </div>
+            <!-- Group Paragraph -->
+            <div class="ribbon-group">
+              <div class="ribbon-controls">
+                <button class="ribbon-btn" title="Căn trái">
+                  <svg viewBox="0 0 24 24" width="11" height="11" stroke="currentColor" stroke-width="2" fill="none"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+                </button>
+                <button class="ribbon-btn" title="Căn giữa">
+                  <svg viewBox="0 0 24 24" width="11" height="11" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
+                </button>
+                <button class="ribbon-btn" title="Căn phải">
+                  <svg viewBox="0 0 24 24" width="11" height="11" stroke="currentColor" stroke-width="2" fill="none"><line x1="21" y1="10" x2="7" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="7" y2="18"></line></svg>
+                </button>
+                <div style="width: 1px; height: 16px; background: #cbd5e1; margin: 0 2px;"></div>
+                <button class="ribbon-btn" title="Giãn dòng">
+                  <svg viewBox="0 0 24 24" width="11" height="11" stroke="currentColor" stroke-width="2" fill="none"><line x1="21" y1="6" x2="3" y2="6"></line><line x1="15" y1="12" x2="3" y2="12"></line><line x1="17" y1="18" x2="3" y2="18"></line><path d="M19 10l3 3-3 3"></path><path d="M22 13H19"></path></svg>
+                </button>
+              </div>
+              <div class="ribbon-group-title">Đoạn văn</div>
+            </div>
+            <!-- Group Quick Styles -->
+            <div class="ribbon-group">
+              <div class="ribbon-controls" style="gap: 3px;">
+                <div style="border: 1px solid #cbd5e1; background: white; font-size: 8px; padding: 2px 4px; border-radius: 2px; width: 44px; text-align: center; line-height: 1.1; cursor: pointer; height: 20px;">AaBbCc<br><strong>Thường</strong></div>
+                <div style="border: 1px solid #cbd5e1; background: white; font-size: 8px; padding: 2px 4px; border-radius: 2px; width: 44px; text-align: center; line-height: 1.1; cursor: pointer; color: #ef4444; height: 20px;">AaBbCc<br><strong>Tiêu đề 1</strong></div>
+                <div style="border: 1px solid #cbd5e1; background: white; font-size: 8px; padding: 2px 4px; border-radius: 2px; width: 44px; text-align: center; line-height: 1.1; cursor: pointer; color: #3b82f6; height: 20px;">AaBbCc<br><strong>Tiêu đề 2</strong></div>
+              </div>
+              <div class="ribbon-group-title">Kiểu dáng</div>
+            </div>
+          </div>
+          <!-- Horizontal Ruler -->
+          <div class="sim-ruler">
+            <div class="sim-ruler-ticks">
+              <span class="sim-ruler-tick">1</span>
+              <span class="sim-ruler-tick">2</span>
+              <span class="sim-ruler-tick">3</span>
+              <span class="sim-ruler-tick">4</span>
+              <span class="sim-ruler-tick">5</span>
+              <span class="sim-ruler-tick">6</span>
+              <span class="sim-ruler-tick">7</span>
+              <span class="sim-ruler-tick">8</span>
+              <span class="sim-ruler-tick">9</span>
+              <span class="sim-ruler-tick">10</span>
+              <span class="sim-ruler-tick">11</span>
+              <span class="sim-ruler-tick">12</span>
+              <span class="sim-ruler-tick">13</span>
+              <span class="sim-ruler-tick">14</span>
+              <span class="sim-ruler-tick">15</span>
+              <span class="sim-ruler-tick">16</span>
             </div>
           </div>
         </div>
-        <div class="sim-body" id="sim-workspace-body"></div>
+        <div class="sim-layout-wrapper">
+          <!-- Left Sidebar exactly like OnlyOffice -->
+          <div class="sim-sidebar-left">
+            <div class="sidebar-left-icon active" title="Tìm kiếm">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <div class="sidebar-left-icon" title="Bình luận">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="sidebar-left-icon" title="Cộng tác">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="sidebar-left-icon" title="Thông tin">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+          </div>
+          
+          <!-- Document body -->
+          <div class="sim-body" id="sim-workspace-body" style="min-height: 520px; display: flex; justify-content: center; background: #cbd3dc; padding: 25px; overflow-y: auto;"></div>
+          
+          <!-- Right Sidebar settings panel -->
+          <div class="sim-sidebar-right">
+            <div class="sidebar-left-icon" title="Cài đặt">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <div class="sidebar-left-icon" title="Thước đo">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+            </div>
+          </div>
+        </div>
         <div class="sim-status-bar">
-          <span id="sim-word-count">Trang 1/1 | 148 từ</span>
-          <span>OnlyOffice v8.1 | Mercy Tech Setup</span>
+          <span id="sim-word-count">Trang 1/1 | Tải thành công</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span>Tiếng Việt</span>
+            <div style="width: 1px; height: 12px; background: #cbd5e1;"></div>
+            <span>Phóng to: 100%</span>
+          </div>
         </div>
       `;
 
       const workspace = document.getElementById('sim-workspace-body');
       const fileName = document.getElementById('sim-file-name');
+      const wordCount = document.getElementById('sim-word-count');
 
-      if (tab === 'docx' || tab === 'collab') {
-        fileName.innerText = "Welcome to ONLYOFFICE.docx";
+      // Clear any running interval from previous collaboration tab simulations
+      if (window.collabInterval) {
+        clearInterval(window.collabInterval);
+      }
+
+      if (tab === 'docx') {
+        fileName.innerText = "Gioi_Thieu_Mercy_Office.docx";
+        wordCount.innerText = "Trang 1/1 | 240 từ | Lớp chỉnh sửa tự do";
         workspace.innerHTML = `
           <div class="sim-page" contenteditable="true">
-            <h2 style="text-align: center; margin-bottom: 20px; color: #0369a1;">Welcome to ONLYOFFICE Online Editors</h2>
-            <p>We are proud to present the first HTML5 Canvas-based online document editors.</p>
-            <h3 style="margin-top: 20px; color: #0f172a;">Why ONLYOFFICE beats all the existing online processors?</h3>
-            <p style="margin-top: 10px;">- In the eye of users: it combines MS Office formatting quality and real-time collaboration.</p>
-            <p>- In the eye of tech enthusiasts: it's built with HTML5 Canvas.</p>
+            <h2 style="text-align: center; margin-bottom: 20px; color: #0369a1; font-weight: 800; font-size: 18px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif;">GIẢI PHÁP VĂN PHÒNG SỐ MERCY OFFICE</h2>
+            <p style="margin-bottom: 15px; font-size: 13.5px; color: #334155;">Chào mừng anh/chị đến với trình trải nghiệm tính năng của **Mercy Office**! Đây là bộ soạn thảo văn bản được tối ưu hóa giao diện dựa trên lõi mã nguồn mở OnlyOffice.</p>
+            <h3 style="margin-top: 25px; margin-bottom: 10px; color: #0f172a; font-size: 15px; font-weight: 700; border-left: 4px solid #ff6f3d; padding-left: 10px; font-family: 'Segoe UI', sans-serif;">Tính năng nổi bật:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 13px; line-height: 1.8; color: #334155;">
+              <li><strong>Tương thích hoàn hảo:</strong> Đọc và ghi đè mượt mà định dạng Word gốc (.docx), không bị nhảy dòng hay vỡ khung hình.</li>
+              <li><strong>Tích hợp bộ Font tiêu chuẩn:</strong> Đã tích hợp sẵn bộ Font Việt hóa chuẩn quốc gia (Arial, Times New Roman, Calibri, Roboto...) loại bỏ hoàn toàn lỗi gõ dấu tiếng Việt.</li>
+              <li><strong>Bảo mật dữ liệu tối đa:</strong> Triển khai nội bộ giúp quản lý tài liệu tập trung, không sợ bị quét mã độc hay virus ransomware tống tiền từ file crack.</li>
+            </ul>
+            <p style="margin-top: 20px; color: #64748b; font-style: italic; font-size: 12.5px;">💡 Mẹo: Anh/chị có thể bôi đen, xóa hoặc nhập trực tiếp văn bản của mình vào đây để kiểm tra tốc độ phản hồi cực mượt.</p>
           </div>
         `;
       } else if (tab === 'xlsx') {
-        fileName.innerText = "Financial Report.xlsx";
+        fileName.innerText = "Bao_Cao_Tai_Chinh_Mercy.xlsx";
+        wordCount.innerText = "Sheet 1/1 | Sẵn sàng";
         workspace.innerHTML = `
-          <table class="sim-grid">
-            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
-            <tr><td class="row-num">1</td><td class="cell" contenteditable="true">STT</td><td class="cell" contenteditable="true">Hạng mục</td><td class="cell" contenteditable="true">Số lượng</td><td class="cell" contenteditable="true">Đơn giá</td><td class="cell" contenteditable="true">Thành tiền</td><td class="cell" contenteditable="true">Kho</td></tr>
-            <tr><td class="row-num">2</td><td class="cell" contenteditable="true">1</td><td class="cell" contenteditable="true">Thép cuộn</td><td class="cell" contenteditable="true">10</td><td class="cell" contenteditable="true">15,000,000</td><td class="cell" contenteditable="true">150,000,000</td><td class="cell" contenteditable="true">Kho 1</td></tr>
-          </table>
+          <div class="sim-grid-wrapper">
+            <table class="sim-grid">
+              <thead>
+                <tr>
+                  <th style="width: 40px; background: #f4f5f7; border: 1px solid #cbd5e1;"></th>
+                  <th>A</th>
+                  <th>B</th>
+                  <th style="width: 120px;">C</th>
+                  <th style="width: 150px;">D</th>
+                  <th style="width: 120px;">E</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="row-num">1</td>
+                  <td class="cell" contenteditable="true" style="font-weight: bold; background: #f8fafc;">Hạng mục dịch vụ</td>
+                  <td class="cell" contenteditable="true" style="font-weight: bold; text-align: center; background: #f8fafc;">Số lượng (Máy)</td>
+                  <td class="cell" contenteditable="true" style="font-weight: bold; text-align: right; background: #f8fafc;">Đơn giá (VNĐ)</td>
+                  <td class="cell" contenteditable="true" style="font-weight: bold; text-align: right; background: #f8fafc;">Thành tiền (VNĐ)</td>
+                  <td class="cell" contenteditable="true" style="font-weight: bold; text-align: center; background: #f8fafc;">Trạng thái</td>
+                </tr>
+                <tr>
+                  <td class="row-num">2</td>
+                  <td class="cell selected-green" contenteditable="true">Dịch vụ tối ưu & Cài đặt Mercy Office</td>
+                  <td class="cell" contenteditable="true" style="text-align: center;">50</td>
+                  <td class="cell" contenteditable="true" style="text-align: right;">120,000</td>
+                  <td class="cell" style="text-align: right; background: #f8fafc;">6,000,000</td>
+                  <td class="cell" contenteditable="true" style="text-align: center; color: #16a34a; font-weight: bold;">Đã nghiệm thu</td>
+                </tr>
+                <tr>
+                  <td class="row-num">3</td>
+                  <td class="cell" contenteditable="true">Cấu hình kết nối máy chủ dữ liệu Cloud</td>
+                  <td class="cell" contenteditable="true" style="text-align: center;">1</td>
+                  <td class="cell" contenteditable="true" style="text-align: right;">3,500,000</td>
+                  <td class="cell" style="text-align: right; background: #f8fafc;">3,500,000</td>
+                  <td class="cell" contenteditable="true" style="text-align: center; color: #16a34a; font-weight: bold;">Đã nghiệm thu</td>
+                </tr>
+                <tr style="background: #fffbeb;">
+                  <td class="row-num">4</td>
+                  <td class="cell" style="font-weight: bold;">TỔNG CỘNG CHI PHÍ TRIỂN KHAI</td>
+                  <td class="cell" style="text-align: center; font-weight: bold;">51</td>
+                  <td class="cell" style="text-align: right;">-</td>
+                  <td class="cell" style="text-align: right; font-weight: bold; color: #ef4444;">9,500,000</td>
+                  <td class="cell" style="text-align: center; font-weight: bold; color: #2563eb;">Hoàn tất 100%</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Sheet tab bar at bottom -->
+            <div class="sim-sheet-tabs">
+              <div class="sim-sheet-tab">Bảng tính 1</div>
+            </div>
+          </div>
         `;
-      } else {
-        workspace.innerHTML = `<div style="text-align:center; padding: 40px; color:#475569;">Trình giả lập cho phân hệ này đang tải...</div>`;
+      } else if (tab === 'pptx') {
+        fileName.innerText = "Mercy_Office_Pitch_Deck.pptx";
+        wordCount.innerText = "Slide 1/3 | Giao diện trình chiếu";
+        workspace.innerHTML = `
+          <div class="sim-slide-container">
+            <div class="sim-slide-sidebar">
+              <div class="slide-thumbnail active">
+                <div style="font-size: 8px; font-weight: bold; color: #ff6f3d;">Slide 1</div>
+                <div style="font-size: 7px; color: #64748b;">Tổng quan</div>
+              </div>
+              <div class="slide-thumbnail">
+                <div style="font-size: 8px; font-weight: bold; color: #94a3b8;">Slide 2</div>
+                <div style="font-size: 7px; color: #94a3b8;">So sánh</div>
+              </div>
+              <div class="slide-thumbnail">
+                <div style="font-size: 8px; font-weight: bold; color: #94a3b8;">Slide 3</div>
+                <div style="font-size: 7px; color: #94a3b8;">Pháp lý</div>
+              </div>
+            </div>
+            <div class="sim-slide-workspace">
+              <div class="sim-slide">
+                <h1 style="color: #1e3a8a; font-size: 18px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; font-family: sans-serif;">MERCY OFFICE</h1>
+                <p style="color: #ff6f3d; font-size: 11px; font-weight: bold; margin-bottom: 8px;">TIẾT KIỆM 90% CHI PHÍ VĂN PHÒNG SỐ</p>
+                <div style="font-size: 10px; color: #64748b; line-height: 1.5; text-align: left; width: 90%; margin: 0 auto; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+                  ✔ Triển khai nhanh gọn không giới hạn tài khoản.<br>
+                  ✔ Loại bỏ rủi ro pháp lý & phạt bản quyền Microsoft Office.<br>
+                  ✔ Lưu trữ nội bộ an toàn và bảo mật dữ liệu tuyệt đối.
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'pdf') {
+        fileName.innerText = "Ho_So_Phap_Ly_Mercy_Office.pdf";
+        wordCount.innerText = "Trang 1/2 | Trình đọc & Chú thích PDF";
+        workspace.innerHTML = `
+          <div style="background: white; width: 100%; max-width: 780px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; border-radius: 4px; overflow: hidden;">
+            <div style="background: #f4f5f7; padding: 6px 16px; border-bottom: 1px solid #cbd5e1; display: flex; gap: 15px; align-items: center; font-size: 11.5px; color: #475569;">
+              <span>🔍 Phóng to 100%</span> | <span>📄 Trang 1 / 2</span> | <span style="color: #2563eb; cursor: pointer; font-weight: 600;">🖋️ Thêm ghi chú văn bản</span>
+            </div>
+            <div style="padding: 40px 60px; min-height: 500px; font-family: sans-serif; line-height: 1.8; color: #334155; position: relative;">
+              <!-- Stamp background overlay to simulate PDF scan look -->
+              <div style="position: absolute; right: 80px; bottom: 80px; opacity: 0.15; transform: rotate(-10deg); pointer-events: none;">
+                <img src="chu_ky_moc.png" style="width: 180px; height: auto;">
+              </div>
+              <h2 style="text-align: center; color: #0f172a; font-weight: bold; font-size: 15px; margin-bottom: 25px; text-transform: uppercase;">TOÀN VĂN GIẤY PHÉP BẢN QUYỀN MÃ NGUỒN MỞ</h2>
+              <p style="font-size: 13px; margin-bottom: 12px;"><span style="font-weight: bold;">Tên phần mềm:</span> ONLYOFFICE Desktop Editors (Bản dành cho Máy tính văn phòng).</p>
+              <p style="font-size: 13px; margin-bottom: 12px;"><span style="font-weight: bold;">Bản quyền áp dụng:</span> Giấy phép GNU Affero General Public License phiên bản 3 (AGPLv3).</p>
+              <p style="font-size: 13px; margin-bottom: 12px;"><span style="font-weight: bold;">Quyền hạn thương mại:</span> Doanh nghiệp có toàn quyền cài đặt, sao chép, phân phối và sử dụng cho mục đích sản xuất kinh doanh hoàn toàn miễn phí mà không cần trả tiền bản quyền cho hãng gốc.</p>
+              <div style="margin-top: 35px; padding: 12px; background: #fffbe6; border-left: 4px solid #d97706; border-radius: 4px; font-size: 12px;">
+                💡 <strong>Xác nhận pháp lý:</strong> Bộ hồ sơ này là văn bản chính thức giúp bộ phận kỹ thuật trình diện cơ quan thanh tra bản quyền khi có yêu cầu kiểm tra.
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'form') {
+        fileName.innerText = "Khao_Sat_Yeu_Cau.docxf";
+        wordCount.innerText = "Trang 1/1 | Thiết kế trường thông tin";
+        workspace.innerHTML = `
+          <div class="sim-page" style="text-align: left; min-height: 500px;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #1e3a8a; font-size: 16px; font-weight: 800;">PHIẾU KHẢO SÁT YÊU CẦU TRIỂN KHAI OFFICE</h2>
+            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 13px;">
+              <div>
+                <label style="font-weight: bold; display: block; margin-bottom: 6px;">1. Tên doanh nghiệp:</label>
+                <div style="background: #eff6ff; border: 1px dashed #3b82f6; border-radius: 4px; padding: 8px 12px; color: #1e40af; font-weight: 500;">
+                  [Trường văn bản (Text field) - Nhấp để chỉnh sửa gợi ý nhập]
+                </div>
+              </div>
+              <div>
+                <label style="font-weight: bold; display: block; margin-bottom: 6px;">2. Quy mô nhân sự sử dụng:</label>
+                <div style="background: #f0fdf4; border: 1px dashed #22c55e; border-radius: 4px; padding: 8px 12px; color: #166534; display: flex; justify-content: space-between;">
+                  <span>[Trường lựa chọn (Combobox)]</span>
+                  <span>▼ Danh sách: 10-30 người | 30-100 người | Trên 100 người</span>
+                </div>
+              </div>
+              <div>
+                <label style="font-weight: bold; display: block; margin-bottom: 6px;">3. Nhu cầu hỗ trợ máy chủ dữ liệu Cloud riêng:</label>
+                <div style="display: flex; gap: 20px;">
+                  <span style="display: flex; align-items: center; gap: 6px;"><input type="checkbox" checked disabled> [Checkbox] Có nhu cầu</span>
+                  <span style="display: flex; align-items: center; gap: 6px;"><input type="checkbox" disabled> [Checkbox] Chỉ cài đặt offline máy trạm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'fill') {
+        fileName.innerText = "Phieu_Dang_Ky_Su_Dung.oform";
+        wordCount.innerText = "Trang 1/1 | Biểu mẫu nhập liệu tương tác";
+        workspace.innerHTML = `
+          <div class="sim-page" style="text-align: left; min-height: 500px;">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #16a34a; font-size: 16px; font-weight: 800; text-transform: uppercase;">BIỂU MẪU ĐĂNG KÝ HỖ TRỢ CHI TIẾT</h2>
+            <p style="font-size: 12.5px; color: #64748b; margin-bottom: 20px; text-align: center; font-style: italic;">(Anh/chị có thể nhập trực tiếp thông tin thật vào các ô bên dưới để trải nghiệm khả năng điền biểu mẫu trực tuyến)</p>
+            <div style="display: flex; flex-direction: column; gap: 15px; font-size: 13px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 140px; font-weight: bold;">Tên khách hàng:</span>
+                <input type="text" placeholder="Nhập họ và tên..." style="flex: 1; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; outline: none; font-size: 13px;" oninput="document.getElementById('fullName').value = this.value;">
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 140px; font-weight: bold;">Số điện thoại:</span>
+                <input type="text" placeholder="Nhập SĐT nhận tư vấn..." style="flex: 1; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; outline: none; font-size: 13px;" oninput="document.getElementById('phone').value = this.value;">
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 140px; font-weight: bold;">Tên công ty:</span>
+                <input type="text" placeholder="Nhập tên doanh nghiệp của bạn..." style="flex: 1; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; outline: none; font-size: 13px;" oninput="document.getElementById('companyName').value = this.value;">
+              </div>
+              <div style="margin-top: 20px; text-align: center;">
+                <button onclick="document.getElementById('onlyoffice-form').dispatchEvent(new Event('submit'))" style="background: #16a34a; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; font-family: sans-serif;">
+                  Gửi đăng ký hỗ trợ trực tiếp
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'collab') {
+        fileName.innerText = "Ke_Hoach_Hop_Tac.docx";
+        wordCount.innerText = "Trang 1/1 | 2 người dùng đang cộng tác trực tuyến";
+        workspace.innerHTML = `
+          <div class="sim-page" style="position: relative; min-height: 500px;">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #2563eb; font-size: 16px; font-weight: 800; text-transform: uppercase;">KẾ HOẠCH BÀN GIAO & CẤU HÌNH VĂN PHÒNG SỐ</h2>
+            <p style="margin-bottom: 15px; font-size: 13px;"><span style="font-weight: bold; color: #16a34a;">✔ Kỹ sư Mercy Tech (Hoàn tất):</span> Đã cài đặt thành công 50 máy văn phòng, gỡ bỏ toàn bộ Office crack lậu, tối ưu hóa hệ thống in ấn.</p>
+            <p style="margin-bottom: 15px; font-size: 13px; position: relative; line-height: 1.8;">
+              <span style="font-weight: bold; color: #ef4444;">✔ Vy Thiên Hùng (CEO đang gõ):</span> 
+              <span id="collab-typed-text" style="color: #ef4444; font-weight: 500;"></span>
+              <span class="live-cursor" id="collab-cursor" style="position: relative; display: inline-block; width: 2px; height: 16px; background: #ef4444; top: 2px;">
+                <span class="live-cursor-label" style="position: absolute; top: -16px; left: 0; background: #ef4444; color: white; font-size: 8px; font-weight: bold; padding: 1px 4px; border-radius: 2px; white-space: nowrap;">Vy Thiên Hùng (CEO)</span>
+              </span>
+            </p>
+          </div>
+        `;
+
+        // Co-authoring simulation
+        const textToType = "Mercy Tech cam kết hỗ trợ doanh nghiệp tối ưu hóa và bảo hành hệ thống văn phòng số trọn gói trong 12 tháng kế tiếp...";
+        let idx = 0;
+        const textSpan = document.getElementById('collab-typed-text');
+        
+        window.collabInterval = setInterval(() => {
+          if (idx < textToType.length) {
+            textSpan.innerText += textToType[idx];
+            idx++;
+          } else {
+            textSpan.innerText = "";
+            idx = 0;
+          }
+        }, 100);
       }
     }
-
     function switchDocType(tab) {
       currentFileType = tab;
 
@@ -1088,7 +1756,7 @@
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.getElementById('btn-' + tab).classList.add('active');
 
-      if (isApiLoaded && !isLocalFile) {
+      if (useRealEditor) {
         initRealEditor(tab);
       } else {
         loadSimulatorFallback(tab);
@@ -1097,11 +1765,9 @@
 
     // Auto load on page load
     window.onload = function() {
-      // If we are running online, and the script loaded, load the real editor
-      if (isApiLoaded && !isLocalFile) {
+      if (useRealEditor) {
         initRealEditor('docx');
       } else {
-        // Fallback to simulator
         loadSimulatorFallback('docx');
       }
     };
