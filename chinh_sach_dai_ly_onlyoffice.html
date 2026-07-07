@@ -376,10 +376,13 @@
       .card-block {
         border: 1px solid var(--border);
         box-shadow: none;
-        padding: 35px;
-        margin-bottom: 25px;
-        page-break-inside: avoid;
+        padding: 30px;
+        margin-bottom: 20px;
         border-radius: 12px;
+      }
+      /* Allow blocks to break across pages naturally to prevent large empty white spaces */
+      table, tr, .highlight-box, .pricing-grid, .step-list {
+        page-break-inside: avoid;
       }
     }
   </style>
