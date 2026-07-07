@@ -38,10 +38,10 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 30px; /* Spacing between separated card blocks */
+      gap: 30px;
     }
 
-    /* Card Blocks (Rounded blocks with white/gray/black mix) */
+    /* Card Blocks */
     .card-block {
       background: var(--card-bg);
       padding: 60px 50px;
@@ -51,7 +51,7 @@
       overflow: hidden;
     }
 
-    /* Dark card block (Black) */
+    /* Dark card block */
     .card-block.dark-theme {
       background: #1d1d1f;
       color: #ffffff;
@@ -71,6 +71,10 @@
     .card-block.gray-theme {
       background: #eef0f3;
       border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .card-block.gray-theme h2 {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     /* Header & Title blocks */
@@ -173,7 +177,7 @@
       margin-bottom: 15px;
     }
 
-    /* Premium styled tables (dark headers, zebra stripe details) */
+    /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -202,7 +206,7 @@
     }
 
     tbody tr:nth-child(even) td {
-      background-color: #fafdff; /* subtle tint for table readability */
+      background-color: #fafdff;
     }
 
     .price-highlight {
@@ -216,7 +220,7 @@
       white-space: nowrap;
     }
 
-    /* Highlight box inside white cards */
+    /* Highlight box */
     .highlight-box {
       background-color: var(--gray-light);
       border-radius: 12px;
@@ -393,10 +397,10 @@
         <strong>Lá chắn pháp lý bản quyền tuyệt đối:</strong> Mercy Tech cung cấp đầy đủ bộ Hồ sơ pháp lý nguồn gốc phần mềm mã nguồn mở (Giấy phép quốc tế AGPLv3) được dịch thuật và ký tên đóng dấu đỏ pháp lý của Công ty TNHH Công Nghệ Mercy. Đây là chứng từ quan trọng giúp khách hàng doanh nghiệp của đại lý được miễn trừ xử phạt vi phạm bản quyền khi có đoàn thanh tra liên ngành kiểm tra phần mềm.
       </li>
       <li style="margin-bottom: 15px;">
-        <strong>Tương thích hoàn hảo & Không lỗi phông chữ:</strong> Gói cấu hình của Mercy Tech tích hợp đầy đủ các phông chữ chuẩn văn phòng Việt Nam (VNI, TCVN3, Arial, Times New Roman) đã được tinh chỉnh hệ thống, giúp người dùng mở các tài liệu cũ định dạng docx, xlsx, pptx mượt mà, không bị vỡ dòng hay lỗi hiển thị ký tự đặc biệt.
+        <strong>Tương thích hoàn hảo & Không lỗi phông chữ:</strong> Gói cấu hình của Mercy Tech tích hợp đầy đủ các phông chữ chuẩn văn phòng Việt Nam (VNI, TCVN3, Arial, Times New Roman, Calibri...) đã được tinh chỉnh hệ thống, giúp người dùng mở các tài liệu cũ định dạng docx, xlsx, pptx mượt mà, không bị vỡ dòng hay lỗi hiển thị ký tự đặc biệt.
       </li>
       <li style="margin-bottom: 0;">
-        <strong>Bảo mật thông tin khách hàng tuyệt đối:</strong> Mercy Tech cam kết bằng văn bản bảo mật hoàn toàn dữ liệu khách hàng đầu cuối của đại lý, tuyệt đối không tự ý tiếp cận thương mại nếu không được sự đồng ý của đối tác.
+        <strong>Bảo mật thông tin khách hàng tuyệt đối:</strong> Mercy Tech cam kết bằng văn bản bảo mật hoàn toàn dữ liệu khách hàng đơn cuối của đại lý, tuyệt đối không tự ý tiếp cận thương mại nếu không được sự đồng ý của đối tác.
       </li>
     </ul>
   </div>
@@ -454,9 +458,52 @@
     </div>
   </div>
 
-  <!-- Block 2: Cộng tác viên (White Card) -->
+  <!-- Block 2: Bảng giá bán lẻ niêm yết công khai (White Card) -->
   <div class="card-block">
-    <h2>2. Chương Trình Cộng Tác Viên (CTV)</h2>
+    <h2>2. Bảng Giá Bán Lẻ Niêm Yết Công Khai Trên Thị Trường</h2>
+    <p>Dưới đây là khung giá bán lẻ niêm yết chính thức của Mercy Tech để đại lý làm căn cứ chào giá rõ ràng cho khách hàng doanh nghiệp (Đại lý cam kết không chào giá lẻ thấp hơn giá niêm yết để tránh phá giá thị trường):</p>
+
+    <table>
+      <colgroup>
+        <col style="width: 25%;">
+        <col style="width: 20%;">
+        <col style="width: 25%;">
+        <col style="width: 30%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Gói Dịch Vụ</th>
+          <th>Quy Mô Thiết Bị</th>
+          <th>Đơn Giá Bán Lẻ Niêm Yết</th>
+          <th>Quyền Lợi Đầy Đủ Đi Kèm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gói Cá Nhân</strong></td>
+          <td>Dưới 5 máy</td>
+          <td class="price-highlight">399.000 đ / Máy</td>
+          <td>Cài đặt cấu hình tối ưu, bảo hành lỗi phông chữ 12 tháng qua UltraView.</td>
+        </tr>
+        <tr>
+          <td><strong>Gói Doanh Nghiệp Vừa</strong></td>
+          <td>Từ 5 - 49 máy</td>
+          <td class="price-highlight">299.000 đ / Máy</td>
+          <td>Hóa đơn VAT, Hợp đồng chuyển giao, Biên bản bàn giao đóng dấu mộc đỏ công ty.</td>
+        </tr>
+        <tr>
+          <td><strong>Gói Doanh Nghiệp Lớn</strong></td>
+          <td>Từ 50 máy trở lên</td>
+          <td class="price-highlight">249.000 đ / Máy</td>
+          <td>Đầy đủ hồ sơ đỏ VAT, hỗ trợ kỹ thuật viên khảo sát hệ thống mạng/phần cứng tận nơi.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Block 3: Cộng tác viên (White Card) -->
+  <div class="card-block">
+    <h2>3. Chương Trình Cộng Tác Viên (CTV)</h2>
     <p>Áp dụng cho các đối tác giới thiệu hoặc bán hàng trực tiếp mà không cần nạp trước gói lượt cài. Mercy Tech chịu trách nhiệm tư vấn, cài đặt trực tiếp, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng:</p>
 
     <table>
@@ -516,11 +563,12 @@
     </div>
   </div>
 
-  <!-- Block 3: Quy trình triển khai (Light Gray Card) -->
+  <!-- Block 4: Quy trình triển khai (Light Gray Card) -->
   <div class="card-block gray-theme">
-    <h2>3. Quy Trình Triển Khai Từ A - Z Cho Đối Tác</h2>
+    <h2>4. Quy Trình Triển Khai & Cài Đặt Kỹ Thuật Chi Tiết</h2>
     <p>Kỹ thuật viên của Mercy Tech trực tiếp thực hiện 100% công tác cài đặt và tối ưu hóa hệ thống từ xa nhằm giải phóng nguồn lực cho đối tác:</p>
 
+    <h3 style="font-size: 14px; font-weight: 800; margin-top: 25px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; border-left: 3px solid var(--text); padding-left: 8px;">4.1 Quy trình bàn giao và phối hợp vận hành</h3>
     <div class="step-list">
       <div class="step-item">
         <div class="step-number">1</div>
@@ -551,11 +599,52 @@
         </div>
       </div>
     </div>
+
+    <h3 style="font-size: 14px; font-weight: 800; margin-top: 40px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; border-left: 3px solid var(--text); padding-left: 8px;">4.2 Quy trình 5 bước cấu hình kỹ thuật trên thiết bị</h3>
+    <p>Để đảm bảo OnlyOffice chạy mượt mà ổn định và không phát sinh bất kỳ lỗi hiển thị nào với các tài liệu cũ của khách hàng, kỹ thuật viên Mercy Tech sẽ thực hiện quy trình sau:</p>
+    
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-number">A</div>
+        <div class="step-content">
+          <h4>Gỡ sạch triệt để Office lậu cũ</h4>
+          <p>Dùng công cụ quét dọn chuyên dụng để xóa tận gốc tệp cài đặt và tệp tin registry rác của các bản MS Office crack cũ (tránh tình trạng tranh chấp tài nguyên gây đơ máy hoặc treo phần mềm).</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">B</div>
+        <div class="step-content">
+          <h4>Cài đặt phiên bản OnlyOffice tối ưu</h4>
+          <p>Triển khai cài đặt bản OnlyOffice Desktop Editors đã chuẩn hóa, được cấu hình tinh giản nhẹ nhất để đảm bảo khởi động nhanh chóng trên các dòng máy tính văn phòng thông dụng.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">C</div>
+        <div class="step-content">
+          <h4>Nạp thư viện phông chữ Việt hóa độc quyền</h4>
+          <p>Import trực tiếp toàn bộ các bộ font chữ văn phòng chuẩn Việt Nam (VNI, TCVN3, Arial, Times New Roman, Calibri...) vào hệ thống. Loại bỏ hoàn toàn lỗi hiển thị ký tự tiếng Việt hoặc lệch phông chữ khi mở file cũ của khách.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">D</div>
+        <div class="step-content">
+          <h4>Thiết lập định dạng lưu mặc định tương thích</h4>
+          <p>Cấu hình hệ thống mặc định lưu tài liệu mới dưới định dạng Office Open XML chuẩn (.docx, .xlsx, .pptx) để khi khách hàng gửi tài liệu cho đối tác bên ngoài sử dụng Microsoft Office mở ra đọc 100% không bị sai định dạng bố cục.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">E</div>
+        <div class="step-content">
+          <h4>Tối ưu hóa hiệu năng & Kích hoạt AutoSave</h4>
+          <p>Tắt tính năng GPU caching không cần thiết (tránh lỗi đen màn hình), dọn sạch tệp tạm hệ thống và thiết lập chế độ tự động lưu dữ liệu (AutoSave) định kỳ mỗi 1 phút để bảo vệ dữ liệu làm việc của khách hàng chống mất mát khi mất điện đột ngột.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Block 4: Cơ chế quản lý lượt cài (White Card) -->
+  <!-- Block 5: Cơ chế quản lý lượt cài (White Card) -->
   <div class="card-block">
-    <h2>4. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
+    <h2>5. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
     <p>Để đảm bảo kiểm soát chính xác 100% số lượng máy đã triển khai thực tế và bảo mật giải pháp công nghệ độc quyền, hai bên áp dụng cơ chế đối soát như sau:</p>
     <ul class="clean-list">
       <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 7.450.000đ). Số lượt này được ghi nhận trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
@@ -565,18 +654,18 @@
     </ul>
   </div>
 
-  <!-- Block 5: Quyền lợi kỹ thuật & pháp lý (Black Card) -->
+  <!-- Block 6: Quyền lợi kỹ thuật & pháp lý (Black Card) -->
   <div class="card-block dark-theme">
-    <h2>5. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
+    <h2>6. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
     <ul class="clean-list">
       <li style="margin-bottom: 12px;">Giải phóng hoàn toàn đội ngũ nhân sự kỹ thuật của đại lý, mọi việc cài đặt, tối ưu hóa hệ thống từ A-Z đều do kỹ thuật Mercy Tech thực hiện.</li>
       <li style="margin-bottom: 12px;">Hỗ trợ xuất hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chứng từ kế toán và khấu trừ chi phí thuế doanh nghiệp.</li>
-      <li style="margin-bottom: 12px;">Bảo mật hoàn toàn thông tin khách hàng đầu cuối của đại lý, cam kết không tiếp cận trực tiếp trừ khi có sự đồng ý hoặc yêu cầu hỗ trợ kỹ thuật từ đại lý.</li>
+      <li style="margin-bottom: 12px;">Bảo mật hoàn toàn thông tin khách hàng đơn cuối của đại lý, cam kết không tiếp cận trực tiếp trừ khi có sự đồng ý hoặc yêu cầu hỗ trợ kỹ thuật từ đại lý.</li>
       <li style="margin-bottom: 0;">Chịu trách nhiệm pháp lý cao nhất về tính nguyên bản của phần mềm được cung cấp, tuyệt đối không sử dụng công cụ bẻ khóa lậu gây mất an ninh thông tin của khách hàng.</li>
     </ul>
   </div>
 
-  <!-- Block 6: Footer/Signature (White Card) -->
+  <!-- Block 7: Footer/Signature (White Card) -->
   <div class="card-block" style="padding: 40px;">
     <div class="page-footer" style="justify-content: center; text-align: center;">
       <div class="signature-block" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
