@@ -366,16 +366,20 @@
     }
 
     @media print {
+      @page {
+        margin: 1.2cm;
+      }
       body {
         padding: 0;
         background-color: #ffffff;
       }
       .card-block {
-        border: none;
+        border: 1px solid var(--border);
         box-shadow: none;
-        padding: 0;
-        margin-bottom: 40px;
+        padding: 35px;
+        margin-bottom: 25px;
         page-break-inside: avoid;
+        border-radius: 12px;
       }
     }
   </style>
