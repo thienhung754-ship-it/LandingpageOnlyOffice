@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0071e3;
+      --primary: #1d1d1f;
       --text: #1d1d1f;
       --text-muted: #86868b;
       --border: rgba(0, 0, 0, 0.08);
@@ -63,7 +63,7 @@
     }
 
     .header-left span {
-      color: var(--primary);
+      color: #000000;
     }
 
     .header-right {
@@ -152,19 +152,22 @@
       margin-bottom: 15px;
     }
 
-    /* Tables */
+    /* Tables alignment and sizing */
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
       font-size: 13px;
+      table-layout: fixed;
     }
 
     th, td {
       border: 1px solid var(--border);
-      padding: 14px;
+      padding: 14px 16px;
       text-align: left;
       line-height: 1.5;
+      vertical-align: middle;
+      word-wrap: break-word;
     }
 
     th {
@@ -174,9 +177,10 @@
     }
 
     .price-highlight {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
     }
 
     /* Highlight box */
@@ -346,6 +350,12 @@
       <p>Áp dụng cho các đối tác tự chốt đơn, tự thu tiền của khách hàng và nạp trước gói lượt cài đặt tối thiểu từ 50 máy trở lên. Kỹ thuật viên Mercy Tech sẽ trực tiếp hỗ trợ cài đặt tối ưu hóa hệ thống từ xa qua UltraView/AnyDesk cho từng máy của khách:</p>
 
       <table>
+        <colgroup>
+          <col style="width: 20%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 30%;">
+        </colgroup>
         <thead>
           <tr>
             <th>Hạng Mục Đại Lý</th>
@@ -382,6 +392,12 @@
       <p>Áp dụng cho các đối tác giới thiệu hoặc bán hàng trực tiếp mà không cần nạp trước gói lượt cài. Mercy Tech chịu trách nhiệm tư vấn, cài đặt trực tiếp, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng:</p>
 
       <table>
+        <colgroup>
+          <col style="width: 22%;">
+          <col style="width: 23%;">
+          <col style="width: 25%;">
+          <col style="width: 30%;">
+        </colgroup>
         <thead>
           <tr>
             <th>Hình Thức CTV</th>
