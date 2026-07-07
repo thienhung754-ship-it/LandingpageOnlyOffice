@@ -408,13 +408,13 @@
     </div>
 
     <div class="section-block">
-      <h2>3. Cơ Chế Đối Soát & Quản Lý Lượt Cài Đặt</h2>
-      <p>Để đảm bảo tính minh bạch và đơn giản hóa quy trình vận hành cho đại lý, hai bên áp dụng cơ chế quản lý lượt cài đặt theo gói như sau:</p>
+      <h2>3. Cơ Chế Kiểm Soát & Quản Lý Lượt Cài Đặt Tự Động</h2>
+      <p>Để đảm bảo tính chính xác, minh bạch và ngăn chặn tình trạng thất thoát lượt cài đặt (kể cả cài đặt cho máy cá nhân), Mercy Tech áp dụng cơ chế kiểm soát tự động thông qua Script Kích hoạt:</p>
       <ul class="clean-list">
-        <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý thực hiện nạp trước số dư lượt cài đặt tối thiểu từ 10 máy (đơn giá sỉ 150.000đ/máy, tương đương gói nạp 1.500.000đ). Số lượt cài đặt này sẽ được ghi nhận và quản lý trực tiếp qua số dư tài khoản của đại lý trên hệ thống đối soát.</li>
-        <li><strong>Khai báo và trừ lượt cài:</strong> Mỗi khi đại lý tiến hành cài đặt hoàn tất cho một thiết bị của khách hàng, đại lý chỉ cần khai báo thông tin cơ bản của khách hàng (Tên cá nhân/Tên công ty và mã phần cứng của máy) qua nhóm Zalo hỗ trợ kỹ thuật của hai bên. Hệ thống sẽ tự động đối soát và trừ 1 lượt cài đặt tương ứng trong số dư của đại lý.</li>
-        <li><strong>Bàn giao hồ sơ đóng dấu mộc đỏ:</strong> Ngay sau khi đại lý khai báo thông tin máy đã cài, Mercy Tech Global sẽ lập tức lập và ký đóng dấu mộc đỏ pháp lý vào Biên bản bàn giao kỹ thuật & Hồ sơ chứng nhận nguồn gốc phần mềm AGPLv3 hợp pháp, sau đó gửi bản scan PDF chất lượng cao qua Zalo/Email cho đại lý chuyển giao lại cho khách hàng của mình. Đối với các hợp đồng doanh nghiệp lớn cần bản cứng, bên em hỗ trợ ký đóng dấu mộc đỏ chuyển phát nhanh về văn phòng của đại lý.</li>
-        <li><strong>Gia hạn số dư:</strong> Khi số dư lượt cài đặt của đại lý chạm mốc 0, đại lý thực hiện chuyển khoản gia hạn (top-up) thêm các gói lượt cài mới để hệ thống tiếp tục cấp quyền cài đặt và xuất hồ sơ bàn giao.</li>
+        <li><strong>Mã đại lý và số dư lượt cài:</strong> Khi hợp tác, đại lý được cấp một Mã đại lý (Agent Code) duy nhất và thực hiện nạp trước gói lượt cài tối thiểu từ 10 máy (đơn giá sỉ 150.000đ/máy, tương đương gói nạp 1.500.000đ) vào tài khoản hệ thống.</li>
+        <li><strong>Xác thực tự động khi cài đặt:</strong> Trong quá trình kỹ thuật viên của đại lý chạy bộ cài đặt trên máy của khách (cá nhân hoặc công ty), Script Kích hoạt sẽ tự động gửi yêu cầu xác thực về máy chủ Mercy Tech để kiểm tra số dư. Nếu số dư tài khoản của đại lý lớn hơn 0, quá trình cài đặt và cấu hình font chữ sẽ được hoàn tất, đồng thời hệ thống tự động trừ đi 1 lượt cài và ghi nhận mã phần cứng (UUID) của máy đó.</li>
+        <li><strong>Ngăn chặn cài đặt không khai báo:</strong> Nếu số dư tài khoản đại lý bằng 0, Script cài đặt sẽ tự động khóa và thông báo yêu cầu nạp thêm lượt. Cơ chế này đảm bảo đại lý không thể cài lén cho khách hàng cá nhân hay công ty mà không qua đối soát thanh toán với Mercy Tech.</li>
+        <li><strong>Cấp biên bản bàn giao mộc đỏ:</strong> Đối với các máy lắp cho khách hàng doanh nghiệp cần hồ sơ giải trình thanh tra, sau khi cài xong, đại lý báo tên công ty qua nhóm Zalo để Mercy Tech lập biên bản bàn giao nghiệm thu đóng dấu mộc đỏ pháp lý và gửi file scan PDF hoặc chuyển phát nhanh bản cứng về văn phòng đại lý.</li>
       </ul>
     </div>
 
