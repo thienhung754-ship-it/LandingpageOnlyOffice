@@ -156,27 +156,34 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 25px 0;
       font-size: 13px;
+      table-layout: fixed;
     }
 
     th, td {
       border: 1px solid var(--border);
-      padding: 14px;
+      padding: 16px 14px;
       text-align: left;
       line-height: 1.5;
+      vertical-align: middle;
+      word-wrap: break-word;
     }
 
     th {
       background-color: var(--gray-light);
       font-weight: 700;
       color: var(--text);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
 
-    .price-highlight {
-      font-size: 15px;
-      font-weight: 800;
+    td.price-highlight {
+      font-size: 14px;
+      font-weight: 700;
       color: var(--primary);
+      white-space: nowrap;
     }
 
     /* Highlight box (No icons) */
@@ -335,36 +342,44 @@
       <p>Chính sách tài chính chiết khấu và đơn giá áp dụng dựa trên số lượng lượt cài đặt triển khai (OnlyOffice):</p>
 
       <table>
+        <colgroup>
+          <col style="width: 18%;">
+          <col style="width: 22%;">
+          <col style="width: 22%;">
+          <col style="width: 38%;">
+        </colgroup>
         <thead>
           <tr>
-            <th>Hạng Mục Hợp Tác</th>
-            <th>Số Lượng Lượt Cài Đặt (Slots)</th>
-            <th>Đơn Giá / Chiết Khấu</th>
-            <th>Phương Thức Hợp Tác</th>
+            <th>Hạng Mục</th>
+            <th>Quy Mô Áp Dụng</th>
+            <th>Đơn Giá Chiết Khấu</th>
+            <th>Phương Thức Hợp Tác Triển Khai</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Gói Đồng</strong></td>
             <td>50 - 99 máy</td>
-            <td class="price-highlight">199.000 đ / Máy</td>
-            <td rowspan="3">Đại lý tự chốt đơn, tự thu tiền của khách hàng và nạp trước gói lượt cài. Kỹ thuật Mercy Tech trực tiếp cài đặt tối ưu qua UltraView/AnyDesk cho từng máy của khách.</td>
+            <td class="price-highlight">199.000 đ / máy</td>
+            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
           </tr>
           <tr>
             <td><strong>Gói Bạc</strong></td>
             <td>100 - 199 máy</td>
-            <td class="price-highlight">179.000 đ / Máy</td>
+            <td class="price-highlight">179.000 đ / máy</td>
+            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
           </tr>
           <tr>
             <td><strong>Gói Vàng</strong></td>
             <td>Từ 200 máy trở lên</td>
-            <td class="price-highlight">149.000 đ / Máy</td>
+            <td class="price-highlight">149.000 đ / máy</td>
+            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
           </tr>
           <tr>
-            <td><strong>Cộng tác viên (CTV)</strong></td>
-            <td>Không giới hạn số lượng</td>
-            <td class="price-highlight">Chiết khấu 20% - 30% / Hợp đồng</td>
-            <td>Đối tác giới thiệu thông tin khách hàng doanh nghiệp. Mercy Tech trực tiếp tư vấn, setup, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng.</td>
+            <td><strong>Cộng tác viên</strong></td>
+            <td>Không giới hạn</td>
+            <td class="price-highlight">Chiết khấu 20% - 30%</td>
+            <td>Đối tác giới thiệu khách hàng. Mercy Tech chịu trách nhiệm tư vấn, cài đặt, bảo trì và chia hoa hồng.</td>
           </tr>
         </tbody>
       </table>
@@ -375,7 +390,7 @@
     </div>
 
     <div class="section-block">
-      <h2>2. Quy Trình Triển Khai Từ A - Z Cho Đối Tác</h2>
+      <h2>3. Quy Trình Triển Khai Từ A - Z Cho Đối Tác</h2>
       <p>Kỹ thuật viên của Mercy Tech trực tiếp thực hiện 100% công tác cài đặt và tối ưu hóa hệ thống từ xa nhằm giải phóng nguồn lực cho đối tác:</p>
 
       <div class="step-list">
@@ -411,7 +426,7 @@
     </div>
 
     <div class="section-block">
-      <h2>3. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
+      <h2>4. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
       <p>Để đảm bảo kiểm soát chính xác 100% số lượng máy đã triển khai thực tế và bảo mật giải pháp công nghệ độc quyền, hai bên áp dụng cơ chế đối soát như sau:</p>
       <ul class="clean-list">
         <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 9.950.000đ). Số lượt cài đặt này được ghi nhận và quản lý trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
@@ -422,7 +437,7 @@
     </div>
 
     <div class="section-block">
-      <h2>4. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
+      <h2>5. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
       <ul class="clean-list">
         <li>Giải phóng hoàn toàn đội ngũ nhân sự kỹ thuật của đại lý, mọi việc cài đặt, tối ưu hóa hệ thống từ A-Z đều do kỹ thuật Mercy Tech thực hiện.</li>
         <li>Hỗ trợ xuất hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chứng từ kế toán và khấu trừ chi phí thuế doanh nghiệp.</li>
