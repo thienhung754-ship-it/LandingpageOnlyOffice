@@ -1,291 +1,436 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chính Sách Đối Tác & Đại Lý OnlyOffice - Mercy Tech</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --primary: #0071e3;
-            --primary-dark: #0056b3;
-            --secondary: #86868b;
-            --dark: #1d1d1f;
-            --light: #f5f5f7;
-            --border: #d2d2d7;
-            --success: #34c759;
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính sách Đối tác & Đại lý OnlyOffice - Mercy Tech Global</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0071e3;
+      --text: #1d1d1f;
+      --text-muted: #86868b;
+      --border: rgba(0, 0, 0, 0.08);
+      --bg: #ffffff;
+      --gray-light: #f5f5f7;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        body {
-            font-family: var(--font);
-            color: var(--dark);
-            background-color: #ffffff;
-            line-height: 1.6;
-            padding: 40px;
-        }
+    body {
+      background-color: #f5f5f7;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid var(--border);
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+    .page-container {
+      background: #ffffff;
+      padding: 80px 70px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+      margin-bottom: 40px;
+    }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    /* Header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 50px;
+    }
 
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: -0.5px;
-        }
+    .header-left {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
 
-        .logo-text span {
-            color: var(--primary);
-        }
+    .header-left span {
+      color: var(--primary);
+    }
 
-        .company-info {
-            text-align: right;
-            font-size: 12px;
-            color: var(--secondary);
-            line-height: 1.4;
-        }
+    .header-right {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: right;
+      line-height: 1.4;
+    }
 
-        .title-section {
-            margin-bottom: 30px;
-            text-align: center;
-        }
+    /* Title Block */
+    .title-block {
+      margin-bottom: 40px;
+    }
 
-        .title-section h1 {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
+    .title-block h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
 
-        .title-section p {
-            font-size: 15px;
-            color: var(--secondary);
-        }
+    .title-block p {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.5;
+    }
 
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--primary);
-            padding-left: 10px;
-        }
+    /* Metadata Block */
+    .metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 45px;
+    }
 
-        p, li {
-            font-size: 14px;
-            color: #333333;
-            margin-bottom: 10px;
-        }
+    .metadata-item {
+      padding: 20px 24px;
+      border-right: 1px solid var(--border);
+      background: #ffffff;
+    }
 
-        ul {
-            list-style-type: none;
-            margin-bottom: 20px;
-        }
+    .metadata-item:last-child {
+      border-right: none;
+    }
 
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-        }
+    .metadata-item h3 {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
 
-        ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
+    .metadata-item p {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 13px;
-        }
+    /* Section block style */
+    .section-block {
+      margin-bottom: 45px;
+    }
 
-        th, td {
-            border: 1px solid var(--border);
-            padding: 12px;
-            text-align: left;
-        }
+    .section-block h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
 
-        th {
-            background-color: var(--light);
-            font-weight: 600;
-            color: var(--dark);
-        }
+    .section-block p {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 15px;
+    }
 
-        .price-highlight {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary);
-        }
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
 
-        .highlight-box {
-            background-color: var(--light);
-            border-left: 4px solid var(--primary);
-            padding: 20px;
-            border-radius: 4px;
-            margin: 20px 0;
-        }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 14px;
+      text-align: left;
+      line-height: 1.5;
+    }
 
-        .highlight-box p {
-            margin-bottom: 0;
-            font-weight: 500;
-        }
+    th {
+      background-color: var(--gray-light);
+      font-weight: 700;
+      color: var(--text);
+    }
 
-        footer {
-            margin-top: 50px;
-            border-top: 1px solid var(--border);
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
+    .price-highlight {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+    }
 
-        .signature-block {
-            width: 45%;
-            text-align: center;
-        }
+    /* Highlight box (No icons) */
+    .highlight-box {
+      background-color: var(--gray-light);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 25px 0;
+      border: 1px solid var(--border);
+    }
 
-        .signature-title {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 60px;
-            text-transform: uppercase;
-        }
+    .highlight-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 0;
+    }
 
-        .signature-name {
-            font-weight: 600;
-            font-size: 14px;
-        }
+    /* List styling (no check icons, clean dashed/dots style) */
+    .clean-list {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-        .signature-company {
-            font-size: 12px;
-            color: var(--secondary);
-        }
+    .clean-list li {
+      font-size: 14px;
+      margin-bottom: 10px;
+      list-style-type: square;
+      color: var(--text);
+    }
 
-        @media print {
-            body {
-                padding: 0;
-                background-color: #ffffff;
-            }
-            .container {
-                border: none;
-                box-shadow: none;
-                padding: 0;
-            }
-        }
-    </style>
+    /* Steps timeline style */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      background: var(--text);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    /* Footer / Signatures */
+    .page-footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .signature-block {
+      width: 45%;
+      text-align: center;
+    }
+
+    .signature-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 70px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .signature-name {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .signature-company {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background-color: #ffffff;
+      }
+      .page-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <div class="logo-area">
-            <div class="logo-text">MERCY<span>TECH</span></div>
-        </div>
-        <div class="company-info">
-            <strong>CÔNG TY CÔNG NGHỆ MERCY TECH GLOBAL</strong><br>
-            Website: www.mercytechglobal.com<br>
-            Hotline: 0378.692.004<br>
-            Email: contact@mercytechglobal.com
-        </div>
+  <div class="page-container">
+    <header class="page-header">
+      <div class="header-left">MERCY<span>TECH</span></div>
+      <div class="header-right">
+        CÔNG TY CÔNG NGHỆ MERCY TECH GLOBAL<br>
+        Hotline: 0378.692.004 | contact@mercytechglobal.com
+      </div>
     </header>
 
-    <div class="title-section">
-        <h1>Chính Sách Đối Tác & Đại Lý Triển Khai</h1>
-        <p>Hệ sinh thái văn phòng số OnlyOffice hợp pháp tại Việt Nam</p>
+    <div class="title-block">
+      <h1>Chương Trình Đối Tác & Đại Lý Triển Khai</h1>
+      <p>Giải pháp tối ưu hóa pháp lý và kỹ thuật phần mềm văn phòng OnlyOffice tại Việt Nam</p>
     </div>
 
-    <p>Kính gửi Quý Đối tác,</p>
-    <p><strong>Mercy Tech Global</strong> trân trọng gửi tới các đơn vị bảo trì máy tính, công ty dịch vụ IT, cửa hàng phân phối phần cứng chương trình hợp tác triển khai giải pháp văn phòng số <strong>OnlyOffice</strong>. Đây là giải pháp thay thế tối ưu giúp khách hàng doanh nghiệp chuẩn hóa pháp lý bản quyền phần mềm văn phòng với mức chi phí tiết kiệm đến 90% so với Microsoft Office.</p>
+    <div class="metadata-grid">
+      <div class="metadata-item">
+        <h3>Đối Tác Áp Dụng</h3>
+        <p>Cửa Hàng Máy Tính, Đơn Vị IT</p>
+      </div>
+      <div class="metadata-item">
+        <h3>Ngày Ban Hành</h3>
+        <p>07 / 07 / 2026</p>
+      </div>
+      <div class="metadata-item">
+        <h3>Hiệu Lực Chính Sách</h3>
+        <p>Vĩnh Viễn / Toàn Quốc</p>
+      </div>
+    </div>
 
-    <h2>1. Chính Sách Giá Sỉ & Chiết Khấu Đại Lý</h2>
-    <p>Áp dụng cho các đối tác mua sỉ lượt cài đặt hoặc trực tiếp giới thiệu khách hàng triển khai giải pháp OnlyOffice:</p>
-    
-    <table>
+    <div class="section-block">
+      <p>Kính gửi Quý Đối tác,</p>
+      <p>Mercy Tech Global trân trọng gửi tới các đơn vị dịch vụ IT bảo trì, cửa hàng phân phối phần cứng và thiết bị máy tính chương trình hợp tác đại lý cung cấp giải pháp văn phòng số OnlyOffice. Đây là phương án bản quyền thay thế tối ưu giúp khách hàng doanh nghiệp chuẩn hóa 100% hồ sơ kiểm tra bản quyền liên ngành với mức chi phí tiết kiệm đến 90% so với Microsoft Office.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>1. Bảng Giá Sỉ & Chiết Khấu Đại Lý</h2>
+      <p>Chính sách tài chính chiết khấu trực tiếp trên mỗi lượt máy tính triển khai OnlyOffice:</p>
+
+      <table>
         <thead>
-            <tr>
-                <th>Hình Thức Hợp Tác</th>
-                <th>Phương Thức Thực Hiện</th>
-                <th>Mức Giá Áp Dụng / Chiết Khấu</th>
-            </tr>
+          <tr>
+            <th>Hạng Mục Hợp Tác</th>
+            <th>Mô Tả Hình Thức Triển Khai</th>
+            <th>Mức Giá Áp Dụng / Chiết Khấu</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><strong>Đại lý sỉ tự cài đặt</strong></td>
-                <td>Mercy Tech cung cấp bộ cài tối ưu font và hướng dẫn kỹ thuật. Đại lý tự cài cho khách.</td>
-                <td class="price-highlight">150.000 đ / Máy</td>
-            </tr>
-            <tr>
-                <td><strong>Cộng tác viên giới thiệu</strong></td>
-                <td>Đối tác giới thiệu thông tin khách hàng. Đội ngũ Mercy Tech trực tiếp tư vấn, setup và bảo trì.</td>
-                <td class="price-highlight">Chiết khấu 20% - 30% / Tổng giá trị hợp đồng</td>
-            </tr>
+          <tr>
+            <td><strong>Đại lý sỉ (Tự cài đặt)</strong></td>
+            <td>Mercy Tech cung cấp bộ cài chuẩn hóa font và hướng dẫn kỹ thuật. Đại lý chủ động cài trực tiếp cho khách hàng của mình.</td>
+            <td class="price-highlight">150.000 đ / Máy</td>
+          </tr>
+          <tr>
+            <td><strong>Cộng tác viên (Giới thiệu)</strong></td>
+            <td>Đối tác giới thiệu thông tin khách hàng doanh nghiệp. Mercy Tech trực tiếp tư vấn, setup, xuất hóa đơn và bảo trì kỹ thuật.</td>
+            <td class="price-highlight">Chiết khấu 20% - 30% / Hợp đồng</td>
+          </tr>
         </tbody>
-    </table>
+      </table>
 
-    <div class="highlight-box">
-        <p>💡 Gợi ý kinh doanh: Giá bán lẻ đề xuất cho khách hàng cá nhân là 399.000đ/máy, khách hàng doanh nghiệp từ 249.000đ - 299.000đ/máy. Đại lý sỉ tự cài đặt sẽ nhận mức lợi nhuận chênh lệch từ 150.000đ - 250.000đ trên mỗi máy tính triển khai.</p>
+      <div class="highlight-box">
+        <p>Phân tích hiệu quả kinh doanh: Giá bán lẻ đề xuất cho máy cá nhân là 399.000đ/máy, máy doanh nghiệp là 249.000đ - 299.000đ/máy. Đối tác chọn hình thức Đại lý sỉ tự cài đặt sẽ nhận mức lợi nhuận chênh lệch trực tiếp từ 150.000đ đến 250.000đ trên mỗi máy tính của khách hàng.</p>
+      </div>
     </div>
 
-    <h2>2. Quyền Lợi Hỗ Trợ Dành Cho Đối Tác</h2>
-    <ul>
-        <li><strong>Hỗ trợ kỹ thuật:</strong> Cung cấp file đóng gói bộ cài OnlyOffice chuẩn hóa, cấu hình mặc định tương thích 100% với các định dạng của Microsoft Office (docx, xlsx, pptx). Tích hợp đầy đủ bộ font tiếng Việt văn phòng (VNI, TCVN3, Arial, Times New Roman) không bị lỗi nhảy dòng, lỗi chữ.</li>
-        <li><strong>Hỗ trợ pháp lý thanh tra:</strong> Mercy Tech cung cấp đầy đủ bộ Hồ sơ pháp lý nguồn gốc phần mềm mã nguồn mở (giấy phép quốc tế AGPLv3) được biên dịch và đóng dấu đỏ công ty để đại lý gửi kèm cho khách hàng trình diện các cơ quan thanh tra liên ngành.</li>
-        <li><strong>Hỗ trợ hóa đơn:</strong> Mercy Tech hỗ trợ xuất hóa đơn VAT dịch vụ kỹ thuật đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chi phí hạch toán kế toán.</li>
-        <li><strong>Bảo hành & Hỗ trợ sau bán hàng:</strong> Đội ngũ kỹ thuật của Mercy Tech hỗ trợ xử lý các lỗi phát sinh qua UltraView hoặc AnyDesk trong suốt 12 tháng sử dụng.</li>
-    </ul>
+    <div class="section-block">
+      <h2>2. Quy Trình Triển Khai Dành Cho Đại Lý</h2>
+      <p>Các bước thực hiện chuẩn hóa cài đặt phần mềm cho khách hàng của đại lý:</p>
 
-    <h2>3. Cam Kết Từ Mercy Tech</h2>
-    <p>Chúng tôi cam kết bảo mật tuyệt đối thông tin khách hàng của đại lý. Mercy Tech chịu trách nhiệm pháp lý cao nhất về tính nguyên bản và hợp pháp của phần mềm được chuyển giao, cam kết không sử dụng bất kỳ công cụ bẻ khóa (crack) lậu nào gây rủi ro an ninh mạng cho khách hàng.</p>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Đăng ký thiết bị</h4>
+            <p>Đại lý tiếp nhận yêu cầu số lượng máy cần triển khai của khách hàng và báo thông tin qua Zalo hỗ trợ kỹ thuật của Mercy Tech để lấy số lượng tài khoản/lượt cài tương ứng.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Cài đặt và tối ưu hóa hệ thống</h4>
+            <p>Đại lý tải bộ cài OnlyOffice do Mercy Tech đóng gói, chạy script cấu hình tự động dọn dẹp các tệp registry xung đột từ Office crack cũ, thiết lập mặc định lưu file đuôi docx, xlsx, pptx.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Tích hợp phông chữ chuẩn văn phòng</h4>
+            <p>Cài đặt bộ font chữ việt hóa mở rộng (VNI, TCVN3, Arial, Times New Roman) vào thư mục hệ thống của phần mềm để đảm bảo mở các file cũ của Microsoft Office không bị lỗi định dạng hay vỡ dòng.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Bàn giao hồ sơ pháp lý kiểm tra bản quyền</h4>
+            <p>Mercy Tech chuẩn bị bộ Hồ sơ pháp lý nguồn gốc phần mềm (giấy phép AGPLv3 quốc tế) kèm biên bản nghiệm thu chuyển giao có ký tên đóng dấu đỏ công ty gửi đại lý bàn giao lại cho doanh nghiệp trình thanh tra bản quyền khi cần thiết.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Kích hoạt bảo hành bảo trì</h4>
+            <p>Đăng ký mã máy tính của khách hàng lên hệ thống Mercy Tech để kích hoạt gói bảo hành kỹ thuật, hỗ trợ xử lý lỗi hiển thị file hoặc lỗi định dạng qua UltraView trong 12 tháng sử dụng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <footer>
-        <div class="signature-block">
-            <div class="signature-title">Đại diện đối tác</div>
-            <div style="height: 50px;"></div>
-            <div class="signature-name">...................................................</div>
-        </div>
-        <div class="signature-block">
-            <div class="signature-title">Đại diện Mercy Tech Global</div>
-            <div style="height: 50px;"></div>
-            <div class="signature-name">Vy Thiên Hùng</div>
-            <div class="signature-company">CEO & Founder</div>
-        </div>
-    </footer>
+    <div class="section-block">
+      <h2>3. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
+      <ul class="clean-list">
+        <li>Được cung cấp bộ cài đặt ngoại tuyến (Offline Installer) đã tích hợp sẵn script chuẩn hóa để kỹ thuật đại lý cài nhanh chóng trong 5 phút.</li>
+        <li>Hỗ trợ xuất hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chứng từ kế toán và khấu trừ chi phí thuế doanh nghiệp.</li>
+        <li>Bảo mật hoàn toàn thông tin khách hàng đầu cuối của đại lý, cam kết không tiếp cận trực tiếp trừ khi có sự đồng ý hoặc yêu cầu hỗ trợ kỹ thuật từ đại lý.</li>
+        <li>Chịu trách nhiệm pháp lý cao nhất về tính nguyên bản của phần mềm được cung cấp, tuyệt đối không sử dụng công cụ bẻ khóa lậu gây mất an ninh thông tin của khách hàng.</li>
+      </ul>
+    </div>
+
+    <div class="page-footer">
+      <div class="signature-block">
+        <div class="signature-title">Đại diện Đối tác đại lý</div>
+        <div style="height: 50px;"></div>
+        <div class="signature-name">...................................................</div>
+      </div>
+      <div class="signature-block">
+        <div class="signature-title">Đại diện Mercy Tech Global</div>
+        <div style="height: 50px;"></div>
+        <div class="signature-name">Vy Thiên Hùng</div>
+        <div class="signature-company">CEO & Founder</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
