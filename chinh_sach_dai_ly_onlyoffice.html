@@ -156,37 +156,30 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 25px 0;
+      margin: 20px 0;
       font-size: 13px;
-      table-layout: fixed;
     }
 
     th, td {
       border: 1px solid var(--border);
-      padding: 16px 14px;
+      padding: 14px;
       text-align: left;
       line-height: 1.5;
-      vertical-align: middle;
-      word-wrap: break-word;
     }
 
     th {
       background-color: var(--gray-light);
       font-weight: 700;
       color: var(--text);
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.5px;
     }
 
-    td.price-highlight {
-      font-size: 14px;
-      font-weight: 700;
+    .price-highlight {
+      font-size: 15px;
+      font-weight: 800;
       color: var(--primary);
-      white-space: nowrap;
     }
 
-    /* Highlight box (No icons) */
+    /* Highlight box */
     .highlight-box {
       background-color: var(--gray-light);
       border-radius: 12px;
@@ -202,7 +195,7 @@
       margin-bottom: 0;
     }
 
-    /* List styling (no check icons, clean dashed/dots style) */
+    /* List styling */
     .clean-list {
       margin-left: 20px;
       margin-bottom: 20px;
@@ -262,21 +255,29 @@
       border-top: 1px solid var(--border);
       padding-top: 40px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      text-align: center;
     }
 
     .signature-block {
-      width: 45%;
-      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .signature-title {
       font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
-      margin-bottom: 70px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .signature-seal {
+      margin: 15px 0;
     }
 
     .signature-name {
@@ -337,56 +338,89 @@
 
     <div class="section-block">
       <p>Kính gửi Quý Đối tác,</p>
-      <p>Mercy Tech Global trân trọng gửi tới các đơn vị dịch vụ IT bảo trì, cửa hàng phân phối phần cứng và thiết bị máy tính chương trình hợp tác đại lý cung cấp giải pháp văn phòng số OnlyOffice. Đây là phương án bản quyền thay thế tối     <div class="section-block">
-      <h2>1. Bảng Giá Sỉ & Chiết Khấu Đại Lý</h2>
-      <p>Chính sách tài chính chiết khấu và đơn giá áp dụng dựa trên số lượng lượt cài đặt triển khai (OnlyOffice):</p>
+      <p>Mercy Tech Global trân trọng gửi tới các đơn vị dịch vụ IT bảo trì, cửa hàng phân phối phần cứng và thiết bị máy tính chương trình hợp tác đối tác cung cấp giải pháp văn phòng số OnlyOffice. Đây là phương án bản quyền thay thế tối ưu giúp khách hàng doanh nghiệp chuẩn hóa 100% hồ sơ kiểm tra bản quyền liên ngành với mức chi phí tiết kiệm đến 90% so với Microsoft Office.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>1. Chương Trình Đại Lý Sỉ (Pre-paid Slots)</h2>
+      <p>Áp dụng cho các đối tác tự chốt đơn, tự thu tiền của khách hàng và nạp trước gói lượt cài đặt tối thiểu từ 50 máy trở lên. Kỹ thuật viên Mercy Tech sẽ trực tiếp hỗ trợ cài đặt tối ưu hóa hệ thống từ xa qua UltraView/AnyDesk cho từng máy của khách:</p>
 
       <table>
-        <colgroup>
-          <col style="width: 18%;">
-          <col style="width: 22%;">
-          <col style="width: 22%;">
-          <col style="width: 38%;">
-        </colgroup>
         <thead>
           <tr>
-            <th>Hạng Mục</th>
-            <th>Quy Mô Áp Dụng</th>
-            <th>Đơn Giá Chiết Khấu</th>
-            <th>Phương Thức Hợp Tác Triển Khai</th>
+            <th>Hạng Mục Đại Lý</th>
+            <th>Số Lượng Lượt Cài Đặt (Slots)</th>
+            <th>Đơn Giá Triển Khai</th>
+            <th>Mức Nạp Tối Thiểu</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Gói Đồng</strong></td>
-            <td>50 - 99 máy</td>
-            <td class="price-highlight">199.000 đ / máy</td>
-            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
+            <td>50 - 99 slots</td>
+            <td class="price-highlight">120.000 đ / Máy</td>
+            <td>Nạp trước 50 slots (6.000.000 đ)</td>
           </tr>
           <tr>
             <td><strong>Gói Bạc</strong></td>
-            <td>100 - 199 máy</td>
-            <td class="price-highlight">179.000 đ / máy</td>
-            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
+            <td>100 - 199 slots</td>
+            <td class="price-highlight">99.000 đ / Máy</td>
+            <td>Nạp trước 100 slots (9.900.000 đ)</td>
           </tr>
           <tr>
             <td><strong>Gói Vàng</strong></td>
-            <td>Từ 200 máy trở lên</td>
-            <td class="price-highlight">149.000 đ / máy</td>
-            <td>Đại lý tự chốt đơn, tự thu tiền của khách. Kỹ thuật Mercy Tech kết nối hỗ trợ cài đặt tối ưu từ xa.</td>
-          </tr>
-          <tr>
-            <td><strong>Cộng tác viên</strong></td>
-            <td>Không giới hạn</td>
-            <td class="price-highlight">Chiết khấu 20% - 30%</td>
-            <td>Đối tác giới thiệu khách hàng. Mercy Tech chịu trách nhiệm tư vấn, cài đặt, bảo trì và chia hoa hồng.</td>
+            <td>Từ 200 slots trở lên</td>
+            <td class="price-highlight">79.000 đ / Máy</td>
+            <td>Nạp trước 200 slots (15.800.000 đ)</td>
           </tr>
         </tbody>
       </table>
+    </div>
 
-      <div class="highlight-box">
-        <p>Phân tích hiệu quả kinh doanh: Giá bán lẻ đề xuất cho máy cá nhân là 399.000đ/máy, máy doanh nghiệp là 249.000đ - 299.000đ/máy. Đối tác đăng ký đại lý sỉ sẽ nhận mức lợi nhuận chênh lệch hấp dẫn trên mỗi máy tính triển khai mà không cần lo chi phí vận hành hay nhân sự kỹ thuật.</p>
-      </div>
+    <div class="section-block">
+      <h2>2. Chương Trình Cộng Tác Viên (CTV)</h2>
+      <p>Áp dụng cho các đối tác giới thiệu hoặc bán hàng trực tiếp mà không cần nạp trước gói lượt cài. Mercy Tech chịu trách nhiệm tư vấn, cài đặt trực tiếp, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Hình Thức CTV</th>
+            <th>Phân Cấp Doanh Số (Lượt cài/Tháng)</th>
+            <th>Tỷ Lệ Chiết Khấu</th>
+            <th>Mô Tả Quy Trình</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3"><strong>CTV Giới thiệu</strong><br>(Chỉ cung cấp thông tin liên hệ khách hàng)</td>
+            <td>Cấp 1: Dưới 10 máy/tháng</td>
+            <td class="price-highlight">5% / Giá trị hợp đồng</td>
+            <td rowspan="3">CTV chỉ cung cấp tên và số điện thoại khách hàng có nhu cầu. Đội ngũ Mercy Tech sẽ tự liên hệ tư vấn, chốt đơn và cài đặt từ A-Z.</td>
+          </tr>
+          <tr>
+            <td>Cấp 2: Từ 10 - 49 máy/tháng</td>
+            <td class="price-highlight">7% / Giá trị hợp đồng</td>
+          </tr>
+          <tr>
+            <td>Cấp 3: Từ 50 máy/tháng trở lên</td>
+            <td class="price-highlight">10% / Giá trị hợp đồng</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>CTV Bán hàng</strong><br>(Tự tư vấn và chốt hợp đồng thành công)</td>
+            <td>Cấp 1: Dưới 20 máy/tháng</td>
+            <td class="price-highlight">10% / Giá trị hợp đồng</td>
+            <td rowspan="3">CTV tự đàm phán, chốt giá và hợp đồng thành công với khách hàng. Mercy Tech chịu trách nhiệm cài đặt và xuất hóa đơn VAT cho khách.</td>
+          </tr>
+          <tr>
+            <td>Cấp 2: Từ 20 - 99 máy/tháng</td>
+            <td class="price-highlight">15% / Giá trị hợp đồng</td>
+          </tr>
+          <tr>
+            <td>Cấp 3: Từ 100 máy/tháng trở lên</td>
+            <td class="price-highlight">20% / Giá trị hợp đồng</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="section-block">
@@ -398,7 +432,7 @@
           <div class="step-number">1</div>
           <div class="step-content">
             <h4>Cung cấp thông tin kết nối</h4>
-            <p>Đại lý tiếp nhận yêu cầu cài đặt của khách hàng và chỉ cần gửi mã UltraView hoặc AnyDesk của máy tính đó vào nhóm Zalo hỗ trợ kỹ thuật chung của hai bên.</p>
+            <p>Đối tác tiếp nhận yêu cầu cài đặt của khách hàng và chỉ cần gửi mã UltraView hoặc AnyDesk của máy tính đó vào nhóm Zalo hỗ trợ kỹ thuật chung của hai bên.</p>
           </div>
         </div>
         <div class="step-item">
@@ -429,7 +463,7 @@
       <h2>4. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
       <p>Để đảm bảo kiểm soát chính xác 100% số lượng máy đã triển khai thực tế và bảo mật giải pháp công nghệ độc quyền, hai bên áp dụng cơ chế đối soát như sau:</p>
       <ul class="clean-list">
-        <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 6.000.000đ). Số lượt cài đặt này được ghi nhận và quản lý trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
+        <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 6.000.000đ). Số lượt này được ghi nhận trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
         <li><strong>Kiểm soát qua UltraView thực tế:</strong> Do toàn bộ quy trình cài đặt, chạy script nạp font chữ tiếng Việt và dọn rác registry độc quyền đều do kỹ thuật viên Mercy Tech trực tiếp đăng nhập qua UltraView để xử lý (đại lý không nắm file nguồn script tối ưu), nên đại lý hoàn toàn không thể tự ý cài ngoài hệ thống cho khách hàng cá nhân hay doanh nghiệp.</li>
         <li><strong>Đối soát tự động:</strong> Mỗi khi kỹ thuật viên Mercy Tech hoàn tất cài đặt xong cho 1 máy do đại lý gửi qua nhóm Zalo, hệ thống sẽ tự động chụp màn hình thiết bị, ghi nhận mã phần cứng (UUID) và trừ đi 1 lượt cài trong số dư tài khoản của đại lý trên file Google Sheet đối soát.</li>
         <li><strong>Nạp thêm khi hết lượt:</strong> Khi số dư lượt cài của đại lý chạm mốc 0, đại lý thực hiện nạp thêm lượt mới để tiếp tục gửi máy cài đặt.</li>
@@ -446,10 +480,10 @@
       </ul>
     </div>
 
-    <div class="page-footer" style="justify-content: center; text-align: center;">
-      <div class="signature-block" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="page-footer">
+      <div class="signature-block">
         <div class="signature-title">ĐẠI DIỆN CÔNG TY CÔNG NGHỆ MERCY TECH GLOBAL</div>
-        <div class="signature-seal" style="margin: 15px 0;">
+        <div class="signature-seal">
           <img src="chu_ky_moc.png" alt="Chữ ký và dấu mộc đỏ Mercy Tech Global" style="width: 180px; height: auto;">
         </div>
         <div class="signature-name">Vy Thiên Hùng</div>
