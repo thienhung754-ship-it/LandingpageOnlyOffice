@@ -13,7 +13,8 @@
       --text: #1d1d1f;
       --text-muted: #86868b;
       --border: rgba(0, 0, 0, 0.08);
-      --bg: #ffffff;
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
       --gray-light: #f5f5f7;
     }
 
@@ -25,35 +26,61 @@
     }
 
     body {
-      background-color: #f5f5f7;
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: 40px 20px;
+      padding: 50px 20px;
       -webkit-font-smoothing: antialiased;
     }
 
     .container {
       max-width: 900px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* Spacing between separated card blocks */
     }
 
-    .page-container {
-      background: #ffffff;
-      padding: 80px 70px;
-      border-radius: 18px;
+    /* Card Blocks (Rounded blocks with white/gray/black mix) */
+    .card-block {
+      background: var(--card-bg);
+      padding: 60px 50px;
+      border-radius: 20px;
       border: 1px solid var(--border);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
-      margin-bottom: 40px;
+      overflow: hidden;
     }
 
-    /* Header */
+    /* Dark card block (Black) */
+    .card-block.dark-theme {
+      background: #1d1d1f;
+      color: #ffffff;
+      border: none;
+    }
+
+    .card-block.dark-theme h2 {
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .card-block.dark-theme .clean-list li {
+      color: #e8e8ed;
+    }
+
+    /* Gray card block */
+    .card-block.gray-theme {
+      background: #eef0f3;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header & Title blocks */
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 20px;
-      margin-bottom: 50px;
+      padding-bottom: 25px;
+      margin-bottom: 40px;
     }
 
     .header-left {
@@ -63,7 +90,7 @@
     }
 
     .header-left span {
-      color: #000000;
+      color: var(--primary);
     }
 
     .header-right {
@@ -76,9 +103,8 @@
       line-height: 1.4;
     }
 
-    /* Title Block */
     .title-block {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .title-block h1 {
@@ -104,7 +130,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      margin-bottom: 45px;
+      margin-bottom: 10px;
     }
 
     .metadata-item {
@@ -132,38 +158,36 @@
       color: var(--text);
     }
 
-    /* Section block style */
-    .section-block {
-      margin-bottom: 45px;
-    }
-
-    .section-block h2 {
-      font-size: 18px;
-      font-weight: 700;
+    /* Section Headings */
+    .card-block h2 {
+      font-size: 19px;
+      font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
+      padding-bottom: 12px;
     }
 
-    .section-block p {
+    .card-block p {
       font-size: 14px;
-      color: var(--text);
       margin-bottom: 15px;
     }
 
-    /* Tables alignment and sizing */
+    /* Premium styled tables (dark headers, zebra stripe details) */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 25px 0;
       font-size: 13px;
       table-layout: fixed;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     th, td {
       border: 1px solid var(--border);
-      padding: 14px 16px;
+      padding: 16px 18px;
       text-align: left;
       line-height: 1.5;
       vertical-align: middle;
@@ -171,9 +195,14 @@
     }
 
     th {
-      background-color: var(--gray-light);
+      background-color: #1d1d1f;
+      color: #ffffff;
       font-weight: 700;
-      color: var(--text);
+      border: 1px solid #1d1d1f;
+    }
+
+    tbody tr:nth-child(even) td {
+      background-color: #fafdff; /* subtle tint for table readability */
     }
 
     .price-highlight {
@@ -183,19 +212,18 @@
       white-space: nowrap;
     }
 
-    /* Highlight box */
+    /* Highlight box inside white cards */
     .highlight-box {
       background-color: var(--gray-light);
       border-radius: 12px;
       padding: 24px;
-      margin: 25px 0;
+      margin-top: 25px;
       border: 1px solid var(--border);
     }
 
     .highlight-box p {
       font-size: 13px;
       line-height: 1.6;
-      color: var(--text);
       margin-bottom: 0;
     }
 
@@ -209,7 +237,6 @@
       font-size: 14px;
       margin-bottom: 10px;
       list-style-type: square;
-      color: var(--text);
     }
 
     /* Steps timeline style */
@@ -255,9 +282,6 @@
 
     /* Footer / Signatures */
     .page-footer {
-      margin-top: 60px;
-      border-top: 1px solid var(--border);
-      padding-top: 40px;
       display: flex;
       justify-content: center;
       text-align: center;
@@ -300,10 +324,12 @@
         padding: 0;
         background-color: #ffffff;
       }
-      .page-container {
+      .card-block {
         border: none;
         box-shadow: none;
         padding: 0;
+        margin-bottom: 50px;
+        page-break-inside: avoid;
       }
     }
   </style>
@@ -311,7 +337,9 @@
 <body>
 
 <div class="container">
-  <div class="page-container">
+  
+  <!-- Block 0: Header & Metadata (White Card) -->
+  <div class="card-block">
     <header class="page-header">
       <div class="header-left">MERCY<span>TECH</span></div>
       <div class="header-right">
@@ -339,172 +367,189 @@
         <p>Vĩnh Viễn / Toàn Quốc</p>
       </div>
     </div>
-
-    <div class="section-block">
-      <p>Kính gửi Quý Đối tác,</p>
-      <p>Mercy Tech Global trân trọng gửi tới các đơn vị dịch vụ IT bảo trì, cửa hàng phân phối phần cứng và thiết bị máy tính chương trình hợp tác đối tác cung cấp giải pháp văn phòng số OnlyOffice. Đây là phương án bản quyền thay thế tối ưu giúp khách hàng doanh nghiệp chuẩn hóa 100% hồ sơ kiểm tra bản quyền liên ngành với mức chi phí tiết kiệm đến 90% so với Microsoft Office.</p>
+    
+    <div style="margin-top: 30px;">
+      <p style="font-size: 14px; margin-bottom: 0;"><strong>Mercy Tech Global</strong> trân trọng gửi tới các đơn vị dịch vụ IT bảo trì, cửa hàng phân phối phần cứng chương trình đối tác triển khai OnlyOffice bản quyền tại Việt Nam. Đây là phương án tối ưu thay thế Microsoft Office crack lậu, giúp khách doanh nghiệp vượt qua các kỳ thanh tra liên ngành hợp pháp 100%.</p>
     </div>
+  </div>
 
-    <div class="section-block">
-      <h2>1. Chương Trình Đại Lý Sỉ (Pre-paid Slots)</h2>
-      <p>Áp dụng cho các đối tác tự chốt đơn, tự thu tiền của khách hàng và nạp trước gói lượt cài đặt tối thiểu từ 50 máy trở lên. Kỹ thuật viên Mercy Tech sẽ trực tiếp hỗ trợ cài đặt tối ưu hóa hệ thống từ xa qua UltraView/AnyDesk cho từng máy của khách:</p>
+  <!-- Block 1: Đại lý sỉ (White Card) -->
+  <div class="card-block">
+    <h2>1. Chương Trình Đại Lý Sỉ (Pre-paid Slots)</h2>
+    <p>Áp dụng cho các đối tác tự chốt đơn, tự thu tiền của khách hàng và nạp trước gói lượt cài đặt tối thiểu từ 50 máy trở lên. Kỹ thuật viên Mercy Tech sẽ trực tiếp hỗ trợ cài đặt tối ưu hóa hệ thống từ xa qua UltraView/AnyDesk cho từng máy của khách:</p>
 
-      <table>
-        <colgroup>
-          <col style="width: 20%;">
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-          <col style="width: 30%;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Hạng Mục Đại Lý</th>
-            <th>Số Lượng Lượt Cài Đặt (Slots)</th>
-            <th>Đơn Giá Triển Khai</th>
-            <th>Mức Nạp Tối Thiểu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Gói Đồng</strong></td>
-            <td>50 - 99 slots</td>
-            <td class="price-highlight">149.000 đ / Máy</td>
-            <td>Nạp trước 50 slots (7.450.000 đ)</td>
-          </tr>
-          <tr>
-            <td><strong>Gói Bạc</strong></td>
-            <td>100 - 199 slots</td>
-            <td class="price-highlight">129.000 đ / Máy</td>
-            <td>Nạp trước 100 slots (12.900.000 đ)</td>
-          </tr>
-          <tr>
-            <td><strong>Gói Vàng</strong></td>
-            <td>Từ 200 slots trở lên</td>
-            <td class="price-highlight">99.000 đ / Máy</td>
-            <td>Nạp trước 200 slots (19.800.000 đ)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table>
+      <colgroup>
+        <col style="width: 20%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+        <col style="width: 30%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Hạng Mục Đại Lý</th>
+          <th>Số Lượng Lượt Cài Đặt (Slots)</th>
+          <th>Đơn Giá Triển Khai</th>
+          <th>Mức Nạp Tối Thiểu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gói Đồng</strong></td>
+          <td>50 - 99 slots</td>
+          <td class="price-highlight">149.000 đ / Máy</td>
+          <td>Nạp trước 50 slots (7.450.000 đ)</td>
+        </tr>
+        <tr>
+          <td><strong>Gói Bạc</strong></td>
+          <td>100 - 199 slots</td>
+          <td class="price-highlight">129.000 đ / Máy</td>
+          <td>Nạp trước 100 slots (12.900.000 đ)</td>
+        </tr>
+        <tr>
+          <td><strong>Gói Vàng</strong></td>
+          <td>Từ 200 slots trở lên</td>
+          <td class="price-highlight">99.000 đ / Máy</td>
+          <td>Nạp trước 200 slots (19.800.000 đ)</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <div class="section-block">
-      <h2>2. Chương Trình Cộng Tác Viên (CTV)</h2>
-      <p>Áp dụng cho các đối tác giới thiệu hoặc bán hàng trực tiếp mà không cần nạp trước gói lượt cài. Mercy Tech chịu trách nhiệm tư vấn, cài đặt trực tiếp, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng:</p>
-
-      <table>
-        <colgroup>
-          <col style="width: 22%;">
-          <col style="width: 23%;">
-          <col style="width: 25%;">
-          <col style="width: 30%;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Hình Thức CTV</th>
-            <th>Phân Cấp Doanh Số (Lượt cài/Tháng)</th>
-            <th>Tỷ Lệ Chiết Khấu</th>
-            <th>Mô Tả Quy Trình</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="3"><strong>CTV Giới thiệu</strong><br>(Chỉ cung cấp thông tin liên hệ khách hàng)</td>
-            <td>Cấp 1: Dưới 10 máy/tháng</td>
-            <td class="price-highlight">5% / Giá trị hợp đồng</td>
-            <td rowspan="3">CTV chỉ cung cấp tên và số điện thoại khách hàng có nhu cầu. Đội ngũ Mercy Tech sẽ tự liên hệ tư vấn, chốt đơn và cài đặt từ A-Z.</td>
-          </tr>
-          <tr>
-            <td>Cấp 2: Từ 10 - 49 máy/tháng</td>
-            <td class="price-highlight">7% / Giá trị hợp đồng</td>
-          </tr>
-          <tr>
-            <td>Cấp 3: Từ 50 máy/tháng trở lên</td>
-            <td class="price-highlight">10% / Giá trị hợp đồng</td>
-          </tr>
-          <tr>
-            <td rowspan="3"><strong>CTV Bán hàng</strong><br>(Tự tư vấn và chốt hợp đồng thành công)</td>
-            <td>Cấp 1: Dưới 20 máy/tháng</td>
-            <td class="price-highlight">10% / Giá trị hợp đồng</td>
-            <td rowspan="3">CTV tự đàm phán, chốt giá và hợp đồng thành công với khách hàng. Mercy Tech chịu trách nhiệm cài đặt và xuất hóa đơn VAT cho khách.</td>
-          </tr>
-          <tr>
-            <td>Cấp 2: Từ 20 - 99 máy/tháng</td>
-            <td class="price-highlight">12% / Giá trị hợp đồng</td>
-          </tr>
-          <tr>
-            <td>Cấp 3: Từ 100 máy/tháng trở lên</td>
-            <td class="price-highlight">15% / Giá trị hợp đồng</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="highlight-box">
-        <strong style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Ví dụ bài toán kinh tế (Cộng tác viên):</strong>
-        <p style="margin-top: 8px; font-size: 13px;">Khi CTV bán hàng chốt hợp đồng triển khai OnlyOffice cho 50 máy tính doanh nghiệp (tổng giá trị hợp đồng 14.950.000 đ):</p>
-        <ul style="margin-left: 20px; margin-top: 8px; font-size: 13px; list-style-type: circle; color: var(--text);">
-          <li style="margin-bottom: 6px;">Mức chiết khấu áp dụng (CTV Bán hàng Cấp 2 - 12%): <strong>1.794.000 đ</strong> (nhận hoa hồng sau khi Mercy Tech thu tiền khách hàng).</li>
-          <li style="margin-bottom: 0;"><strong>Phân tích so sánh:</strong> Cùng một khối lượng công việc chốt 50 máy, hình thức **Đại lý sỉ (trả trước)** mang lại lợi nhuận cao gấp **4,1 lần** so với hình thức CTV (lãi 7.500.000 đ so với 1.794.000 đ). Cơ chế này khuyến khích đối tác nạp trước gói lượt cài để giữ lại phần lớn lợi nhuận.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section-block">
-      <h2>3. Quy Trình Triển Khai Từ A - Z Cho Đối Tác</h2>
-      <p>Kỹ thuật viên của Mercy Tech trực tiếp thực hiện 100% công tác cài đặt và tối ưu hóa hệ thống từ xa nhằm giải phóng nguồn lực cho đối tác:</p>
-
-      <div class="step-list">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h4>Cung cấp thông tin kết nối</h4>
-            <p>Đối tác tiếp nhận yêu cầu cài đặt của khách hàng và chỉ cần gửi mã UltraView hoặc AnyDesk của máy tính đó vào nhóm Zalo hỗ trợ kỹ thuật chung của hai bên.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h4>Cài đặt và tối ưu hóa hệ thống từ xa</h4>
-            <p>Kỹ thuật viên Mercy Tech trực tiếp kết nối vào máy khách, dọn dẹp các tệp registry xung đột từ Office crack cũ, cài đặt phần mềm và chạy script cấu hình phông chữ tiếng Việt chuẩn văn phòng trong 10-15 phút.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h4>Bàn giao hồ sơ pháp lý đóng dấu mộc đỏ</h4>
-            <p>Mercy Tech ký đóng dấu mộc đỏ pháp lý vào Biên bản bàn giao kỹ thuật & Hồ sơ chứng nhận nguồn gốc phần mềm AGPLv3 hợp pháp, sau đó gửi bản scan PDF chất lượng cao qua Zalo để đại lý chuyển giao lại cho khách hàng của mình.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h4>Bảo hành và hỗ trợ kỹ thuật sau bán hàng</h4>
-            <p>Mercy Tech trực tiếp chịu trách nhiệm bảo hành kỹ thuật 12 tháng qua UltraView cho khách hàng của đại lý nếu xảy ra bất kỳ lỗi hiển thị file hay lỗi phông chữ nào trong quá trình sử dụng.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-block">
-      <h2>4. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
-      <p>Để đảm bảo kiểm soát chính xác 100% số lượng máy đã triển khai thực tế và bảo mật giải pháp công nghệ độc quyền, hai bên áp dụng cơ chế đối soát như sau:</p>
-      <ul class="clean-list">
-        <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 6.000.000đ). Số lượt này được ghi nhận trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
-        <li><strong>Kiểm soát qua UltraView thực tế:</strong> Do toàn bộ quy trình cài đặt, chạy script nạp font chữ tiếng Việt và dọn rác registry độc quyền đều do kỹ thuật viên Mercy Tech trực tiếp đăng nhập qua UltraView để xử lý (đại lý không nắm file nguồn script tối ưu), nên đại lý hoàn toàn không thể tự ý cài ngoài hệ thống cho khách hàng cá nhân hay doanh nghiệp.</li>
-        <li><strong>Đối soát tự động:</strong> Mỗi khi kỹ thuật viên Mercy Tech hoàn tất cài đặt xong cho 1 máy do đại lý gửi qua nhóm Zalo, hệ thống sẽ tự động chụp màn hình thiết bị, ghi nhận mã phần cứng (UUID) và trừ đi 1 lượt cài trong số dư tài khoản của đại lý trên file Google Sheet đối soát.</li>
-        <li><strong>Nạp thêm khi hết lượt:</strong> Khi số dư lượt cài của đại lý chạm mốc 0, đại lý thực hiện nạp thêm lượt mới để tiếp tục gửi máy cài đặt.</li>
+    <div class="highlight-box">
+      <strong style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Ví dụ bài toán kinh tế (Đại lý sỉ):</strong>
+      <p style="margin-top: 8px; font-size: 13px;">Khi đại lý chốt hợp đồng triển khai văn phòng số OnlyOffice cho 50 máy tính doanh nghiệp:</p>
+      <ul style="margin-left: 20px; margin-top: 8px; font-size: 13px; list-style-type: circle; color: var(--text);">
+        <li style="margin-bottom: 6px;">Vốn đại lý nạp trước (Gói Đồng - 149.000 đ/máy): <strong>7.450.000 đ</strong></li>
+        <li style="margin-bottom: 6px;">Doanh thu đại lý thu trực tiếp từ khách hàng (bán lẻ 299.000 đ/máy): <strong>14.950.000 đ</strong></li>
+        <li style="margin-bottom: 0;"><strong>Lợi nhuận ròng đại lý nhận: 7.500.000 đ</strong> (Tỷ suất lợi nhuận đạt 100%, Mercy Tech đảm nhận toàn bộ khâu cài đặt kỹ thuật).</li>
       </ul>
     </div>
+  </div>
 
-    <div class="section-block">
-      <h2>5. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
-      <ul class="clean-list">
-        <li>Giải phóng hoàn toàn đội ngũ nhân sự kỹ thuật của đại lý, mọi việc cài đặt, tối ưu hóa hệ thống từ A-Z đều do kỹ thuật Mercy Tech thực hiện.</li>
-        <li>Hỗ trợ xuất hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chứng từ kế toán và khấu trừ chi phí thuế doanh nghiệp.</li>
-        <li>Bảo mật hoàn toàn thông tin khách hàng đầu cuối của đại lý, cam kết không tiếp cận trực tiếp trừ khi có sự đồng ý hoặc yêu cầu hỗ trợ kỹ thuật từ đại lý.</li>
-        <li>Chịu trách nhiệm pháp lý cao nhất về tính nguyên bản của phần mềm được cung cấp, tuyệt đối không sử dụng công cụ bẻ khóa lậu gây mất an ninh thông tin của khách hàng.</li>
+  <!-- Block 2: Cộng tác viên (White Card) -->
+  <div class="card-block">
+    <h2>2. Chương Trình Cộng Tác Viên (CTV)</h2>
+    <p>Áp dụng cho các đối tác giới thiệu hoặc bán hàng trực tiếp mà không cần nạp trước gói lượt cài. Mercy Tech chịu trách nhiệm tư vấn, cài đặt trực tiếp, xuất hóa đơn VAT và bảo trì kỹ thuật cho khách hàng:</p>
+
+    <table>
+      <colgroup>
+        <col style="width: 22%;">
+        <col style="width: 23%;">
+        <col style="width: 25%;">
+        <col style="width: 30%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Hình Thức CTV</th>
+          <th>Phân Cấp Doanh Số (Lượt cài/Tháng)</th>
+          <th>Tỷ Lệ Chiết Khấu</th>
+          <th>Mô Tả Quy Trình</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3"><strong>CTV Giới thiệu</strong><br>(Chỉ cung cấp thông tin liên hệ khách hàng)</td>
+          <td>Cấp 1: Dưới 10 máy/tháng</td>
+          <td class="price-highlight">5% / Giá trị hợp đồng</td>
+          <td rowspan="3">CTV chỉ cung cấp tên và số điện thoại khách hàng có nhu cầu. Đội ngũ Mercy Tech sẽ tự liên hệ tư vấn, chốt đơn và cài đặt từ A-Z.</td>
+        </tr>
+        <tr>
+          <td>Cấp 2: Từ 10 - 49 máy/tháng</td>
+          <td class="price-highlight">7% / Giá trị hợp đồng</td>
+        </tr>
+        <tr>
+          <td>Cấp 3: Từ 50 máy/tháng trở lên</td>
+          <td class="price-highlight">10% / Giá trị hợp đồng</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>CTV Bán hàng</strong><br>(Tự tư vấn và chốt hợp đồng thành công)</td>
+          <td>Cấp 1: Dưới 20 máy/tháng</td>
+          <td class="price-highlight">10% / Giá trị hợp đồng</td>
+          <td rowspan="3">CTV tự đàm phán, chốt giá và hợp đồng thành công với khách hàng. Mercy Tech chịu trách nhiệm cài đặt và xuất hóa đơn VAT cho khách.</td>
+        </tr>
+        <tr>
+          <td>Cấp 2: Từ 20 - 99 máy/tháng</td>
+          <td class="price-highlight">12% / Giá trị hợp đồng</td>
+        </tr>
+        <tr>
+          <td>Cấp 3: Từ 100 máy/tháng trở lên</td>
+          <td class="price-highlight">15% / Giá trị hợp đồng</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <strong style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Ví dụ bài toán kinh tế (Cộng tác viên):</strong>
+      <p style="margin-top: 8px; font-size: 13px;">Khi CTV bán hàng chốt hợp đồng triển khai OnlyOffice cho 50 máy tính doanh nghiệp (tổng giá trị hợp đồng 14.950.000 đ):</p>
+      <ul style="margin-left: 20px; margin-top: 8px; font-size: 13px; list-style-type: circle; color: var(--text);">
+        <li style="margin-bottom: 6px;">Mức chiết khấu áp dụng (CTV Bán hàng Cấp 2 - 12%): <strong>1.794.000 đ</strong> (nhận hoa hồng sau khi Mercy Tech thu tiền khách hàng).</li>
+        <li style="margin-bottom: 0;"><strong>Phân tích so sánh:</strong> Cùng một khối lượng công việc chốt 50 máy, hình thức <strong>Đại lý sỉ (trả trước)</strong> mang lại lợi nhuận cao gấp <strong>4,1 lần</strong> so với hình thức CTV (lãi 7.500.000 đ so với 1.794.000 đ). Cơ chế này khuyến khích đối tác nạp trước gói lượt cài để giữ lại phần lớn lợi nhuận.</li>
       </ul>
     </div>
+  </div>
 
+  <!-- Block 3: Quy trình triển khai (Light Gray Card) -->
+  <div class="card-block gray-theme">
+    <h2>3. Quy Trình Triển Khai Từ A - Z Cho Đối Tác</h2>
+    <p>Kỹ thuật viên của Mercy Tech trực tiếp thực hiện 100% công tác cài đặt và tối ưu hóa hệ thống từ xa nhằm giải phóng nguồn lực cho đối tác:</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Cung cấp thông tin kết nối</h4>
+          <p>Đối tác tiếp nhận yêu cầu cài đặt của khách hàng và chỉ cần gửi mã UltraView hoặc AnyDesk của máy tính đó vào nhóm Zalo hỗ trợ kỹ thuật chung của hai bên.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Cài đặt và tối ưu hóa hệ thống từ xa</h4>
+          <p>Kỹ thuật viên Mercy Tech trực tiếp kết nối vào máy khách, dọn dẹp các tệp registry xung đột từ Office crack cũ, cài đặt phần mềm và chạy script cấu hình phông chữ tiếng Việt chuẩn văn phòng trong 10-15 phút.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Bàn giao hồ sơ pháp lý đóng dấu mộc đỏ</h4>
+          <p>Mercy Tech ký đóng dấu mộc đỏ pháp lý vào Biên bản bàn giao kỹ thuật & Hồ sơ chứng nhận nguồn gốc phần mềm AGPLv3 hợp pháp, sau đó gửi bản scan PDF chất lượng cao qua Zalo để đại lý chuyển giao lại cho khách hàng của mình.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>Bảo hành và hỗ trợ kỹ thuật sau bán hàng</h4>
+          <p>Mercy Tech trực tiếp chịu trách nhiệm bảo hành kỹ thuật 12 tháng qua UltraView cho khách hàng của đại lý nếu xảy ra bất kỳ lỗi hiển thị file hay lỗi phông chữ nào trong quá trình sử dụng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: Cơ chế quản lý lượt cài (White Card) -->
+  <div class="card-block">
+    <h2>4. Cơ Chế Quản Lý Lượt Cài Đặt An Toàn & Bảo Mật</h2>
+    <p>Để đảm bảo kiểm soát chính xác 100% số lượng máy đã triển khai thực tế và bảo mật giải pháp công nghệ độc quyền, hai bên áp dụng cơ chế đối soát như sau:</p>
+    <ul class="clean-list">
+      <li><strong>Nạp gói lượt cài đặt trước:</strong> Đại lý sỉ thực hiện nạp trước số dư lượt cài tối thiểu từ 50 máy (tương đương Gói Đồng - 7.450.000đ). Số lượt này được ghi nhận trực tiếp trên file đối soát Google Sheet chung của hai bên.</li>
+      <li><strong>Kiểm soát qua UltraView thực tế:</strong> Do toàn bộ quy trình cài đặt, chạy script nạp font chữ tiếng Việt và dọn rác registry độc quyền đều do kỹ thuật viên Mercy Tech trực tiếp đăng nhập qua UltraView để xử lý (đại lý không nắm file nguồn script tối ưu), nên đại lý hoàn toàn không thể tự ý cài ngoài hệ thống cho khách hàng cá nhân hay doanh nghiệp.</li>
+      <li><strong>Đối soát tự động:</strong> Mỗi khi kỹ thuật viên Mercy Tech hoàn tất cài đặt xong cho 1 máy do đại lý gửi qua nhóm Zalo, hệ thống sẽ tự động chụp màn hình thiết bị, ghi nhận mã phần cứng (UUID) và trừ đi 1 lượt cài trong số dư tài khoản của đại lý trên file Google Sheet đối soát.</li>
+      <li><strong>Nạp thêm khi hết lượt:</strong> Khi số dư lượt cài của đại lý chạm mốc 0, đại lý thực hiện nạp thêm lượt mới để tiếp tục gửi máy cài đặt.</li>
+    </ul>
+  </div>
+
+  <!-- Block 5: Quyền lợi kỹ thuật & pháp lý (Black Card) -->
+  <div class="card-block dark-theme">
+    <h2>5. Quyền Lợi Hỗ Trợ Kỹ Thuật & Pháp Lý</h2>
+    <ul class="clean-list">
+      <li style="margin-bottom: 12px;">Giải phóng hoàn toàn đội ngũ nhân sự kỹ thuật của đại lý, mọi việc cài đặt, tối ưu hóa hệ thống từ A-Z đều do kỹ thuật Mercy Tech thực hiện.</li>
+      <li style="margin-bottom: 12px;">Hỗ trợ xuất hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp của đại lý để hợp thức hóa chứng từ kế toán và khấu trừ chi phí thuế doanh nghiệp.</li>
+      <li style="margin-bottom: 12px;">Bảo mật hoàn toàn thông tin khách hàng đầu cuối của đại lý, cam kết không tiếp cận trực tiếp trừ khi có sự đồng ý hoặc yêu cầu hỗ trợ kỹ thuật từ đại lý.</li>
+      <li style="margin-bottom: 0;">Chịu trách nhiệm pháp lý cao nhất về tính nguyên bản của phần mềm được cung cấp, tuyệt đối không sử dụng công cụ bẻ khóa lậu gây mất an ninh thông tin của khách hàng.</li>
+    </ul>
+  </div>
+
+  <!-- Block 6: Footer/Signature (White Card) -->
+  <div class="card-block" style="padding: 40px;">
     <div class="page-footer">
       <div class="signature-block">
         <div class="signature-title">ĐẠI DIỆN CÔNG TY CÔNG NGHỆ MERCY TECH GLOBAL</div>
@@ -516,6 +561,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 </body>
